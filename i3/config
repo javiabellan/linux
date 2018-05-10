@@ -17,8 +17,16 @@ set $term      urxvt
 set $inner 32
 set $outer 16
 
-#gaps inner $inner
-#gaps outer $outer
+gaps inner $inner
+gaps outer $outer
+
+bindsym $mod+plus     gaps inner current minus 8
+bindsym $mod+minus    gaps inner current plus  8
+
+# Hide window top bar
+for_window [class="^.*"] border pixel 3
+
+#hide_edge_borders both
 
 
 ######################################################## FONT
@@ -66,6 +74,8 @@ bindsym $mod+space exec rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+
+bindsym $mod+Tab        workspace back_and_forth
 
 ######################################################## MOVEMENT
 
@@ -206,13 +216,16 @@ bindsym $mod+r mode "resize"
 ################################################################ i3bar
 
 bar {
-        # STATUS
+	# STATUS
 	# DEFUALT: i3status
 	#status_command i3status
-        status_command i3blocks
+	status_command i3blocks
 
 	# Show on top
 	position top
+
+	mode dock
+	modifier None
 }
 
 
@@ -238,7 +251,7 @@ assign [class="Navigator"] $ws2
 # exec_always
 
 # background
-exec_always feh --bg-scale /home/javi/Imágenes/fondos/space1.jpg
+exec_always --no-startup-id feh --bg-scale /home/javi/Imágenes/fondos/space1.jpg
 
 
 ################################################################ MULTIMEDIA KEYS
