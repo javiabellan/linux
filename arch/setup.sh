@@ -4,6 +4,79 @@
 # 4 Reboot
 # 5 Post-installation
 
+########################################## Notes
+
+# Processor     x86_64
+# Min RAM:      512 MB RAM
+# Min Space:    800 MB
+
+# User:         root
+# Shell:        zsh
+# Editors:      nano vi vim
+
+########################################## 1 Pre-installation
+
+
+########################################## Keyboard and font
+
+ls /usr/share/kbd/keymaps/**/*.map.gz  # List available keyboards
+loadkeys es                            # Set spanish keyboard
+
+ls /usr/share/kbd/consolefonts/        # See fonts
+setfont                                # Set font
+
+########################################## Verify Boot mode
+
+# TODO: UEFI vs BIOS
+
+# UEFI mode activated if the directory is populated.
+ls /sys/firmware/efi/efivars
+
+########################################## Connect to the Internet
+
+# dhcpcd is activated. Check connection with ping
+ping archlinux.org
+
+# Update the system clock
+timedatectl set-ntp true
+
+########################################## Partition
+
+# Identify disks
+fdisk -l  # Option 1
+lsblk     # Option 2
+
+# Particionate a disk (sda, sdb, ...)
+fdisk /dev/sda  # Option 1
+parted /dev/sda # Option 2
+
+# 3 needed partitions:
+#   sda
+#   ├─sda1    /
+#   ├─sda2    /boot/efi
+#   └─sda3    [SWAP]
+
+# Format partitions
+mkfs.ext4 /dev/sda1  # Root
+mkswap /dev/sda3     # Swap
+swapon /dev/sda3     # Swap
+
+# Mount
+mount /dev/sda1 /mnt        # Mount root
+mkdir /mnt/boot             # Mount boot
+mount /dev/sda2 /mnt/boot   # Mount boot
+
+##########################################
+
+##########################################
+
+##########################################
+
+##########################################
+
+##########################################
+
+##########################################
 ########################################## Nvidia drivers
 
 # Identify your card
