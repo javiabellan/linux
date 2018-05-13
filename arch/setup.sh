@@ -1,21 +1,12 @@
-# 1 Pre-installation
-# 2 Installation
-# 3 Configure the system
-# 4 Reboot
-# 5 Post-installation
-
-########################################## Notes
-
+# HARDWARE
 # Processor     x86_64
 # Min RAM:      512 MB RAM
 # Min Space:    800 MB
 
+# SOFTWARE
 # User:         root
 # Shell:        zsh
 # Editors:      nano vi vim
-
-########################################## 1 Pre-installation
-
 
 ########################################## Keyboard and font
 
