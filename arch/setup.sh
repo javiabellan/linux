@@ -8,6 +8,17 @@
 # Shell:        zsh
 # Editors:      nano vi vim
 
+######################################### ON WORKING COMPUTER
+
+# 1. Download iso
+
+# 2. Identify USB pen
+lsblk
+
+# 3. Copy iso to pendrive
+dd if=Downloads/archlinux.iso of=/dev/sdb status="progress" # very careful with correct "of"
+
+
 ########################################## Keyboard and font
 
 ls /usr/share/kbd/keymaps/**/*.map.gz  # List available keyboards
