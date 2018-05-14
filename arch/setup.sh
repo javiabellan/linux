@@ -152,7 +152,37 @@ grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
 # Config
 grub-mkconfig -o /boot/grub/grub.cfg
 
-##########################################
+####################################################################################
+
+
+
+########################################## graphical enviroment
+
+pacman -S xorg-server xorg-init
+
+# YOu can start X by running:
+xinit
+startx
+# It will read from ~/.xinitrc to know what to start
+
+
+# Install i3 window manager
+pacman -S i3-gaps i3-status rxvt-unicode dmenu
+
+# Other things needed for a wm
+nano ~/.xinitrc
+# exec i3
+
+
+
+# Fonts
+pacman -S ttf-linux-libertine ttf-inconsolata
+# Or just
+pacman -S noto-fonts
+
+# Manually edit
+~/.config/fontconfig/fonts.conf
+
 ########################################## Nvidia drivers
 
 # Identify your card
