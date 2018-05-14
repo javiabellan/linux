@@ -30,6 +30,7 @@ setfont                                # Set font
 ########################################## Verify Boot mode
 
 # TODO: UEFI vs BIOS
+# Mejor usar BIOS
 
 # UEFI mode activated if the directory is populated.
 ls /sys/firmware/efi/efivars
@@ -44,39 +45,112 @@ timedatectl set-ntp true
 
 ########################################## Partition
 
-# Identify disks
-fdisk -l  # Option 1
-lsblk     # Option 2
+# 1) Identify disks
+lsblk     # Option 1
+fdisk -l  # Option 2
 
-# Particionate a disk (sda, sdb, ...)
+# 2) Particionate a disk (sda, sdb, ...)
+# 4 needed partitions:
+#   sda                  256G
+#   ├─sda1    /boot/efi  200..512 = 256M
+#   ├─sda2    [SWAP]     16..32   = 32G
+#   ├─sda3    /          25..32   = 32G
+#   └─sda4    /home      rest
+
 fdisk /dev/sda  # Option 1
+    m       # Help
+    p       # Print status
+    d       # Delete current partitons
+    n       # Create new partition: Boot (200MB)
+            #   type: default (primary)
+            #   number: default (1)
+            #   fisrt sector: default
+            #   last sector: +200M
+            #   Remove signature: Yes
+            #   repeat for rest
+    w       #   Write changes
+    
 parted /dev/sda # Option 2
+    mklabel gpt
+    mkpart ESP fat32 1MiB 513MiB
+    set 1 boot on
+    mkpart primary linux-swap 513MiB 4.5GiB
+    mkpart primary ext4 4.5GiB 100%
 
-# 3 needed partitions:
-#   sda
-#   ├─sda1    /
-#   ├─sda2    /boot/efi
-#   └─sda3    [SWAP]
+# 3) Format partitions
+mkfs.ext4 /dev/sda1  # Boot
+mkswap /dev/sda2     # Swap
+swapon /dev/sda2     # Swap
+mkfs.ext4 /dev/sda3  # Root
+mkfs.ext4 /dev/sda4  # Home
 
-# Format partitions
-mkfs.ext4 /dev/sda1  # Root
-mkswap /dev/sda3     # Swap
-swapon /dev/sda3     # Swap
-
-# Mount
-mount /dev/sda1 /mnt        # Mount root
+# 4) Mount
+mount /dev/sda3 /mnt        # Mount root
 mkdir /mnt/boot             # Mount boot
-mount /dev/sda2 /mnt/boot   # Mount boot
+mount /dev/sda1 /mnt/boot   # Mount boot
+mkdir /mnt/home             # Mount home
+mount /dev/sda4 /mnt/home   # Mount home
+
+########################################## Install
+
+pacstrab /mnt base base-devel
 
 ##########################################
+# Generate /est/fstab file
+genfstab -U /mnt >> /mnt/etc/fstab
 
-##########################################
+########################################## Bootable
 
-##########################################
+# Enter the system
+# Command line from pendrive to my system
+arch-chroot /mnt
 
-##########################################
+########################################## Time zone
 
-##########################################
+ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+hwclock --systohc
+
+########################################## Locale
+
+# Set th system language
+
+nano /etc/locale.gen
+#   Uncomment en_US.UTF-8 UTF-8
+
+locale-gen
+
+
+nano /etc/locale.conf # (new file)
+#   LANG=es_ES.UTF-8
+#   LANG=en_US.UTF-8
+
+
+########################################## Hostname
+
+nano /etc/hostname
+#   pc
+
+########################################## Network config
+
+pacman -S networkmanager # install
+
+systemctl enable NetworkManager # Start on boot
+
+########################################## Initramfs
+
+########################################## Root pass
+
+passwd
+
+########################################## Boot loader
+
+pacman -S grub intel-ucode
+
+
+grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
+
+# Config
+grub-mkconfig -o /boot/grub/grub.cfg
 
 ##########################################
 ########################################## Nvidia drivers
