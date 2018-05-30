@@ -153,8 +153,23 @@ grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 ####################################################################################
+####################################################################################
+####################################################################################
+
+## Welcome
+
+dialog --backtitle "Deep learning with Arch linux"\
+       --title     "Welcome!"\
+       --msgbox    "\nThis is the configuration to make your perfect linux distro."\
+       8 40
 
 
+dialog --backtitle "CPU Selection" \
+       --radiolist "Select CPU type:" 10 40 4 \
+        1 386SX off \
+        2 386DX on \
+        3 486SX off \
+        4 486DX off
 
 ########################################## graphical enviroment
 
