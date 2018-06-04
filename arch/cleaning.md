@@ -12,6 +12,7 @@ paccache                         # ???
 ```
 sudo pacman -Qtdq                # List orphans
 sudo pacman -R $(pacman -Qtdq)   # Remove orphans
+sudo pacman -Rns $(pacman -Qtdq) # Remove orphans (ver diferencia)
 ```
 
 ## Clean cache in your /home.
