@@ -8,7 +8,10 @@
 # Shell:        zsh
 # Editors:      nano vi vim
 
-######################################### ON WORKING COMPUTER
+
+################################################
+########      ON WORKING COMPUTER       ########
+################################################
 
 # 1. Download iso
 
@@ -18,6 +21,9 @@ lsblk
 # 3. Copy iso to pendrive
 dd if=Downloads/archlinux.iso of=/dev/sdb status="progress" # very careful with correct "of"
 
+################################################
+########        PRE-INTALLATION         ########
+################################################
 
 ########################################## Keyboard and font
 
@@ -91,7 +97,10 @@ mount /dev/sda1 /mnt/boot   # Mount boot
 mkdir /mnt/home             # Mount home
 mount /dev/sda4 /mnt/home   # Mount home
 
-########################################## Install
+
+################################################
+########          INTALLATION           ########
+################################################
 
 pacstrab /mnt base base-devel
 
@@ -152,30 +161,86 @@ grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
 # Config
 grub-mkconfig -o /boot/grub/grub.cfg
 
-####################################################################################
-####################################################################################
-####################################################################################
 
-## Welcome
+################################################
+########        POST-INTALLATION        ########
+################################################
+Read https://wiki.archlinux.org/index.php/General_recommendations
 
-dialog --backtitle "Deep learning with Arch linux"\
-       --title     "Welcome!"\
-       --msgbox    "\nThis is the configuration to make your perfect linux distro."\
-       8 40
+########################################## Add user
+
+# useradd -m -g initial_group -G additional_groups -s login_shell username
+useradd --create-home archie
+passwd archie
+
+useradd -m -g wheel -s /bin/bash $name >/dev/tty6
+echo "$name:$pass1" | chpasswd >/dev/tty6
+
+########################################## Install LTS Kernel
+
+uname -r                             # Check your current kernel
+sudo pacman -S linux-lts             # Install LTS kernel
+grub-mkconfig -o /boot/grub/grub.cfg # Reconfigure GRUB
+sudo pacman -S linux-lts-headers     # Install LTS headers
+sudo reboot                          # Reboot
+uname -r                             # Check new current kernel
+
+########################################## Install microcode (for Intel)
+
+sudo pacman -S intel-ucode           # Install microcode
+grub-mkconfig -o /boot/grub/grub.cfg # Reconfigure GRUB
+
+########################################## Disable GRUB delay
+
+# Add the following to /etc/default/grub:
+# achieve the fastest possible boot:
+GRUB_FORCE_HIDDEN_MENU="true"
+
+# Then put file 31_hold_shift to /etc/grub.d/.
+# Download 31_hold_shift https://goo.gl/nac6Kp
+
+# Make it executable, and regenerate the grub configuration:
+sudo chmod a+x /etc/grub.d/31_hold_shift
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+########################################## Install key packages
+
+sudo pacman -S adobe-source-sans-pro-fonts aspell-en enchant gst-libav gst-plugins-good \
+hunspell-en icedtea-web jre8-openjdk languagetool libmythes mythes-en pkgstats \
+ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-droid ttf-gentium ttf-liberation ttf-ubuntu-font-family
+
+########################################## Firewall
+
+sudo pacman -S ufw            # Install ufw
+sudo ufw enable               # Enable it
+sudo ufw status verbose       # Check its status
+sudo systemctl enable ufw.service # Enable the start-up with the system
+#Reboot and check the status again. It should be active.
+
+########################################## Encrypt your home directory
+
+########################################## Optimize pacman's database access speeds
+
+sudo pacman-optimize
+
+########################################## Check for errors
+
+sudo systemctl --failed
+sudo journalctl -p 3 -xb
+
+########################################## Backup the system
+
+sudo rsync -aAXvP --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=/lost+found --exclude=/home/.ecryptfs / /mnt/backupDestination/
 
 
-dialog --backtitle "CPU Selection" \
-       --radiolist "Select CPU type:" 10 40 4 \
-        1 386SX off \
-        2 386DX on \
-        3 486SX off \
-        4 486DX off
 
-########################################## graphical enviroment
+################################################
+########      GRAPHICAL ENVIROMENT      ########
+################################################
 
 pacman -S xorg-server xorg-init
 
-# YOu can start X by running:
+# You can start X by running:
 xinit
 startx
 # It will read from ~/.xinitrc to know what to start
@@ -189,7 +254,6 @@ nano ~/.xinitrc
 # exec i3
 
 
-
 # Fonts
 pacman -S ttf-linux-libertine ttf-inconsolata
 # Or just
@@ -197,6 +261,27 @@ pacman -S noto-fonts
 
 # Manually edit
 ~/.config/fontconfig/fonts.conf
+
+
+
+
+
+################################################
+########       DEEP LEARNING SETUP      ########
+################################################
+
+dialog --backtitle "Deep learning with Arch linux"\
+       --title     "Welcome!"\
+       --msgbox    "\nThis is the configuration to make your perfect linux distro."\
+       8 40
+
+
+dialog --backtitle "CPU Selection" \
+       --radiolist "Select CPU type:" 10 40 4 \
+        1 386SX off \
+        2 386DX on \
+        3 486SX off \
+        4 486DX off
 
 ########################################## Nvidia drivers
 
