@@ -167,6 +167,11 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ################################################
 Read https://wiki.archlinux.org/index.php/General_recommendations
 
+########################################## Colors
+
+# Colors in terminal for bash, pacman and nano
+# https://youtu.be/giAb4Ckh8BQ
+
 ########################################## Add user
 
 # useradd -m -g initial_group -G additional_groups -s login_shell username
@@ -178,12 +183,18 @@ echo "$name:$pass1" | chpasswd >/dev/tty6
 
 ########################################## Install LTS Kernel
 
+# https://youtu.be/b-H3jURTgqk
+
 uname -r                             # Check your current kernel
 sudo pacman -S linux-lts             # Install LTS kernel
+pacman -R linux                      # [OPTIONAL] Remove the standard kernel 
 grub-mkconfig -o /boot/grub/grub.cfg # Reconfigure GRUB
 sudo pacman -S linux-lts-headers     # Install LTS headers
 sudo reboot                          # Reboot
 uname -r                             # Check new current kernel
+
+# Note, for syslinux you'll need to edit the syslinux config file in /boot/syslinux/syslinux.cfg accordingly,
+# just point everything to the -lts kernel.
 
 ########################################## Install microcode (for Intel)
 
