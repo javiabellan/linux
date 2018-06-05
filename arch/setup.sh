@@ -281,6 +281,8 @@ pacman -S noto-fonts
 ########       DEEP LEARNING SETUP      ########
 ################################################
 
+# READ https://www.hackster.io/Ladvien/gpu-accelerated-deep-learning-environment-on-arch-linux-16631b
+
 dialog --backtitle "Deep learning with Arch linux"\
        --title     "Welcome!"\
        --msgbox    "\nThis is the configuration to make your perfect linux distro."\
