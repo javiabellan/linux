@@ -102,10 +102,11 @@ mount /dev/sda4 /mnt/home   # Mount home
 ########          INTALLATION           ########
 ################################################
 
+
+########################################## Install base packages 
 pacstrab /mnt base base-devel
 
-##########################################
-# Generate /est/fstab file
+########################################## Generate /est/fstab file
 genfstab -U /mnt >> /mnt/etc/fstab
 
 ########################################## Bootable
@@ -121,13 +122,11 @@ hwclock --systohc
 
 ########################################## Locale
 
-# Set th system language
-
+# Set the system language
 nano /etc/locale.gen
 #   Uncomment en_US.UTF-8 UTF-8
 
 locale-gen
-
 
 nano /etc/locale.conf # (new file)
 #   LANG=es_ES.UTF-8
@@ -139,6 +138,9 @@ nano /etc/locale.conf # (new file)
 nano /etc/hostname
 #   pc
 
+nano /etc/hosts
+#   127.0.1.1 myhostname.localdomain myhostname
+
 ########################################## Network config
 
 pacman -S networkmanager # install
@@ -146,6 +148,7 @@ pacman -S networkmanager # install
 systemctl enable NetworkManager # Start on boot
 
 ########################################## Initramfs
+
 
 ########################################## Root pass
 
@@ -155,11 +158,16 @@ passwd
 
 pacman -S grub intel-ucode
 
-
+# Install the grub UEFI application
 grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
 
-# Config
+# Config. (Microcode updates will be added automatically)
 grub-mkconfig -o /boot/grub/grub.cfg
+
+########################################## Reboot?
+exit
+umount -R /mnt
+reboot
 
 
 ################################################
@@ -167,19 +175,24 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ################################################
 Read https://wiki.archlinux.org/index.php/General_recommendations
 
-########################################## Colors
-
-# Colors in terminal for bash, pacman and nano
-# https://youtu.be/giAb4Ckh8BQ
 
 ########################################## Add user
 
-# useradd -m -g initial_group -G additional_groups -s login_shell username
-useradd --create-home archie
-passwd archie
+#useradd -m           -g    wheel -s      /bin/bash javi
+useradd --create-home --gid wheel --shell /bin/bash javi
+passwd javi
 
-useradd -m -g wheel -s /bin/bash $name >/dev/tty6
-echo "$name:$pass1" | chpasswd >/dev/tty6
+########################################## Trim support for SSD
+
+# https://wiki.archlinux.org/index.php/Solid_State_Drive#TRIM
+
+lsblk -D                            # Verify trim support
+# disc-gran/disc-max should not be empty if enabled
+
+# The util-linux package provides fstrim.service and fstrim.timer
+# Enabling the timer will activate the service weekly
+systemctl start fstrim.timer
+systemctl enable fstrim.timer
 
 ########################################## Install LTS Kernel
 
@@ -222,11 +235,14 @@ ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-droid ttf-gentium ttf-libera
 
 ########################################## Firewall
 
-sudo pacman -S ufw            # Install ufw
-sudo ufw enable               # Enable it
-sudo ufw status verbose       # Check its status
-sudo systemctl enable ufw.service # Enable the start-up with the system
-#Reboot and check the status again. It should be active.
+# iptables is already installed. I like ufw.
+
+pacman -S ufw                # Install ufw
+ufw enable                   # Enable it only once, when package is installed
+ufw status verbose           # Check its status
+systemctl start ufw          # Start the firewall
+systemctl enable ufw         # Enable the start-up with the system [option a]
+systemctl enable ufw.service # Enable the start-up with the system [option b]
 
 ########################################## Encrypt your home directory
 
@@ -249,12 +265,23 @@ sudo rsync -aAXvP --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* -
 ########      GRAPHICAL ENVIROMENT      ########
 ################################################
 
+
+########################################## Xorg
+
 pacman -S xorg-server xorg-init
+pacman -S xterm                      # Necessary??
 
 # You can start X by running:
 xinit
 startx
 # It will read from ~/.xinitrc to know what to start
+
+
+########################################## Colors
+
+# Colors in terminal for bash, pacman and nano
+# https://youtu.be/giAb4Ckh8BQ
+
 
 
 # Install i3 window manager
