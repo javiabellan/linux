@@ -350,6 +350,7 @@ If you must use pip, use a virtual environment or with "pip install --user" to a
 
 pacman -S python                     # Install Python 3
 
+pacman -S jupyter-notebook           # Jupyter:      Python notebooks
 pacman -S python-numpy               # Numpy:        Matrix manipulation
 pacman -S python-scipy               # Scipy:        Scientific library for Python. Sparse matrices support
 pacman -S python-pandas              # Pandas:       Deal with data
@@ -357,6 +358,7 @@ pacman -S python-scikit-learn        # Scikit-learn: Machine learning
 pacman -S python-matplotlib          # Matplotlib:   Visualization
 pacman -S python-seaborn             # Seaborn:      Visualization
 
+AUR: python-numba
 
 ######################################## Deep larining frameworks
 
