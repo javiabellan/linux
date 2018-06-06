@@ -70,11 +70,13 @@ PACMAN
 alias upgrade='pacman -Syu'           # Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias update='pacman -Sy'             # Refresh of all package lists after updating /etc/pacman.d/mirrorlist
 alias install='pacman -S'             # Install specific package(s) from the repositories
+alias uninstall='pacman -Rcsn'        # Remove the specified package(s), its configuration(s) and unneeded dependencies (parents and chilcdren)
+alias info='pacman -Si'               # Display information about a given package in the repositories
+alias search='pacman -Ss'             # Search for package(s) in the repositories (regular expression)
+
 alias pacinu='pacman -U'              # Install specific local package(s)
 alias pacre='pacman -R'               # Remove the specified package(s), retaining its configuration(s) and required dependencies
-alias pacun='pacman -Rcsn'            # Remove the specified package(s), its configuration(s) and unneeded dependencies
-alias pacinfo='pacman -Si'            # Display information about a given package in the repositories
-alias pacse='pacman -Ss'              # Search for package(s) in the repositories
+
 
 alias pacupa='pacman -Sy && sudo abs' # Update and refresh the local package and ABS databases against repositories
 alias pacind='pacman -S --asdeps'     # Install given package(s) as dependencies of another package
