@@ -331,33 +331,39 @@ lspci    | grep -e VGA -e 3D
 lspci -k | grep -A 2 -i "VGA"
 
 # Install drivers and driver's utils
-pacman -S nvidia nvidia-utils
-
+pacman -S nvidia                     # Nvidia drivers
+pacman -S nvidia-utils               # Nvidia driver's utils
 # Reboot
 
 ######################################## GPU computation
 
-pacman -S cuda   # Nvidia API for GPGPU
-pacman -S cudnn  # Nvidia primitives for Neural Networks
-Magma            # Linear Algebra for OpenCL and CUDA and heteregenous many-core systems
+pacman -S cuda                       # Nvidia API for GPGPU
+pacman -S cudnn                      # Nvidia primitives for Neural Networks
+#Magma                               # Linear Algebra for OpenCL and CUDA and heteregenous many-core systems
 
 ######################################## Computation
 
-OpenBLAS + LAPACK # Efficient Matrix computation and Linear Algebra library (alternative MKL)
-Numpy             # Matrix Manipulation in Python
-Scipy             # General scientific library for Python. Sparse matrices support
+pacman -S python-numpy               # Numpy: Matrix Manipulation in Python
+pacman -S python-scipy Scipy         # General scientific library for Python. Sparse matrices support
+#OpenBLAS + LAPACK                   # Efficient Matrix computation and Linear Algebra library (alternative MKL)
+
+
+pacman -S python-pandas              # Pandas
+pacman -S python-scikit-learn        # Scikit-learn
+pacman -S python-matplotlib          # Matplotlib
+pacman -S python-seaborn             # Seaborn
 
 ######################################## Deep larining frameworks
 
-Pytorch
-Theano
-Tensorflow
+pacman -S python-pytorch-cuda        # Pytorch
+pacman -S python-tensorflow-opt-cuda # Tensorflow
+pacman -S tensorflow-opt-cuda        # Tensorflow
+pacman -S tensorboard                # Tensorboard
+
 Keras
+Theano
 Mxnet
 Nervana Neon, Chainer, DyNet, MinPy
-
-
-
 
 
 ######################################## Other packages
@@ -374,9 +380,4 @@ xsv - The fastest, multi-processing CSV library. Written in Rust.
 Rapid Development, Research
 Jupyter - Code Python, R, Haskell, Julia with direct feedback in your browser
 jupyter_contrib_nbextensions - Extensions for jupyter (commenting code, ...)
-
-Visualization
-Matplotlib
-Seaborn
-
 
