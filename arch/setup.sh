@@ -176,6 +176,8 @@ reboot
 Read https://wiki.archlinux.org/index.php/General_recommendations
 
 
+editar /etc/pacman.conf para activar el repositorio [community]
+
 ########################################## Add user
 
 #useradd -m           -g    wheel -s      /bin/bash javi
@@ -341,17 +343,20 @@ pacman -S cuda                       # Nvidia API for GPGPU
 pacman -S cudnn                      # Nvidia primitives for Neural Networks
 #Magma                               # Linear Algebra for OpenCL and CUDA and heteregenous many-core systems
 
-######################################## Computation
+######################################## Python
 
-pacman -S python-numpy               # Numpy: Matrix Manipulation in Python
-pacman -S python-scipy Scipy         # General scientific library for Python. Sparse matrices support
-#OpenBLAS + LAPACK                   # Efficient Matrix computation and Linear Algebra library (alternative MKL)
+It is always preferred to use pacman to install software. 
+If you must use pip, use a virtual environment or with "pip install --user" to avoid conflicting with packages in /usr.
 
+pacman -S python                     # Install Python 3
 
-pacman -S python-pandas              # Pandas
-pacman -S python-scikit-learn        # Scikit-learn
-pacman -S python-matplotlib          # Matplotlib
-pacman -S python-seaborn             # Seaborn
+pacman -S python-numpy               # Numpy:        Matrix manipulation
+pacman -S python-scipy               # Scipy:        Scientific library for Python. Sparse matrices support
+pacman -S python-pandas              # Pandas:       Deal with data
+pacman -S python-scikit-learn        # Scikit-learn: Machine learning
+pacman -S python-matplotlib          # Matplotlib:   Visualization
+pacman -S python-seaborn             # Seaborn:      Visualization
+
 
 ######################################## Deep larining frameworks
 
@@ -360,9 +365,13 @@ pacman -S python-tensorflow-opt-cuda # Tensorflow
 pacman -S tensorflow-opt-cuda        # Tensorflow
 pacman -S tensorboard                # Tensorboard
 
-Keras
-Theano
-Mxnet
+AUR: python-torchvision
+AUR: python-keras                    # Keras API for Tensorflow
+AUR: python-theano
+AUR: caffe
+AUR: mxnet                           # MXNet: Apache DL
+AUR: cntk                            # CNTK:  Microsoft DL
+
 Nervana Neon, Chainer, DyNet, MinPy
 
 
