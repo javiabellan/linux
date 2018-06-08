@@ -51,6 +51,10 @@ fi
 ##################### Monitoring
 alias cpu='htop'
 
+
+# ver https://www.andrey-melentyev.com/monitoring-gpus.html
+watch -n 0.1 nvidia-smi # Si quieres soreescribir encima, en lugar de escribir abajo
+
 nvidia-smi --query-gpu=timestamp,temperature.gpu,utilization.gpu,utilization.memory --format=csv -l 1
 nvidia-smi --query-gpu=fan.speed,temperature.gpu,utilization.gpu,utilization.memory --format=csv -l 1
 
@@ -64,12 +68,13 @@ nvidia-smi --query-gpu=memory.free
 nvidia-smi --query-gpu=memory.used
 
 nvidia-smi pmon                                                      # Procesos usando la GPU (type: G->graphics, C->compute)
+watch -n 0.1 'ps f -o user,pgrp,pid,pcpu,pmem,start,time,command -p `sudo lsof -n -w -t /dev/nvidia*`'
+
+nvidia-smi -q -g 0 -d UTILIZATION -l
 
 # Otros
 nvidia-settings -q GPUUtilization -q useddedicatedgpumemory
-nvtop
-gpustat
-gmonitor
+nvtop      AUR
 
 
 alais mem=''
