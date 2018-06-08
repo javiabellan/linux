@@ -48,6 +48,33 @@ fi
 
 ############################################################################# ALIASES
 
+##################### Monitoring
+alias cpu='htop'
+
+nvidia-smi --query-gpu=timestamp,temperature.gpu,utilization.gpu,utilization.memory --format=csv -l 1
+nvidia-smi --query-gpu=fan.speed,temperature.gpu,utilization.gpu,utilization.memory --format=csv -l 1
+
+# Para usar en barra
+nvidia-smi --query-gpu=utilization.memory --format=csv,noheader -l 1 # Uso memoria gpu
+nvidia-smi --query-gpu=utilization.gpu    --format=csv,noheader -l 1 # Uso GPU
+nvidia-smi --query-gpu=temperature.gpu    --format=csv,noheader -l 1 # GPU temperature in degrees C.
+nvidia-smi --query-gpu=fan.speed          --format=csv,noheader -l 1 # Fan speed
+nvidia-smi --query-gpu=memory.total
+nvidia-smi --query-gpu=memory.free
+nvidia-smi --query-gpu=memory.used
+
+nvidia-smi pmon                                                      # Procesos usando la GPU (type: G->graphics, C->compute)
+
+# Otros
+nvidia-settings -q GPUUtilization -q useddedicatedgpumemory
+nvtop
+gpustat
+gmonitor
+
+
+alais mem=''
+
+
 alias ll='ls -alF'
 alias ll='ls -alh'
 
