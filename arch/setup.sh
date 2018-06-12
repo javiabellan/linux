@@ -27,26 +27,30 @@ dd if=Downloads/archlinux.iso of=/dev/sdb status="progress" # very careful with 
 
 ########################################## Keyboard and font
 
-ls /usr/share/kbd/keymaps/**/*.map.gz  # List available keyboards
+ls /usr/share/kbd/keymaps/**/*.map.gz  # OPTIONAL List available keyboards
 loadkeys es                            # Set spanish keyboard
 
-ls /usr/share/kbd/consolefonts/        # See fonts
-setfont                                # Set font
+ls /usr/share/kbd/consolefonts/        # OPTIONAL See fonts
+setfont                                # OPTIONAL Set font
 
 ########################################## Verify Boot mode
 
 # TODO: UEFI vs BIOS
 # Mejor usar BIOS
 
-# UEFI mode activated if the directory is populated.
+# UEFI activated if the directory exists.
 ls /sys/firmware/efi/efivars
+
+# If the directory does not exist, the system may be booted in BIOS
 
 ########################################## Connect to the Internet
 
 # dhcpcd is activated. Check connection with ping
 ping archlinux.org
 
-# Update the system clock
+########################################## Update the system clock
+
+# Ensure the system clock is accurate
 timedatectl set-ntp true
 
 ########################################## Partition
@@ -59,6 +63,12 @@ fdisk -l  # Option 2
 # 4 needed partitions:
 #   sda                  256G
 #   ├─sda1    /boot/efi  200..512 = 256M
+#   ├─sda2    [SWAP]     16..32   = 32G
+#   ├─sda3    /          25..32   = 32G
+#   └─sda4    /home      rest
+#
+#   sda                  256G
+#   ├─sda1    /boot      200..512 = 256M
 #   ├─sda2    [SWAP]     16..32   = 32G
 #   ├─sda3    /          25..32   = 32G
 #   └─sda4    /home      rest
@@ -104,7 +114,7 @@ mount /dev/sda4 /mnt/home   # Mount home
 
 
 ########################################## Install base packages 
-pacstrab /mnt base base-devel
+pacstrap /mnt base base-devel
 
 ########################################## Generate /est/fstab file
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -158,16 +168,25 @@ passwd
 
 pacman -S grub intel-ucode
 
-# Install the grub UEFI application
+
+# OPTION A: Install grub (for BIOS)
+grub-install /dev/sda
+
+# OPTION B: Install grub (for UEFI)
 grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
 
 # Config. (Microcode updates will be added automatically)
 grub-mkconfig -o /boot/grub/grub.cfg
 
-########################################## Reboot?
+########################################## Reboot
+
 exit
 umount -R /mnt
 reboot
+
+# login: root
+# enter password
+
 
 
 ################################################
@@ -267,17 +286,36 @@ sudo rsync -aAXvP --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* -
 ########      GRAPHICAL ENVIROMENT      ########
 ################################################
 
+If you want to use the latest nvidia drivers in the official repository,
+you can choose libglvnd (and not nvidia-304xx-utils).
 
 ########################################## Xorg
 
-pacman -S xorg-server xorg-init
+pacman -S xorg-server xorg-xinit
 pacman -S xterm                      # Necessary??
+
+# It will read from ~/.xinitrc to know what to start
+nano ~/.xinitrc
+      exec i3
 
 # You can start X by running:
 xinit
 startx
-# It will read from ~/.xinitrc to know what to start
 
+ENTER
+ENTER
+
+########################################## Display manager (login screen)
+
+# Terminal login screen:
+# nano ~/.profile ~/.bash_profile
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+exec startx
+fi
+
+# or use a Display manager (login screen)
+pacman -S lightdb lightdm-gtk-greeter
+systemctl enable lightdm.service
 
 ########################################## Colors
 
@@ -287,7 +325,7 @@ startx
 
 
 # Install i3 window manager
-pacman -S i3-gaps i3-status rxvt-unicode dmenu
+pacman -S i3-gaps i3status rxvt-unicode dmenu
 
 # Other things needed for a wm
 nano ~/.xinitrc
