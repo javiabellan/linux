@@ -378,7 +378,7 @@ lspci -k | grep -A 2 -i "VGA"
 # Install drivers and driver's utils
 pacman -S nvidia                     # Nvidia drivers
 pacman -S nvidia-utils               # Nvidia driver's utils
-# Reboot
+reboot
 
 ######################################## GPU computation
 
@@ -400,6 +400,7 @@ pacman -S python-pandas              # Pandas:       Deal with data
 pacman -S python-scikit-learn        # Scikit-learn: Machine learning
 pacman -S python-matplotlib          # Matplotlib:   Visualization
 pacman -S python-seaborn             # Seaborn:      Visualization
+pacman -S python-nltk                # NLTK:         Natural language processing in Python
 
 AUR: python-numba
 
