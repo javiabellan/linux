@@ -17,9 +17,11 @@
 
 # 2. Identify USB pen
 lsblk
+fdisk -l
 
 # 3. Copy iso to pendrive
 dd if=Downloads/archlinux.iso of=/dev/sdb status="progress" # very careful with correct "of"
+dd bs=4M if=/path/to/antergos-x86_64.iso of=/dev/sdX status=progress && sync
 
 ################################################
 ########        PRE-INTALLATION         ########
@@ -130,7 +132,7 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
 hwclock --systohc
 
-########################################## Locale
+########################################## System language
 
 # Set the system language
 nano /etc/locale.gen
@@ -142,23 +144,25 @@ nano /etc/locale.conf # (new file)
 #   LANG=es_ES.UTF-8
 #   LANG=en_US.UTF-8
 
+########################################## Keyboard
+
+nano /etc/vconsole.conf
+#   KEYMAP=es
 
 ########################################## Hostname
 
-nano /etc/hostname
+nano /etc/hostname # (new file)
 #   pc
 
-nano /etc/hosts
-#   127.0.1.1 myhostname.localdomain myhostname
+nano /etc/hosts # (separate with tabs)
+#   127.0.0.1    localhost.localdomain	localhost
+#   ::1          localhost.localdomain	localhost
+#   127.0.1.1    pc.localdomain         pc
 
 ########################################## Network config
 
 pacman -S networkmanager # install
-
 systemctl enable NetworkManager # Start on boot
-
-########################################## Initramfs
-
 
 ########################################## Root pass
 
@@ -173,7 +177,8 @@ pacman -S grub intel-ucode
 grub-install /dev/sda
 
 # OPTION B: Install grub (for UEFI)
-grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=grub
+grub-install --target=x86_64-efi --efi-directory=boot     --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=GRUB
 
 # Config. (Microcode updates will be added automatically)
 grub-mkconfig -o /boot/grub/grub.cfg
