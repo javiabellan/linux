@@ -59,10 +59,11 @@ nvidia-smi --query-gpu=timestamp,temperature.gpu,utilization.gpu,utilization.mem
 nvidia-smi --query-gpu=fan.speed,temperature.gpu,utilization.gpu,utilization.memory --format=csv -l 1
 
 # Para usar en barra
-nvidia-smi --query-gpu=utilization.memory --format=csv,noheader -l 1 # Uso memoria gpu
-nvidia-smi --query-gpu=utilization.gpu    --format=csv,noheader -l 1 # Uso GPU
-nvidia-smi --query-gpu=temperature.gpu    --format=csv,noheader -l 1 # GPU temperature in degrees C.
-nvidia-smi --query-gpu=fan.speed          --format=csv,noheader -l 1 # Fan speed
+nvidia-smi --query-gpu=memory.used,pstate,temperature.gpu --format=nounits,csv,noheader 
+nvidia-smi --query-gpu=utilization.memory --format=csv,noheader # Uso memoria gpu
+nvidia-smi --query-gpu=utilization.gpu    --format=csv,noheader # Uso GPU
+nvidia-smi --query-gpu=temperature.gpu    --format=csv,noheader # GPU temperature in degrees C.
+nvidia-smi --query-gpu=fan.speed          --format=csv,noheader # Fan speed
 nvidia-smi --query-gpu=memory.total
 nvidia-smi --query-gpu=memory.free
 nvidia-smi --query-gpu=memory.used
