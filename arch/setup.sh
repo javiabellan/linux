@@ -402,6 +402,18 @@ pacman -S python-matplotlib          # Matplotlib:   Visualization
 pacman -S python-seaborn             # Seaborn:      Visualization
 pacman -S python-nltk                # NLTK:         Natural language processing in Python
 
+pacman -S python-pip                 # The PyPA recommended tool for installing Python packages
+
+pacman -S gtkglext                   # opengl extensions for gtk2 (necesario para opencv)
+pacman -S opencv opencv-samples      # Open Source Computer Vision Library
+pacman -S graphviz                   # Graph visualization software
+pacman -S hdf5                       # General purpose library and file format for storing scientific data
+
+pip install --user bcolz
+pip install --user graphviz          # Interface for python
+pip install --user sklearn-pandas
+pip install --user isoweek
+ 
 AUR: python-numba
 
 ######################################## Deep larining frameworks
