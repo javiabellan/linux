@@ -1,169 +1,450 @@
-#################################### Partitions
+# HARDWARE
+# Processor     x86_64
+# Min RAM:      512 MB RAM
+# Min Space:    800 MB
 
-Note that the 240GB of SSD drive is being separated to 3 parts:
-
-	4 GB for swap
-	80 GB mounted as /storage to store persistent data
-	The rest mounted as / to install Ubuntu
-
-
-#################################### Update system
-
-sudo apt-get update
-sudo apt-get upgrade
+# SOFTWARE
+# User:         root
+# Shell:        zsh
+# Editors:      nano vi vim
 
 
-#################################### Install utils
+################################################
+########      ON WORKING COMPUTER       ########
+################################################
 
-# developer tools
-sudo apt-get install -y build-essential cmake g++ gfortran git make  
-sudo apt-get install -y pkg-config software-properties-common vim wget
-sudo apt-get autoremove
-sudo rm -rf /var/lib/apt/lists/*
+# 1. Download iso
+
+# 2. Identify USB pen
+lsblk
+fdisk -l
+
+# 3. Copy iso to pendrive
+dd if=Downloads/archlinux.iso of=/dev/sdb status="progress" # very careful with correct "of"
+dd bs=4M if=/path/to/antergos-x86_64.iso of=/dev/sdX status=progress && sync
+
+################################################
+########        PRE-INTALLATION         ########
+################################################
+
+########################################## Keyboard and font
+
+ls /usr/share/kbd/keymaps/**/*.map.gz  # OPTIONAL List available keyboards
+loadkeys es                            # Set spanish keyboard
+
+ls /usr/share/kbd/consolefonts/        # OPTIONAL See fonts
+setfont                                # OPTIONAL Set font
+
+########################################## Verify Boot mode
+
+# TODO: UEFI vs BIOS
+# Mejor usar BIOS
+
+# UEFI activated if the directory exists.
+ls /sys/firmware/efi/efivars
+
+# If the directory does not exist, the system may be booted in BIOS
+
+########################################## Connect to the Internet
+
+# dhcpcd is activated. Check connection with ping
+ping archlinux.org
+
+########################################## Update the system clock
+
+# Ensure the system clock is accurate
+timedatectl set-ntp true
+
+########################################## Partition
+
+# 1) Identify disks
+lsblk     # Option 1
+fdisk -l  # Option 2
+
+# 2) Particionate a disk (sda, sdb, ...)
+# 4 needed partitions:
+#   sda                  256G
+#   ├─sda1    /boot/efi  200..512 = 256M
+#   ├─sda2    [SWAP]     16..32   = 32G
+#   ├─sda3    /          25..32   = 32G
+#   └─sda4    /home      rest
+#
+#   sda                  256G
+#   ├─sda1    /boot      200..512 = 256M
+#   ├─sda2    [SWAP]     16..32   = 32G
+#   ├─sda3    /          25..32   = 32G
+#   └─sda4    /home      rest
+
+fdisk /dev/sda  # Option 1
+    m       # Help
+    p       # Print status
+    d       # Delete current partitons
+    n       # Create new partition: Boot (200MB)
+            #   type: default (primary)
+            #   number: default (1)
+            #   fisrt sector: default
+            #   last sector: +200M
+            #   Remove signature: Yes
+            #   repeat for rest
+    w       #   Write changes
+    
+parted /dev/sda # Option 2
+    mklabel gpt
+    mkpart ESP fat32 1MiB 513MiB
+    set 1 boot on
+    mkpart primary linux-swap 513MiB 4.5GiB
+    mkpart primary ext4 4.5GiB 100%
+
+# 3) Format partitions
+mkfs.ext4 /dev/sda1  # Boot
+mkswap /dev/sda2     # Swap
+swapon /dev/sda2     # Swap
+mkfs.ext4 /dev/sda3  # Root
+mkfs.ext4 /dev/sda4  # Home
+
+# 4) Mount
+mount /dev/sda3 /mnt        # Mount root
+mkdir /mnt/boot             # Mount boot
+mount /dev/sda1 /mnt/boot   # Mount boot
+mkdir /mnt/home             # Mount home
+mount /dev/sda4 /mnt/home   # Mount home
 
 
-#################################### Nvidia drivers
-
-# Find your graphics card model
-lspci | grep -i nvidia
-
-sudo add-apt-repository ppa:graphics-drivers
-sudo apt-get update
-
-# check
-cat /proc/driver/nvidia/version
-
-#################################### CUDA
-
-sudo dpkg -i cuda-repo-ubuntu1604–9–1-local_9.1.85–1_amd64.deb
-sudo apt-key add /var/cuda-repo-<version>/7fa2af80.pub
-sudo apt-get update
-sudo apt-get install cuda
-
-# Add to .profile
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-
-# check
-nvcc -V
-nvidia-smi
-
-#################################### cuDNN
-
-tar xvf cudnn-8.0-linux-x64-v6.0.tgz
-sudo cp -P cuda/lib64/* /usr/local/cuda/lib64/
-sudo cp cuda/include/* /usr/local/cuda/include/
-
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc
-echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.bashrc
-echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+################################################
+########          INTALLATION           ########
+################################################
 
 
-#################################### Dependencies
+########################################## Install base packages 
+pacstrap /mnt base base-devel
 
-# Deep larning framworks dependencies
-sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler libopencv-dev
+########################################## Generate /est/fstab file
+genfstab -U /mnt >> /mnt/etc/fstab
 
-# Important packages like boost, lmdb, glog, blas etc
-sudo apt-get install -y --no-install-recommends libboost-all-dev doxygen
-sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev libblas-dev 
-sudo apt-get install -y libatlas-base-dev libopenblas-dev libgphoto2-dev libeigen3-dev libhdf5-dev 
+########################################## Bootable
 
-# Python 2 and 3
-sudo apt-get install -y python-dev  python-pip  python-nose  python-numpy  python-scipy python-setuptools
-sudo apt-get install -y python3-dev python3-pip python3-nose python3-numpy python3-scipy
+# Enter the system
+# Command line from pendrive to my system
+arch-chroot /mnt
 
-# Image and video I/O
-sudo apt-get install -y liblapack-dev
-						libjpeg62-dev
-						libfreetype6
-						libfreetype6-dev
-						libjpe
+########################################## Time zone
 
-#################################### Anaconda
+ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+hwclock --systohc
 
-# Go to https://www.anaconda.com/download/#linux
-wget https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+########################################## System language
 
-bash Anaconda3–5.1.0-Linux-x86_64.sh
+# Set the system language
+nano /etc/locale.gen
+#   Uncomment en_US.UTF-8 UTF-8
 
-source ~/.bashrc
+locale-gen
 
-# check
-conda list
+nano /etc/locale.conf # (new file)
+#   LANG=es_ES.UTF-8
+#   LANG=en_US.UTF-8
 
-#################################### Virtual envirorment [optional]
+########################################## Keyboard
 
-# Create
-conda create --name env python=3
+nano /etc/vconsole.conf
+#   KEYMAP=es
 
-# Get in
-source activate env
+########################################## Hostname
 
-# Get out
-source deactivate
+nano /etc/hostname # (new file)
+#   pc
 
-################################### Conda installs
+nano /etc/hosts # (separate with tabs)
+#   127.0.0.1    localhost.localdomain	localhost
+#   ::1          localhost.localdomain	localhost
+#   127.0.1.1    pc.localdomain         pc
 
-conda install jupyter
-conda install theano pygpu
-conda install -c anaconda tensorflow-gpu
-conda install pytorch torchvision cuda91 -c pytorch
+########################################## Network config
+
+pacman -S networkmanager # install
+systemctl enable NetworkManager # Start on boot
+
+########################################## Root pass
+
+passwd
+
+########################################## Boot loader
+
+pacman -S grub intel-ucode
 
 
-################################### Pip installs
+# OPTION A: Install grub (for BIOS)
+grub-install /dev/sda
 
-pip3 install numpy scipy matplotlib scikit-image scikit-learn ipython protobuf jupyter
+# OPTION B: Install grub (for UEFI)
+grub-install --target=x86_64-efi --efi-directory=boot     --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=GRUB
 
-pip3 install tensorflow-gpu  
-pip3 install Theano 
-pip3 install keras
+# Config. (Microcode updates will be added automatically)
+grub-mkconfig -o /boot/grub/grub.cfg
 
-# pytorch
-pip3 install torch
-pip3 install http://download.pytorch.org/whl/cu91/torch-0.4.0-cp36-cp36m-linux_x86_64.whl 
-pip3 install torchvision
+########################################## Reboot
 
-pip3 install dlib
+exit
+umount -R /mnt
+reboot
 
-python
-import numpy
-numpy.__version__
-import theano
-theano.__version__
-import tensorflow
-tensorflow.__version__
-import keras
-keras.__version__
-import torch
-torch.__version__
-import cv2
-cv2.__version__
+# login: root
+# enter password
 
-#################################### OpenCV 3.3
 
-sudo apt-get remove x264 libx264-dev
-sudo apt-get install -y checkinstall yasm
-sudo apt-get install -y libjpeg8-dev libjasper-dev libpng12-dev
+
+################################################
+########        POST-INTALLATION        ########
+################################################
+Read https://wiki.archlinux.org/index.php/General_recommendations
+
+
+editar /etc/pacman.conf para activar el repositorio [community]
+
+########################################## Add user
+
+#useradd -m           -g    wheel -s      /bin/bash javi
+useradd --create-home --gid wheel --shell /bin/bash javi
+passwd javi
+
+########################################## Trim support for SSD
+
+# https://wiki.archlinux.org/index.php/Solid_State_Drive#TRIM
+
+lsblk -D                            # Verify trim support
+# disc-gran/disc-max should not be empty if enabled
+
+# The util-linux package provides fstrim.service and fstrim.timer
+# Enabling the timer will activate the service weekly
+systemctl start fstrim.timer
+systemctl enable fstrim.timer
+
+########################################## Install LTS Kernel
+
+# https://youtu.be/b-H3jURTgqk
+
+uname -r                             # Check your current kernel
+sudo pacman -S linux-lts             # Install LTS kernel
+pacman -R linux                      # [OPTIONAL] Remove the standard kernel 
+grub-mkconfig -o /boot/grub/grub.cfg # Reconfigure GRUB
+sudo pacman -S linux-lts-headers     # Install LTS headers
+sudo reboot                          # Reboot
+uname -r                             # Check new current kernel
+
+# Note, for syslinux you'll need to edit the syslinux config file in /boot/syslinux/syslinux.cfg accordingly,
+# just point everything to the -lts kernel.
+
+########################################## Install microcode (for Intel)
+
+sudo pacman -S intel-ucode           # Install microcode
+grub-mkconfig -o /boot/grub/grub.cfg # Reconfigure GRUB
+
+########################################## Disable GRUB delay
+
+# Add the following to /etc/default/grub:
+# achieve the fastest possible boot:
+GRUB_FORCE_HIDDEN_MENU="true"
+
+# Then put file 31_hold_shift to /etc/grub.d/.
+# Download 31_hold_shift https://goo.gl/nac6Kp
+
+# Make it executable, and regenerate the grub configuration:
+sudo chmod a+x /etc/grub.d/31_hold_shift
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+########################################## Install key packages
+
+sudo pacman -S adobe-source-sans-pro-fonts aspell-en enchant gst-libav gst-plugins-good \
+hunspell-en icedtea-web jre8-openjdk languagetool libmythes mythes-en pkgstats \
+ttf-anonymous-pro ttf-bitstream-vera ttf-dejavu ttf-droid ttf-gentium ttf-liberation ttf-ubuntu-font-family
+
+########################################## Firewall
+
+# iptables is already installed. I like ufw.
+
+pacman -S ufw                # Install ufw
+ufw enable                   # Enable it only once, when package is installed
+ufw status verbose           # Check its status
+systemctl start ufw          # Start the firewall
+systemctl enable ufw         # Enable the start-up with the system [option a]
+systemctl enable ufw.service # Enable the start-up with the system [option b]
+
+########################################## Encrypt your home directory
+
+########################################## Optimize pacman's database access speeds
+
+sudo pacman-optimize
+
+########################################## Check for errors
+
+sudo systemctl --failed
+sudo journalctl -p 3 -xb
+
+########################################## Backup the system
+
+sudo rsync -aAXvP --delete --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/run/* --exclude=/mnt/* --exclude=/media/* --exclude=/lost+found --exclude=/home/.ecryptfs / /mnt/backupDestination/
+
+
+
+################################################
+########      GRAPHICAL ENVIROMENT      ########
+################################################
+
+If you want to use the latest nvidia drivers in the official repository,
+you can choose libglvnd (and not nvidia-304xx-utils).
+
+########################################## Xorg
+
+pacman -S xorg-server xorg-xinit
+pacman -S xterm                      # Necessary??
+
+# It will read from ~/.xinitrc to know what to start
+nano ~/.xinitrc
+      exec i3
+
+# You can start X by running:
+xinit
+startx
+
+ENTER
+ENTER
+
+########################################## Display manager (login screen)
+
+# Terminal login screen:
+# nano ~/.profile ~/.bash_profile
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+exec startx
+fi
+
+# or use a Display manager (login screen)
+pacman -S lightdb lightdm-gtk-greeter
+systemctl enable lightdm.service
+
+########################################## Colors
+
+# Colors in terminal for bash, pacman and nano
+# https://youtu.be/giAb4Ckh8BQ
+
+
+
+# Install i3 window manager
+pacman -S i3-gaps i3status rxvt-unicode dmenu
+
+# Other things needed for a wm
+nano ~/.xinitrc
+# exec i3
+
+
+# Fonts
+pacman -S ttf-linux-libertine ttf-inconsolata
+# Or just
+pacman -S noto-fonts
+
+# Manually edit
+~/.config/fontconfig/fonts.conf
+
+
+
+
+
+################################################
+########       DEEP LEARNING SETUP      ########
+################################################
+
+# READ https://www.hackster.io/Ladvien/gpu-accelerated-deep-learning-environment-on-arch-linux-16631b
+
+dialog --backtitle "Deep learning with Arch linux"\
+       --title     "Welcome!"\
+       --msgbox    "\nThis is the configuration to make your perfect linux distro."\
+       8 40
+
+
+dialog --backtitle "CPU Selection" \
+       --radiolist "Select CPU type:" 10 40 4 \
+        1 386SX off \
+        2 386DX on \
+        3 486SX off \
+        4 486DX off
+
+########################################## Nvidia drivers
+
+# Identify your card
+lspci    | grep -i nvidia
+lspci    | grep -e VGA -e 3D
+lspci -k | grep -A 2 -i "VGA"
+
+# Install drivers and driver's utils
+pacman -S nvidia                     # Nvidia drivers
+pacman -S nvidia-utils               # Nvidia driver's utils
+reboot
+
+######################################## GPU computation
+
+pacman -S cuda                       # Nvidia API for GPGPU
+pacman -S cudnn                      # Nvidia primitives for Neural Networks
+#Magma                               # Linear Algebra for OpenCL and CUDA and heteregenous many-core systems
+
+######################################## Python
+
+It is always preferred to use pacman to install software. 
+If you must use pip, use a virtual environment or with "pip install --user" to avoid conflicting with packages in /usr.
+
+pacman -S python                     # Install Python 3
+
+pacman -S jupyter-notebook           # Jupyter:      Python notebooks
+pacman -S python-numpy               # Numpy:        Matrix manipulation
+pacman -S python-scipy               # Scipy:        Scientific library for Python. Sparse matrices support
+pacman -S python-pandas              # Pandas:       Deal with data
+pacman -S python-scikit-learn        # Scikit-learn: Machine learning
+pacman -S python-matplotlib          # Matplotlib:   Visualization
+pacman -S python-seaborn             # Seaborn:      Visualization
+pacman -S python-nltk                # NLTK:         Natural language processing in Python
+
+pacman -S python-pip                 # The PyPA recommended tool for installing Python packages
+
+pacman -S gtkglext                   # opengl extensions for gtk2 (necesario para opencv)
+pacman -S opencv opencv-samples      # Open Source Computer Vision Library
+pacman -S graphviz                   # Graph visualization software
+pacman -S hdf5                       # General purpose library and file format for storing scientific data
+
+pip install --user bcolz
+pip install --user graphviz          # Interface for python
+pip install --user sklearn-pandas
+pip install --user isoweek
  
-# If you are using Ubuntu 14.04
-sudo apt-get install -y libtiff4-dev
- 
-# If you are using Ubuntu 16.04
-sudo apt-get install -y libtiff5-dev
-sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev
- 
-sudo apt-get install -y libxine2-dev libv4l-dev
-sudo apt-get install -y libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-sudo apt-get install -y libqt4-dev libgtk2.0-dev libtbb-dev
-sudo apt-get install -y libfaac-dev libmp3lame-dev libtheora-dev
-sudo apt-get install -y libvorbis-dev libxvidcore-dev
-sudo apt-get install -y libopencore-amrnb-dev libopencore-amrwb-dev
-sudo apt-get install -y x264 v4l-utils
+AUR: python-numba
 
-#################################### dlib 19.9
+######################################## Deep larining frameworks
 
-#################################### TensorFlow 1.5
+pacman -S python-pytorch-cuda        # Pytorch
+pacman -S python-tensorflow-opt-cuda # Tensorflow
+pacman -S tensorflow-opt-cuda        # Tensorflow
+pacman -S tensorboard                # Tensorboard
 
-#################################### Keras 2
+AUR: python-torchvision
+AUR: python-keras                    # Keras API for Tensorflow
+AUR: python-theano
+AUR: caffe
+AUR: mxnet                           # MXNet: Apache DL
+AUR: cntk                            # CNTK:  Microsoft DL
+
+Nervana Neon, Chainer, DyNet, MinPy
+
+
+######################################## Other packages
+
+# Monitoring
+htop       - Monitor CPU, RAM, load, kill programs
+nvidia-smi - Monitor Nvidia GPU
+
+CSV manipulation
+xsv - The fastest, multi-processing CSV library. Written in Rust.
+
+
+    
+Rapid Development, Research
+Jupyter - Code Python, R, Haskell, Julia with direct feedback in your browser
+jupyter_contrib_nbextensions - Extensions for jupyter (commenting code, ...)
+

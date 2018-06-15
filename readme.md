@@ -1,13 +1,12 @@
-# linux
+# My Arch Linux
 
-## Learn
+Setup, cofiguration and applications of my Arch Linux.
 
-* [Linuxjourney](https://linuxjourney.com/)
+## Other links
 
-## Blogs
-
-* [Linuxito](https://www.linuxito.com/)
-
-## linux utils
-
-* [Fedora science programs](https://fedora-scientific.readthedocs.io/en/latest/)
+* Learn
+  * [Linuxjourney](https://linuxjourney.com/)
+* Blogs
+  * [Linuxito](https://www.linuxito.com/)
+* linux utils
+  * [Fedora science programs](https://fedora-scientific.readthedocs.io/en/latest/)
