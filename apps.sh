@@ -4,7 +4,7 @@
 
 
 pacman -S git                        # Distributed version control system
-pacman -S nvidia                     # Nvidia drivers
+pacman -S nvidia                     # Nvidia drivers (need reboot)
 
 
 ########################################## Deep learning
@@ -21,6 +21,7 @@ pacman -S python-scikit-learn        # Machine learning
 pacman -S python-matplotlib          # Visualization
 pacman -S python-seaborn             # Visualization
 pacman -S python-nltk                # Natural language processing in Python
+pacman -S python-tqdm                # Fast, Extensible Progress Meter
 
 pacman -S hdf5                       # General purpose library and file format for storing scientific data
 pacman -S gtkglext                   # opengl extensions for gtk2 (necesario para opencv)
