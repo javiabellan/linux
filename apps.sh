@@ -37,11 +37,13 @@ pacman -S r                          # Language and environment for statistics
 
 # It is always preferred to use pacman. 
 # If you must use pip, use "pip install --user".
+pip install --user torchvision
+pip install --user Keras
 pip install --user bcolz
 pip install --user graphviz          # Interface for python
 pip install --user sklearn-pandas
-pip install --user isoweek
 pip install --user pandas-summary     An extension to pandas describe function.
+pip install --user isoweek
 
 AUR: python-torchvision
 AUR: python-keras                    # Keras API for Tensorflow
