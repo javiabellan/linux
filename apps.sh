@@ -39,6 +39,11 @@ pacman -S r                          # Language and environment for statistics
 
 # It is always preferred to use pacman. 
 # If you must use pip, use "pip install --user".
+# Add path /home/javi/.local/bin
+pip install --user jupyterthemes     # Themes for Jupyter Notebooks
+    jt -l                            # list available themes
+    jt -t chesterish                 # select theme...
+    jt -r                            # restore default theme
 pip install --user kaggle            # Kaggle API
 pip install --user torchvision       # Image and video datasets and models for torch
 pip install --user torchtext         # Data loaders and abstractions for text and NLP 
