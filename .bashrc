@@ -34,7 +34,13 @@ alias ll="ls -al"
 alias cpu="htop"
 alias gpu="nvidia-smi --query-gpu=fan.speed,temperature.gpu,utilization.gpu,utilization.memory --format=csv -l 1"
 
+# Kaggle
+alias kg="cd /home/javi/.kaggle"
+kaggle competitions {list,files,download,submit,submissions,leaderboard}
+kaggle datasets {list, files, download, create, version, init}
+kaggle config {view, set, unset}
 
+# Pacman
 alias upgrade='sudo pacman -Syu'    # Synchronize with repositories and then upgrade packages that are out of date on the local system.
 alias update='sudo pacman -Sy'      # Refresh of all package lists after updating /etc/pacman.d/mirrorlist
 alias install='sudo pacman -S'      # Install specific package(s) from the repositories
