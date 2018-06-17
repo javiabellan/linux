@@ -12,7 +12,10 @@ pacman -S cuda                       # Nvidia API for GPGPU
 pacman -S cudnn                      # Nvidia CUDA Deep Neural Network library
 pacman -S python                     # Python 3
 pacman -S python-pip                 # The PyPA recommended tool for installing Python packages
+
 pacman -S jupyter-notebook           # Python notebooks
+pacman -S python-ipywidgets          # IPython widgets for the Jupyter Notebook
+
 pacman -S python-numpy               # Matrix manipulation
 pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
 pacman -S python-pandas              # Deal with data
