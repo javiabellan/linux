@@ -43,10 +43,11 @@ pacman -S r                          # Language and environment for statistics
 
 pip install --user jupyterthemes     # Themes for Jupyter Notebooks (jt -t onedork -T)
 pip install --user kaggle            # Kaggle API
-pip install --user torchvision       # Image and video datasets and models for torch
-pip install --user torchtext         # Data loaders and abstractions for text and NLP 
-pip install --user Keras
-pip install --user pyro-ppl          # Deep probabilistic programming library built on PyTorch
+pip install --user torchvision       # Image and video datasets and models for torch (PyTorch)
+pip install --user torchtext         # Data loaders and abstractions for text and NLP (PyTorch)
+pip install --user fastai            # Deep learning and machine learning library (PyTorch)
+pip install --user pyro-ppl          # Deep probabilistic programming library (PyTorch)
+pip install --user Keras             # Deep Learning for humans (Tensorflow)
 pip install --user bcolz
 pip install --user graphviz          # Interface for python
 pip install --user sklearn-pandas
