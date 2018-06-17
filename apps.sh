@@ -42,7 +42,7 @@ pacman -S r                          # Language and environment for statistics
 # Add path /home/javi/.local/bin
 pip install --user jupyterthemes     # Themes for Jupyter Notebooks
     jt -l                            # list available themes
-    jt -t chesterish                 # select theme...
+    jt -t onedork -T                 # select theme... (-T is for show toolbar)
     jt -r                            # restore default theme
 pip install --user kaggle            # Kaggle API
 pip install --user torchvision       # Image and video datasets and models for torch
