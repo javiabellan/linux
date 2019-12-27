@@ -2,10 +2,10 @@
 
 
 ### Update system
-
+```
 sudo pacman -Syu                        # Update and upgrade all packages
 sudo pacman -S linux54-nvidia-440xx     # Update nvidia driver
-
+```
 
 
 ## Other links
