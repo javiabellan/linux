@@ -1,12 +1,20 @@
-# My Arch Linux
+# My Arch Linux (Manjaro)
 
 
 ### Update system
 ```
 sudo pacman -Syu                        # Update and upgrade all packages
-sudo pacman -S linux54-nvidia-440xx     # Update nvidia driver
 ```
 
+### Update nvidia driver
+
+```
+sudo pacman -S linux54-nvidia-440xx     # Update nvidia driver
+sudo mhwd -r pci video-nvidia-418xx
+reboot
+sudo mhwd -i pci video-nvidia-430xx
+reboot
+```
 
 ## Other links
 
