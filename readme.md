@@ -10,17 +10,17 @@
 - [ ] Disable Secure Boot
 - [ ] Disable Fast Boot
 
-# 1. Install Windows
+## 1. Install Windows
 
-# 2. Install [Manjaro](https://manjaro.org/download)
+## 2. Install [Manjaro](https://manjaro.org/download)
 
-### Arranca desde USB (tecla F12)
-
-- **Driver**
+1. Inserta USB de Manjaro con el PC apagado
+2. Elije partición de arraque al encender (tecla F12)
+   - Y elije arrancar desde USB en modo UEFI
+3. Selecciona el **Driver**:
   - **free**: Si no tienes GPU
   - **nonfree**: Si tienes GPU Nvidia (o AMD)
-
-### Particiones
+4. Particiones
 
 |                           | Size   | Type | File system | Mount point | Flags     |
 |---------------------------|--------|------|-------------|-------------|-----------|
@@ -30,7 +30,7 @@
 
 
 
-# 3. Prepare Majaro
+## 3. Prepare Majaro
 
 ### Update system
 ```
