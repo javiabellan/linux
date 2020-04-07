@@ -53,6 +53,7 @@ su
 
 pacman -S git
 pacman -S htop
+pacman -S tree
 pacman -S hdf5                       # General purpose library and file format for storing scientific data
 pacman -S opencv opencv-samples      # Open Source Computer Vision Library
 pacman -S graphviz                   # Graph visualization software
