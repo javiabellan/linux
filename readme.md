@@ -47,6 +47,28 @@ sudo mhwd -i pci video-nvidia-430xx
 reboot
 ```
 
+### Software
+```
+su
+
+pacman -S git
+pacman -S htop
+pacman -S hdf5                       # General purpose library and file format for storing scientific data
+pacman -S opencv opencv-samples      # Open Source Computer Vision Library
+pacman -S graphviz                   # Graph visualization software
+
+pacman -S python-numpy               # Matrix manipulation
+pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
+pacman -S python-pandas              # Deal with data
+pacman -S python-scikit-learn        # Machine learning
+pacman -S python-matplotlib          # Visualization
+pacman -S python-seaborn             # Visualization
+pacman -S python-nltk                # Natural language processing in Python
+pacman -S python-tqdm                # Fast, Extensible Progress Meter
+pacman -S python-pytorch-opt-cuda    # Pytorch
+pacman -S python-tensorflow-opt-cuda # Tensorflow
+```
+
 ## Other links
 
 * Learn
