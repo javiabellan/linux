@@ -18,8 +18,8 @@
 2. Elije partición de arraque al encender (tecla F12)
    - Y elije arrancar desde USB en modo UEFI
 3. Selecciona el **Driver**:
-  - **free**: Si no tienes GPU
-  - **nonfree**: Si tienes GPU Nvidia (o AMD)
+   - **free**: Si no tienes GPU
+   - **nonfree**: Si tienes GPU Nvidia (o AMD)
 4. Particiones
 
 |                           | Size   | Type | File system | Mount point | Flags     |
