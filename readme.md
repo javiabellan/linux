@@ -57,6 +57,7 @@ pacman -S tree
 pacman -S hdf5                       # General purpose library and file format for storing scientific data
 pacman -S opencv opencv-samples      # Open Source Computer Vision Library
 pacman -S graphviz                   # Graph visualization software
+pacman -S openssh
 
 pacman -S python-numpy               # Matrix manipulation
 pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
@@ -68,6 +69,24 @@ pacman -S python-nltk                # Natural language processing in Python
 pacman -S python-tqdm                # Fast, Extensible Progress Meter
 pacman -S python-pytorch-opt-cuda    # Pytorch
 pacman -S python-tensorflow-opt-cuda # Tensorflow
+```
+
+# SSH
+
+#### En el servidor:
+```
+sudo systemctl status sshd  # Ver si esta encendido
+sudo systemctl start sshd   # Encender
+sudo systemctl stop sshd    # Apagar
+sudo systemctl enable sshd  # Al arrancar por defecto: encendido
+sudo systemctl disable sshd # Al arrancar por defecto: apagado
+```
+
+#### En el cliente. Conectar y redirigir puerto 8888 (juypter)
+```
+ssh javi@192.168.0.103 -L 8888:localhost:8888  # Conectar
+jupyter notebook --no-browser                  # Abrir Jupyter
+exit                                           # Desconectar
 ```
 
 ## Other links
