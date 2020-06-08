@@ -1,4 +1,63 @@
 
+
+## [Lecture 1: Course Overview + The Shell](https://www.youtube.com/watch?v=Z56Jmr9Z34Q)
+
+```bash
+############## Programas
+echo $PATH  # Sitios donde la shell busca programas
+which echo  # En que path está el programa echo
+man echo    # Muestra el manual de un programa
+
+############## Sitios
+/sys        # Los ficheros representan los propios devices del ordenador
+  se puede cambiar el brillo de la pantalla, los leds, etc
+
+############## Atajos
+CTRL + l   # Clean terminal
+CTRL + c   # Parar programa
+
+############# Navigate
+pwd         # prin working directory
+cd          # change directory
+  cd        #   go to home
+  cd ~      #   go to home
+  cd /      #   go to root
+  cd -      #   go to previous dir
+ls          # list directories
+  ls -a     #   show hidden too
+  ls -l     #   show long (more info)
+
+############# Files and dirs
+mv {old_pth} {new_pth} # Move or rename a file
+cp {from_pth} {to_pth} # Copy a file
+rm {pth}               # Remove a file
+  rm -r {pth}          # Remove a directory recusively
+  rmdir {pth}          # Remove an empty directory
+mkdir {pth}            # Make a directory
+  mkdir My\ photos     # Make a directory with spaces
+  mkdir "My photos"    # Make a directory with spaces
+
+
+############# Pipes
+echo hello >  hello.txt # Crea (o sobrescribe) un fichero con la salida del programa anterior
+echo hello >> hello.txt # Añade (append) a un fichero la salida del programa anterior
+ls -l | tail -n2        # Pipe: Imprime solo los ultimos 2 ficheros
+ls -l | tail -n2 >  hello.txt # Pipe and file writting
+
+
+############# Print content of files
+head hellow.txt
+tail hellow.txt
+  tail -n1 hellow.txt # La ultima linea
+cat hellow.txt
+xdg-open  hellow.txt # Open a file with default program
+
+############# Fechas
+date
+cal
+```
+
+
 # Pacman
 ```bash
 pacman -S {pkg}    # Install package
