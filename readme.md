@@ -1,3 +1,22 @@
+
+# Pacman
+```bash
+pacman -S {pkg}    # Install package
+pacman -Syu        # Update packages. Update database (-y) and upgrade packages (-u)
+pacman -Ss {pkg}   # Search for a new package
+
+pacman -Q          # Display all installed packages
+pacman -Qe         # Display only packages explicitly installed
+pacman -Qn         # Display only packages installed from main repositories
+pacman -Qm         # Display only packages installed from AUR
+pacman -Qdt        # Display orphaned dependencies
+pacman -Qs {pkg}   # Search local repository for package
+
+pacman -R {pkg}    # Remove package {pkg}
+pacman -Rs {pkg}   # Remove package as well as unneeded dependencies (-s)
+pacman -Rns {pkg}  # Remove package, dependencies (-s), and system config files (-n)
+```
+
 # Entra en la Bios (tecla ?)
 
 ### Detecta tu sistema
