@@ -1,16 +1,18 @@
 
 
-## [Lecture 1: Course Overview + The Shell](https://www.youtube.com/watch?v=Z56Jmr9Z34Q)
+## [Lecture 1: Course Overview + The Shell](https://youtu.be/Z56Jmr9Z34Q)
 
 ```bash
 ############## Programas
 echo $PATH  # Sitios donde la shell busca programas
 which echo  # En que path está el programa echo
 man echo    # Muestra el manual de un programa
+tldr echo   # Muestra el manual de ejemplos de un programa
 
 ############## Sitios
 /sys        # Los ficheros representan los propios devices del ordenador
-  se puede cambiar el brillo de la pantalla, los leds, etc
+  # se puede cambiar el brillo de la pantalla, los leds, etc
+  cat /sys/class/thermal/thermal_zone*/temp # Ver temperatura CPU
 
 ############## Atajos
 CTRL + l   # Clean terminal
@@ -26,6 +28,12 @@ cd          # change directory
 ls          # list directories
   ls -a     #   show hidden too
   ls -l     #   show long (more info)
+  ls *.png  #   only png files
+  ls *.??g  #   only png and jpg files
+tree
+broot
+nnn
+ranger
 
 ############# Files and dirs
 mv {old_pth} {new_pth} # Move or rename a file
@@ -33,16 +41,27 @@ cp {from_pth} {to_pth} # Copy a file
 rm {pth}               # Remove a file
   rm -r {pth}          # Remove a directory recusively
   rmdir {pth}          # Remove an empty directory
+touch {new_file}       # Create a file
 mkdir {pth}            # Make a directory
   mkdir My\ photos     # Make a directory with spaces
   mkdir "My photos"    # Make a directory with spaces
+ln {from_pth} {to_pth} # Crear acceso directo
+  ln {file} {hardlink} # Hard link
+  ln -s {file_or_dir} {symlink} # Symbolic link
+chmod +x {file}        # Atorgar permisos de ejecución
+du {file}              # Disk usage of a file
+diff {file1} {file2}   # See differencs between files
+tar {file1}            # compress file
+find {where} -name {what} -type {what type}  # Find files
 
 
-############# Pipes
+############# Several things
 echo hello >  hello.txt # Crea (o sobrescribe) un fichero con la salida del programa anterior
 echo hello >> hello.txt # Añade (append) a un fichero la salida del programa anterior
 ls -l | tail -n2        # Pipe: Imprime solo los ultimos 2 ficheros
 ls -l | tail -n2 >  hello.txt # Pipe and file writting
+ls | xargs rm  # | xargs is when the inputs is IN THE ARGUMENTS
+rm $(ls)       # same of above
 
 
 ############# Print content of files
@@ -57,6 +76,62 @@ date
 cal
 ```
 
+## [Lecture 2: Shell Tools and Scripting](https://youtu.be/kgII-YWo3Zw)
+
+[Shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix): First line, This is going to be the interpreter:
+- `#!/bin/sh`:  Bourne shell script
+- `#!/bin/bash`:  Bash shell script `./myScript.sh`
+- `#!/usr/bin/python`:  Python script `./myScript.py`
+- `#!/usr/bin/env python`:  Python script (more portable because looks for python comand)  `./myScript.py`
+
+
+### Python script
+```python
+#!/usr/bin/python
+import sys
+for arg in reversed(sys.argv[1:]):
+    print(arg)
+```
+
+### Bash script
+```bash
+############## Variables
+myVar=someValue
+echo $myVar
+myVar = someValue      # No funciona con espacios
+echo "Value is $myVar" # Imprime: Value is someValue
+echo 'Value is $myVar' # Imprime: Value is $myVar
+
+
+############## Functions
+#!/bin/bash
+mcd () {
+    mkdir -p "$1"
+    cd "$1"
+}
+
+# $0: The name of the script
+# $1: The 1st argument
+# $9: The 9th argument
+
+
+########## command substitution
+myDir=$(pwd) # The output of a command in a varaible
+echo "we are in $(pwd)"
+for file in $(ls)
+
+```
+
+### Images 
+```bash
+convert imagen.jpg imagen.png # Convertir una imagen de png a jpg
+convert imagen.{png,jpg} # Expansion. Same of: convert imagen.jpg imagen.png
+```
+
+### Video 
+```bash
+ffmpeg
+```
 
 # Pacman
 ```bash
