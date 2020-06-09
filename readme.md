@@ -14,9 +14,17 @@ tldr echo   # Muestra el manual de ejemplos de un programa
   # se puede cambiar el brillo de la pantalla, los leds, etc
   cat /sys/class/thermal/thermal_zone*/temp # Ver temperatura CPU
 
-############## Atajos
+############## Atajos & Signals
 CTRL + l   # Clean terminal
-CTRL + c   # Parar programa
+CTRL + c   # Interrumpir programa (SIGINT)
+CTRL + \   # Salir programa (SIGQUIT)
+CTRL + z   # Pausar programa que se puede reunaudar (SIGSTOP)
+jobs        # See all the jobs that are running or suspended.
+my_command &  # When you append " &"  it becomes a "background job".
+fg          # Bring the job to the foreground.
+bg          # Send the job to the background.
+stop or Ctrl + z          # Suspend the job.
+kill or Ctrl + c          # Terminate the job.
 
 ############# Navigate
 pwd         # prin working directory
@@ -186,13 +194,13 @@ pacman -Rns {pkg}  # Remove package, dependencies (-s), and system config files 
 ## 3. Prepare Majaro
 
 ### Update system
-```
+```bash
 sudo pacman -Syu                        # Update and upgrade all packages
 ```
 
 ### Update nvidia driver
 
-```
+```bash
 sudo pacman -S linux54-nvidia-440xx     # Update nvidia driver
 sudo mhwd -r pci video-nvidia-418xx
 reboot
@@ -201,7 +209,7 @@ reboot
 ```
 
 ### Software
-```
+```bash
 su
 
 pacman -S git
@@ -227,7 +235,7 @@ pacman -S python-tensorflow-opt-cuda # Tensorflow
 # SSH
 
 #### En el servidor:
-```
+```bash
 sudo systemctl status sshd  # Ver si esta encendido
 sudo systemctl start sshd   # Encender
 sudo systemctl stop sshd    # Apagar
@@ -236,17 +244,45 @@ sudo systemctl disable sshd # Al arrancar por defecto: apagado
 ```
 
 #### En el cliente. Conectar y redirigir puerto 8888 (juypter)
-```
+```bash
 ssh javi@192.168.0.103 -L 8888:localhost:8888  # Conectar
 jupyter notebook --no-browser                  # Abrir Jupyter
 exit                                           # Desconectar
 ```
 
+#### Key generation
+```bash
+# Gerenar claves publica y privada
+ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519
+
+# Llevar la clave publica al cliente
+cat .ssh/id_ed25519.pub | ssh foobar@remote 'cat >> ~/.ssh/authorized_keys'
+```
+
+#### Dejar un programa largo en ejecucion
+
+Opcion simple
+```bash
+nohup COMMAND        # Run a command immune to hangups
+nohup COMMAND > FILE # Ademas puede guardar su salida estandar en un fichero
+```
+
+Opción con programas que mantienen la sesion activa (`tmux` or `screen`)
+1. `ssh` log in into your remote box. 
+2. `tmux` or `screen`
+3. Start the long process you want.
+4. Leave/detach `tmux` or `screen` session, but leave your processes running.
+   - Ctrl+A then Ctrl+D (para salir de screen)
+   - Ctrl+B then Ctrl+D (para salir de tmux)
+5. `exit` ssh
+6. `ssh` log in into your remote box. 
+7. `screen -r` "resume" your screen session, and you can see the output of your process.
+
+
 ## Other links
 
-* Learn
-  * [Linuxjourney](https://linuxjourney.com/)
-* Blogs
-  * [Linuxito](https://www.linuxito.com/)
-* linux utils
-  * [Fedora science programs](https://fedora-scientific.readthedocs.io/en/latest/)
+- The Missing Semester MIT
+  - [Curso 2020](https://missing.csail.mit.edu/2020)
+  - [Curso 2019](https://missing.csail.mit.edu/2019)
+- [Linuxjourney](https://linuxjourney.com/)
+- [Linuxito](https://www.linuxito.com/)
