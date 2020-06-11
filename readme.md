@@ -355,8 +355,15 @@ in python:
 import time
 
 start = time.time()
-# Long code here
+muy_fun() # Long code here
 print(time.time() - start)
+```
+
+in jupyter:
+
+```python
+%time muy_fun()
+%timeit -r 2 -n 5 muy_fun() # -r: number of runs, -n: number of loops
 ```
 
 On the shell: `$ time some_command`
@@ -403,6 +410,13 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
      8         3    3002333.0 1000777.7     60.0      time.sleep(1)
 ```
 
+In jupyter
+
+```python
+%load_ext line_profiler
+
+%lprun -f func_to_profile func_to_profile(params)
+```
 
 #### Memory profiler
 
@@ -432,6 +446,8 @@ Line #    Mem usage    Increment   Line Contents
      5   46.270 MiB    0.000 MiB       del b
      6   46.270 MiB    0.000 MiB       return a
 ```
+
+
 
 # Alias
 
