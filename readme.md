@@ -246,8 +246,10 @@ pacman -S htop                 # Interactive process viewer
 pacman -S nvtop                # An htop like monitoring tool for NVIDIA GPUs
 pacman -S tree                 # A directory listing program displaying a depth indented list of files
 pacman -S openssh              # Premier connectivity tool for remote login with the SSH protocol
+pacman -S openssl              # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
 pacman -S figlet               # A program for making large letters out of ordinary text
-pacman -S tldr                 # Command line client for tldr, a collection of simplified and community-driven man pages.
+pacman -S tldr                 # A collection of simplified and community-driven man pages.
+pacman -S bc                   # An arbitrary precision calculator language
 ```
 
 #### Programming
@@ -259,6 +261,7 @@ pacman -S mypy                 # Optional static typing for Python 2 and 3
 pacman -S python-tqdm          # Fast, Extensible Progress Meter
 pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
 pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
+pacman -S make                 # GNU make utility to maintain groups of programs
 ```
 
 #### Data Science
@@ -473,6 +476,31 @@ Line #    Mem usage    Increment   Line Contents
 
 
 
+
+# Makefile
+
+#### `Makefile` file:
+```make
+TargetFile: DepencyFile1, DepencyFile2
+	command1
+	command2
+```
+
+#### Latex example `Makefile`
+```make
+paper.pdf: paper.tex plot-data.png
+	pdflatex paper.tex
+
+plot-%.png: %.dat plot.py
+	./plot.py -i $*.dat -o $@
+```
+
+#### Run it with `make`
+
+If the DepencyFiles has not changed, the commands for TargetFile will not be executed.
+
+
+
 # Alias
 
 ```bash
@@ -494,10 +522,6 @@ function commit() {
 }
 ```
 
-function commit() {
-    msg=\"$@\"
-    echo $msg
-}
 
 # Reference
 
