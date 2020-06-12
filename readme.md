@@ -488,11 +488,16 @@ alias r="sudo pacman -Rns" # r: remove a package
 # Git
 function commit() {
     git add .
-    msg=\"$@\"
-    git commit -m msg
+    msg=$@
+    git commit -m "$msg"
     git push
 }
 ```
+
+function commit() {
+    msg=\"$@\"
+    echo $msg
+}
 
 # Reference
 
