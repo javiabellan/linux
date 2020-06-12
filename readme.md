@@ -9,6 +9,7 @@
 - [SSH](#ssh)
 - [Pacman](#pacman)
 - [Alias](#alias)
+- [Software](#software)
 - [Debugging](#debugging)
 - [Profiling](#profiling)
 
@@ -235,22 +236,37 @@ reboot
 
 # Software
 
+## In [Arch Linux](https://www.archlinux.org/packages)
+
+#### General
 
 ```bash
-su
+pacman -S git                  # the fast distributed version control system
+pacman -S htop                 # Interactive process viewer
+pacman -S nvtop                # An htop like monitoring tool for NVIDIA GPUs
+pacman -S tree                 # A directory listing program displaying a depth indented list of files
+pacman -S openssh              # Premier connectivity tool for remote login with the SSH protocol
+pacman -S figlet               # A program for making large letters out of ordinary text
+pacman -S tldr                 # Command line client for tldr, a collection of simplified and community-driven man pages.
+```
 
-pacman -S git
-pacman -S htop
-pacman -S tree
+#### Programming
+
+```bash
+pacman -S python-ipdb          # IPython-enabled pdb
+pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
+pacman -S mypy                 # Optional static typing for Python 2 and 3
+pacman -S python-tqdm          # Fast, Extensible Progress Meter
+pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
+pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
+```
+
+#### Data Science
+
+```bash
 pacman -S hdf5                       # General purpose library and file format for storing scientific data
 pacman -S opencv opencv-samples      # Open Source Computer Vision Library
 pacman -S graphviz                   # Graph visualization software
-pacman -S openssh
-
-pacman -S python-ipdb                # IPython-enabled Python Debugger
-pacman -S python-pyflakes            # Static program analisis
-pacman -S mypy                       # Optional static typing for Python 2 and 3
-
 pacman -S python-numpy               # Matrix manipulation
 pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
 pacman -S python-pandas              # Deal with data
@@ -258,9 +274,17 @@ pacman -S python-scikit-learn        # Machine learning
 pacman -S python-matplotlib          # Visualization
 pacman -S python-seaborn             # Visualization
 pacman -S python-nltk                # Natural language processing in Python
-pacman -S python-tqdm                # Fast, Extensible Progress Meter
 pacman -S python-pytorch-opt-cuda    # Pytorch
 pacman -S python-tensorflow-opt-cuda # Tensorflow
+```
+
+
+
+## In [AUR](https://aur.archlinux.org/packages)
+
+```bash
+google-chrome        # The popular and trusted web browser by Google (Stable Channel)
+gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
 ```
 
 
@@ -460,10 +484,19 @@ alias i="sudo pacman -S"   # i: install a package
 alias s="pacman -Ss"       # s: search for a package
 alias u="sudo pacman -Syu" # u: update the packages
 alias r="sudo pacman -Rns" # r: remove a package
+
+# Git
+function commit() {
+    git add .
+    git commit -m \"$@\"
+    git push
+}
 ```
 
 # Reference
 
+- [Manjaro](https://manjaro.org)
+- [Suck less](https://suckless.org)
 - The Missing Semester MIT
   - [Curso 2020](https://missing.csail.mit.edu/2020)
   - [Curso 2019](https://missing.csail.mit.edu/2019)
