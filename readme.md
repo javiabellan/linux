@@ -184,6 +184,12 @@ ffmpeg
 ```
 
 
+
+# Git
+
+git config --global credential.helper store
+
+
 # Pacman
 ```bash
 pacman -S {pkg}    # Install package
