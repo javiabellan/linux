@@ -186,9 +186,9 @@ ffmpeg
 
 
 # Git
-
-git config --global credential.helper store
-
+```bash
+git config --global credential.helper store  # Almacena en ~/.git-credentials -> https://USER:PASS@github.com
+```
 
 # Pacman
 ```bash
