@@ -1,25 +1,21 @@
 
 # Index
 
-
-- [The Shell](#the-shell)
-- [IO Redirection](#io-redirection)
-- [Pipes](#pipes)
-- [Scripts](#scripts)
-- [SSH](#ssh)
-- [Pacman](#pacman)
-- [Alias](#alias)
-- [Software](#software)
-- [Debugging](#debugging)
-- [Profiling](#profiling)
+| General                            | Programs          | Programmig              |
+|------------------------------------|-------------------|-------------------------|
+| [The Shell](#the-shell)            | [GIT](#git)       | [Debugging](#debugging) |
+| [IO Redirection](#io-redirection)  | [VIM](#vim)       | [Profiling](#profiling) |
+| [Pipes](#pipes)                    | [TMUX](#tmux)     | [Makefile](#makefile)   |
+| [Scripts](#scripts)                | [ZSH](#zsh)       | [Cryptography](#cryptography)   |
+| [Software](#software)              | [SSH](#ssh)       |                         |
+| [Alias](#alias)                    | [Pacman](#pacman) |                         |
 
 
 ---
 
+
 # The Shell
 
-Change to zsh: `sudo chsh -s /usr/bin/zsh javi`
-curl -L http://install.ohmyz.sh | sh
 
 ```bash
 ############## Programas
@@ -184,30 +180,6 @@ ffmpeg
 ```
 
 
-
-# Git
-```bash
-git config --global credential.helper store  # Almacena en ~/.git-credentials -> https://USER:PASS@github.com
-```
-
-# Pacman
-```bash
-pacman -S {pkg}    # Install package
-pacman -Syu        # Update packages. Update database (-y) and upgrade packages (-u)
-pacman -Ss {pkg}   # Search for a new package
-
-pacman -Q          # Display all installed packages
-pacman -Qe         # Display only packages explicitly installed
-pacman -Qn         # Display only packages installed from main repositories
-pacman -Qm         # Display only packages installed from AUR
-pacman -Qdt        # Display orphaned dependencies
-pacman -Qs {pkg}   # Search local repository for package
-
-pacman -R {pkg}    # Remove package {pkg}
-pacman -Rs {pkg}   # Remove package as well as unneeded dependencies (-s)
-pacman -Rns {pkg}  # Remove package, dependencies (-s), and system config files (-n)
-```
-
 # Install [Manjaro](https://manjaro.org/download)
 
 Entra en la Bios (tecla ?) y detecta tu sistema
@@ -247,6 +219,11 @@ reboot
 ```
 
 
+
+
+
+
+
 # Software
 
 ## In [Arch Linux](https://www.archlinux.org/packages)
@@ -268,7 +245,6 @@ pacman -S aspell               # A spell checker designed to eventually replace 
 ```
 
 
-
 #### Programming
 
 ```bash
@@ -281,6 +257,7 @@ pacman -S vim                  # Vi Improved, a highly configurable, improved ve
 pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 pacman -S make                 # GNU make utility to maintain groups of programs
 ```
+
 
 #### Data Science
 
@@ -310,7 +287,63 @@ gotop                # A terminal based graphical activity monitor inspired by g
 
 
 
-.zshenv, .zprofile, .zshrc, .zlogin
+
+
+# Alias
+
+```bash
+# Jupyter notebook
+alias jn="jupyter notebook"
+
+# Pacman
+alias i="sudo pacman -S"   # i: install a package
+alias s="pacman -Ss"       # s: search for a package
+alias u="sudo pacman -Syu" # u: update the packages
+alias r="sudo pacman -Rns" # r: remove a package
+
+# Others
+alias title="figlet" # r: remove a package
+
+# Git
+function commit() {
+    git add .
+    msg=$@ # Every argument
+    git commit -m "$msg"
+    git push
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Git
+```bash
+git config --global credential.helper store  # Almacena en ~/.git-credentials -> https://USER:PASS@github.com
+```
+
+
+
+# Vim
+
+
 
 # TMUX
 
@@ -348,6 +381,16 @@ The most popular terminal multiplexer these days is [`tmux`](https://www.man7.or
   - `[Ctrl+b] z` Toggle zoom for the current pane
   - `[Ctrl+b] [` Start scrollback. You can then press `<space>` to start a selection and `<enter>` to copy that selection.
   - `[Ctrl+b] <space>` Cycle through pane arrangements.
+
+
+
+
+# ZSH
+
+Change to zsh: `sudo chsh -s /usr/bin/zsh javi`
+curl -L http://install.ohmyz.sh | sh
+
+
 
 
 # SSH
@@ -401,6 +444,30 @@ Opción con programas que mantienen la sesion activa (`tmux` or `screen`)
 5. `exit` ssh
 6. `ssh` log in into your remote box. 
 7. `screen -r` "resume" your screen session, and you can see the output of your process.
+
+
+
+
+# Pacman
+```bash
+pacman -S {pkg}    # Install package
+pacman -Syu        # Update packages. Update database (-y) and upgrade packages (-u)
+pacman -Ss {pkg}   # Search for a new package
+
+pacman -Q          # Display all installed packages
+pacman -Qe         # Display only packages explicitly installed
+pacman -Qn         # Display only packages installed from main repositories
+pacman -Qm         # Display only packages installed from AUR
+pacman -Qdt        # Display orphaned dependencies
+pacman -Qs {pkg}   # Search local repository for package
+
+pacman -R {pkg}    # Remove package {pkg}
+pacman -Rs {pkg}   # Remove package as well as unneeded dependencies (-s)
+pacman -Rns {pkg}  # Remove package, dependencies (-s), and system config files (-n)
+```
+
+
+
 
 
 
@@ -564,28 +631,9 @@ If the DepencyFiles has not changed, the commands for TargetFile will not be exe
 
 
 
-# Alias
 
-```bash
-# Jupyter notebook
-alias jn="jupyter notebook"
 
-# Pacman
-alias i="sudo pacman -S"   # i: install a package
-alias s="pacman -Ss"       # s: search for a package
-alias u="sudo pacman -Syu" # u: update the packages
-alias r="sudo pacman -Rns" # r: remove a package
-
-# Git
-function commit() {
-    git add .
-    msg=$@ # Every argument
-    git commit -m "$msg"
-    git push
-}
-```
-
-# Security
+# Cryptography
 
 #### Hash function `sha1sum`
 - Non invertible
