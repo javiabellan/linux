@@ -18,12 +18,17 @@
 
 # The Shell
 
+Change to zsh: `sudo chsh -s /usr/bin/zsh javi`
+curl -L http://install.ohmyz.sh | sh
+
 ```bash
 ############## Programas
+printf "dfadf" # Sitios donde la shell busca programas
 echo $PATH  # Sitios donde la shell busca programas
 which echo  # En que path está el programa echo
 man echo    # Muestra el manual de un programa
 tldr echo   # Muestra el manual de ejemplos de un programa
+lsb_release -a # Ver mi sistema operativo
 
 ############## Sitios
 /sys        # Los ficheros representan los propios devices del ordenador
@@ -76,16 +81,18 @@ chmod +x {file}        # Atorgar permisos de ejecución
 du {file}              # Disk usage of a file
 ncdu {file}            # Interactive version of Disk usage
 diff {file1} {file2}   # See differencs between files
+cmp {file1} {file2}    # See differencs between files
 tar {file1}            # compress file
 find {where} -name {what} -type {what type}  # Find files
 
 
 ############# Print content of files
-head hellow.txt
-tail hellow.txt
-  tail -n1 hellow.txt # La ultima linea
-cat hellow.txt
-xdg-open  hellow.txt # Open a file with default program
+head myFile.txt
+tail myFile.txt
+  tail -n1 myFile.txt # La ultima linea
+cat myFile.txt
+hexdump myFile.txt  # Para ver ficheros binarios
+xdg-open  myFile.txt # Open a file with default program
 
 ############# Fechas
 date
@@ -241,7 +248,8 @@ reboot
 #### General
 
 ```bash
-pacman -S git                  # the fast distributed version control system
+pacman -S zsh                  # A very advanced and programmable command interpreter (shell) for UNIX
+pacman -S git                  # The fast distributed version control system
 pacman -S htop                 # Interactive process viewer
 pacman -S nvtop                # An htop like monitoring tool for NVIDIA GPUs
 pacman -S tree                 # A directory listing program displaying a depth indented list of files
@@ -250,7 +258,10 @@ pacman -S openssl              # The Open Source toolkit for Secure Sockets Laye
 pacman -S figlet               # A program for making large letters out of ordinary text
 pacman -S tldr                 # A collection of simplified and community-driven man pages.
 pacman -S bc                   # An arbitrary precision calculator language
+pacman -S aspell               # A spell checker designed to eventually replace Ispell
 ```
+
+
 
 #### Programming
 
@@ -261,6 +272,7 @@ pacman -S mypy                 # Optional static typing for Python 2 and 3
 pacman -S python-tqdm          # Fast, Extensible Progress Meter
 pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
 pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
+pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 pacman -S make                 # GNU make utility to maintain groups of programs
 ```
 
@@ -292,6 +304,45 @@ gotop                # A terminal based graphical activity monitor inspired by g
 
 
 
+.zshenv, .zprofile, .zshrc, .zlogin
+
+# TMUX
+
+The most popular terminal multiplexer these days is [`tmux`](https://www.man7.org/linux/man-pages/man1/tmux.1.html).
+- tmux can have several **sessions**.
+- a **session** can have several **windows** (like tabs)
+- a **window** can have several **panes** (like a divided terminal)
+
+#### Commands:
+
+- **Outside tmux**
+  - `tmux`: starts a new session.
+  - `tmux new -s NAME`: starts it with that name.
+  - `tmux ls`: lists the current sessions.
+  - `tmux a`: attaches the last session.
+  - `tmux -t sesName`: attaches to specific session.
+
+- **Inside tmux**:
+  - `[Ctrl+b] c`: Creates a new window. To close it you can just terminate the shells doing `<C-d>`
+  - `[Ctrl+b] 0`: Go to window 0
+  - `[Ctrl+b] 1`: Go to window 1
+  - `[Ctrl+b] 2`: Go to window 2
+  - `[Ctrl+b] p`: Go to the previous window
+  - `[Ctrl+b] n`: Go to the next window
+  - `[Ctrl+b] ,`: Rename the current window
+  - `[Ctrl+b] w`: List current windows
+  - `[Ctrl+b] d`: Detaches the current session (remains active in background)
+  - `[Ctrl+d]`: Kill the current window (kill the sesion if is it the only window)
+
+
+- **Panes**: Like vim splits, panes let you have multiple shells in the same visual display.
+  - `[Ctrl+b] "` Split the current pane horizontally
+  - `[Ctrl+b] %` Split the current pane vertically
+  - `[Ctrl+b] <direction>` Move to the pane in the specified _direction_. Direction here means arrow keys.
+  - `[Ctrl+b] z` Toggle zoom for the current pane
+  - `[Ctrl+b] [` Start scrollback. You can then press `<space>` to start a selection and `<enter>` to copy that selection.
+  - `[Ctrl+b] <space>` Cycle through pane arrangements.
+
 
 # SSH
 
@@ -308,7 +359,7 @@ sudo systemctl disable sshd # Al arrancar por defecto: apagado
 ```bash
 ssh javi@192.168.0.103 -L 8888:localhost:8888  # Conectar
 jupyter notebook --no-browser                  # Abrir Jupyter
-exit                                           # Desconectar
+exit                                           # Desconectar o CTL+
 ```
 
 #### Key generation
@@ -319,6 +370,12 @@ ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519
 # Llevar la clave publica al cliente
 cat .ssh/id_ed25519.pub | ssh foobar@remote 'cat >> ~/.ssh/authorized_keys'
 ```
+
+- `-o`: Save the private-key using the new OpenSSH format rather than the PEM format. Actually, this option is implied when you specify the key type as ed25519.
+- `-a`: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen.
+- `-t`: Specifies the type of key to create, in our case the Ed25519.
+- `-f`: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default `.ssh` directory within your home directory.
+
 
 #### Dejar un programa largo en ejecucion
 
@@ -521,6 +578,68 @@ function commit() {
     git push
 }
 ```
+
+# Security
+
+#### Hash function `sha1sum`
+- Non invertible
+- Collision redundant
+
+```bash
+sha1sum myFile.txt
+```
+
+#### Symetric cryptography (1 key)
+
+1. keygen() -> key
+2. encrypt(plaintext, key) -> ciphertext
+3. decrypt(ciphertext, key) -> plaintext
+
+
+```bash
+# AES
+openssl aes-256-cbc -salt -in aaa.py -out aaa.py.enc # Encription
+openssl aes-256-cbc -d -in aaa.py.ec -out aaa2.py    # Decryption
+```
+
+#### Asymmetric cryptography (public & private keys)
+
+
+1. keygen() -> public key, private key
+   - La clave pública solo se usa para cifrar (la usará el otro)
+   - La clave privada solo se usa para descifrar (la usaré yo)
+2. encrypt(plaintext, public key) -> ciphertext
+3. decrypt(ciphertext, private key) -> plaintext
+
+En general todo aque que quiera que LE LLEGEN los mensajes privados, debe comunicar su public key.
+Si AMBOS extremos comunican su public key, la comunicación será cifrada
+
+Ejemplos:
+- RSA
+- ED25519: more secure
+
+```bash
+# RSA
+```
+
+#### Hybrid cryptography
+
+Presmisa:
+- La Symetric cryptography es rápida
+- La Asymmetric cryptography es lenta
+
+Entoces:
+Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi ya se tiene una Symetric cryptography que es más rápida que la Asymmetric
+
+
+
+
+#### Asymmetric cryptography for signing
+
+1. keygen() -> public key, private key
+2. sign(message, private key) -> signature
+3. verify(message, signature, public key) -> bool  (whether or not the signature is valid)
+
 
 
 # Reference
