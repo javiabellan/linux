@@ -168,16 +168,7 @@ for file in $(ls)
 
 ```
 
-### Images 
-```bash
-convert imagen.jpg imagen.png # Convertir una imagen de png a jpg
-convert imagen.{png,jpg} # Expansion. Same of: convert imagen.jpg imagen.png
-```
 
-### Video 
-```bash
-ffmpeg
-```
 
 
 # Install [Manjaro](https://manjaro.org/download)
@@ -703,6 +694,10 @@ Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi y
 
 
 
+# Documents
+
+- `pandoc`: Conversion between markup formats
+- `aspell`: A spell checker designed to eventually replace Ispell
 
 
 # Data wrangling
@@ -720,6 +715,8 @@ Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi y
 - `wc`: count lines or "words"
 - `split`: split a file into pieces (less useful)
 - `jq`: json query
+- `convert`: Images
+- `ffmpeg`: Video and audio
 
 > ### Reference
 > - https://www.datascienceatthecommandline.com/index.html
@@ -734,7 +731,16 @@ Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi y
 
 - `column file.csv -s "," -t | less -#2 -N -S`: CSV viewer
 
+### Images 
+```bash
+convert imagen.jpg imagen.png # Convertir una imagen de png a jpg
+convert imagen.{png,jpg} # Expansion. Same of: convert imagen.jpg imagen.png
+```
 
+### Video 
+```bash
+ffmpeg
+```
 
 
 # Reference
