@@ -256,6 +256,7 @@ pacman -S jupyter-notebook     # The language-agnostic HTML notebook application
 pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
 pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 pacman -S make                 # GNU make utility to maintain groups of programs
+pacman -S jq                   # Command-line JSON processor
 ```
 
 
@@ -311,6 +312,12 @@ function commit() {
     git commit -m "$msg"
     git push
 }
+
+# Data wraling
+alias uniq="sort | uniq" # uniq reqires previous sorting
+alias lc="wc --lines" # lines count
+alias wc="wc --words" # words count
+alias cc="wc --chars" # chars count
 ```
 
 
@@ -693,6 +700,40 @@ Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi y
 1. keygen() -> public key, private key
 2. sign(message, private key) -> signature
 3. verify(message, signature, public key) -> bool  (whether or not the signature is valid)
+
+
+
+
+
+# Data wrangling
+
+- `cat`: concatenate files and print on stdout
+- `head`: output the first part of files
+- `tail`: output the last part of files
+- `column`: formats input into multiple columns
+- `cut`: filter columns
+- `sed`: replace (and much more)
+- `grep`: filter rows
+- `sort`: sort
+- `uniq`: count duplicate (with sort = crude group by)
+- `paste`: join 2 files (line by line)
+- `wc`: count lines or "words"
+- `split`: split a file into pieces (less useful)
+- `jq`: json query
+
+> ### Reference
+> - https://www.datascienceatthecommandline.com/index.html
+> - https://github.com/rufuspollock/command-line-data-wrangling
+
+
+### `cut`
+
+- `cut -d',' -f1`: Delimiter="," Field (col)=1st
+
+### `column`
+
+- `column file.csv -s "," -t | less -#2 -N -S`: CSV viewer
+
 
 
 
