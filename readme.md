@@ -219,10 +219,21 @@ reboot
 
 ## In [Arch Linux](https://www.archlinux.org/packages)
 
+
+#### Fonts
+
+```bash
+pacman -S ttf-nerd-fonts-symbols
+pacman -S powerline-fonts
+pacman -S awesome-terminal-fonts
+```
+
 #### General
 
 ```bash
+pacman -S lsd                  # Modern ls with a lot of pretty colors and awesome icons
 pacman -S zsh                  # A very advanced and programmable command interpreter (shell) for UNIX
+pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh.
 pacman -S git                  # The fast distributed version control system
 pacman -S htop                 # Interactive process viewer
 pacman -S nvtop                # An htop like monitoring tool for NVIDIA GPUs
@@ -284,6 +295,15 @@ gotop                # A terminal based graphical activity monitor inspired by g
 # Alias
 
 ```bash
+# General
+alias l='lsd'
+alias ls='lsd'
+alias ll='lsd -l'
+alias la='lsd -a'
+alias lla='lsd -la'
+alias lt='lsd --tree'
+
+
 # Jupyter notebook
 alias jn="jupyter notebook"
 
