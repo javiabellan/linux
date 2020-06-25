@@ -231,19 +231,21 @@ pacman -S awesome-terminal-fonts
 #### General
 
 ```bash
-pacman -S lsd                  # Modern ls with a lot of pretty colors and awesome icons
-pacman -S zsh                  # A very advanced and programmable command interpreter (shell) for UNIX
-pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh.
-pacman -S git                  # The fast distributed version control system
-pacman -S htop                 # Interactive process viewer
-pacman -S nvtop                # An htop like monitoring tool for NVIDIA GPUs
-pacman -S tree                 # A directory listing program displaying a depth indented list of files
-pacman -S openssh              # Premier connectivity tool for remote login with the SSH protocol
-pacman -S openssl              # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
-pacman -S figlet               # A program for making large letters out of ordinary text
-pacman -S tldr                 # A collection of simplified and community-driven man pages.
-pacman -S bc                   # An arbitrary precision calculator language
-pacman -S aspell               # A spell checker designed to eventually replace Ispell
+pacman -S lsd                     # Modern ls with a lot of pretty colors and awesome icons
+pacman -S zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
+pacman -S zsh-autosuggestions     # Fish-like autosuggestions for zsh
+pacman -S zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
+pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh
+pacman -S git                     # The fast distributed version control system
+pacman -S htop                    # Interactive process viewer
+pacman -S nvtop                   # An htop like monitoring tool for NVIDIA GPUs
+pacman -S tree                    # A directory listing program displaying a depth indented list of files
+pacman -S openssh                 # Premier connectivity tool for remote login with the SSH protocol
+pacman -S openssl                 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
+pacman -S figlet                  # A program for making large letters out of ordinary text
+pacman -S tldr                    # A collection of simplified and community-driven man pages.
+pacman -S bc                      # An arbitrary precision calculator language
+pacman -S aspell                  # A spell checker designed to eventually replace Ispell
 ```
 
 
@@ -255,6 +257,7 @@ pacman -S python-pyflakes      # A lint-like tool for Python to identify common 
 pacman -S mypy                 # Optional static typing for Python 2 and 3
 pacman -S python-tqdm          # Fast, Extensible Progress Meter
 pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
+pacman -S jupyterlab           # JupyterLab computational environment
 pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
 pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 pacman -S make                 # GNU make utility to maintain groups of programs
@@ -295,6 +298,12 @@ gotop                # A terminal based graphical activity monitor inspired by g
 # Alias
 
 ```bash
+# ZSH pluggins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+
 # General
 alias l='lsd'
 alias ls='lsd'
@@ -349,6 +358,12 @@ alias cc="wc --chars" # chars count
 
 
 
+# Jupyter
+
+### [Jupyter extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)
+
+1. `sudi pip install jupyter_contrib_nbextensions`
+2. `sudo jupyter contrib nbextension install`
 
 
 
@@ -361,7 +376,29 @@ git config --global credential.helper store  # Almacena en ~/.git-credentials ->
 
 # Vim
 
+### Modos
+- `:` -> **Command-line**: for running a command
+- **Normal**: for moving around a file and making edits
+- `i` -> **Insert**: for inserting text
+- **Replace**: for replacing text
+- **Visual** (plain, line, or block): for selecting blocks of text
 
+
+### Command-line
+
+Command mode can be entered by typing `:` in Normal mode. Your cursor will jump
+to the command line at the bottom of the screen upon pressing `:`. This mode
+has many functionalities, including opening, saving, and closing files, and
+[quitting Vim](https://twitter.com/iamdevloper/status/435555976687923200).
+
+- `:q` quit (close window)
+- `:w` save ("write")
+- `:wq` save and quit
+- `:e {name of file}` open file for editing
+- `:ls` show open buffers
+- `:help {topic}` open help
+    - `:help :w` opens help for the `:w` command
+    - `:help w` opens help for the `w` movement
 
 # TMUX
 
