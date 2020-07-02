@@ -287,6 +287,8 @@ pacman -S python-tensorflow-opt-cuda # Tensorflow
 ```bash
 pip install ngboost
 pip install rgf_python
+pip install kaggler
+pip install mlxtend
 ```
 
 ## In [AUR](https://aur.archlinux.org/packages)
