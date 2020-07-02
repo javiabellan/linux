@@ -282,7 +282,12 @@ pacman -S python-pytorch-opt-cuda    # Pytorch
 pacman -S python-tensorflow-opt-cuda # Tensorflow
 ```
 
+#### Data Science (PIP)
 
+```bash
+pip install ngboost
+pip install rgf_python
+```
 
 ## In [AUR](https://aur.archlinux.org/packages)
 
