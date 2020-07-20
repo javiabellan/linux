@@ -285,10 +285,13 @@ pacman -S python-tensorflow-opt-cuda # Tensorflow
 #### Data Science (PIP)
 
 ```bash
+pip install fastai2
+pip install scikit-plot
 pip install ngboost
 pip install rgf_python
 pip install kaggler
 pip install mlxtend
+pip install pytorch-metric-learning
 ```
 
 ## In [AUR](https://aur.archlinux.org/packages)
