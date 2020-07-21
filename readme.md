@@ -292,6 +292,7 @@ pip install rgf_python
 pip install kaggler
 pip install mlxtend
 pip install pytorch-metric-learning
+pip install albumentations
 ```
 
 ## In [AUR](https://aur.archlinux.org/packages)
