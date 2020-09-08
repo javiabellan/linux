@@ -269,7 +269,8 @@ pacman -S jq                   # Command-line JSON processor
 
 ```bash
 pacman -S hdf5                       # General purpose library and file format for storing scientific data
-pacman -S opencv opencv-samples      # Open Source Computer Vision Library
+pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
+pacman -S opencv-samples             # Open Source Computer Vision Library
 pacman -S graphviz                   # Graph visualization software
 pacman -S python-numpy               # Matrix manipulation
 pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
@@ -293,6 +294,7 @@ pip install kaggler
 pip install mlxtend
 pip install pytorch-metric-learning
 pip install albumentations
+pip install opencv-contrib-python # Main and Extra/Contrib modules
 ```
 
 ## In [AUR](https://aur.archlinux.org/packages)
