@@ -7,8 +7,8 @@
 | [IO Redirection](#io-redirection)  | [VIM](#vim)       | [Profiling](#profiling) |
 | [Pipes](#pipes)                    | [TMUX](#tmux)     | [Makefile](#makefile)   |
 | [Scripts](#scripts)                | [ZSH](#zsh)       | [Cryptography](#cryptography)   |
-| [Software](#software)              | [SSH](#ssh)       |                         |
-| [Alias](#alias)                    | [Pacman](#pacman) |                         |
+| [Alias](#alias)                    | [SSH](#ssh)       |                         |
+|                                    | [Pacman](#pacman) |                         |
 
 
 ---
@@ -208,104 +208,6 @@ reboot
 sudo mhwd -i pci video-nvidia-430xx
 reboot
 ```
-
-
-
-
-
-
-
-# Software
-
-## In [Arch Linux](https://www.archlinux.org/packages)
-
-
-#### Fonts
-
-```bash
-pacman -S ttf-nerd-fonts-symbols
-pacman -S powerline-fonts
-pacman -S awesome-terminal-fonts
-```
-
-#### General
-
-```bash
-pacman -S lsd                     # Modern ls with a lot of pretty colors and awesome icons
-pacman -S zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
-pacman -S zsh-autosuggestions     # Fish-like autosuggestions for zsh
-pacman -S zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
-pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh
-pacman -S git                     # The fast distributed version control system
-pacman -S htop                    # Interactive process viewer
-pacman -S nvtop                   # An htop like monitoring tool for NVIDIA GPUs
-pacman -S tree                    # A directory listing program displaying a depth indented list of files
-pacman -S openssh                 # Premier connectivity tool for remote login with the SSH protocol
-pacman -S openssl                 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
-pacman -S figlet                  # A program for making large letters out of ordinary text
-pacman -S tldr                    # A collection of simplified and community-driven man pages.
-pacman -S bc                      # An arbitrary precision calculator language
-pacman -S aspell                  # A spell checker designed to eventually replace Ispell
-```
-
-
-#### Programming
-
-```bash
-pacman -S python-ipdb          # IPython-enabled pdb
-pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
-pacman -S mypy                 # Optional static typing for Python 2 and 3
-pacman -S python-tqdm          # Fast, Extensible Progress Meter
-pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
-pacman -S jupyterlab           # JupyterLab computational environment
-pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
-pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
-pacman -S make                 # GNU make utility to maintain groups of programs
-pacman -S jq                   # Command-line JSON processor
-```
-
-
-#### Data Science
-
-```bash
-pacman -S hdf5                       # General purpose library and file format for storing scientific data
-pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
-pacman -S opencv-samples             # Open Source Computer Vision Library
-pacman -S graphviz                   # Graph visualization software
-pacman -S python-numpy               # Matrix manipulation
-pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
-pacman -S python-pandas              # Deal with data
-pacman -S python-scikit-learn        # Machine learning
-pacman -S python-matplotlib          # Visualization
-pacman -S python-seaborn             # Visualization
-pacman -S python-nltk                # Natural language processing in Python
-pacman -S python-pytorch-opt-cuda    # Pytorch
-pacman -S python-tensorflow-opt-cuda # Tensorflow
-```
-
-#### Data Science (PIP)
-
-```bash
-pip install fastai2
-pip install scikit-plot
-pip install ngboost
-pip install rgf_python
-pip install kaggler
-pip install mlxtend
-pip install pytorch-metric-learning
-pip install albumentations
-pip install opencv-contrib-python # Main and Extra/Contrib modules
-```
-
-## In [AUR](https://aur.archlinux.org/packages)
-
-```bash
-google-chrome        # The popular and trusted web browser by Google (Stable Channel)
-gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
-```
-
-
-
 
 
 # Alias
