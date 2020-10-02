@@ -69,22 +69,36 @@ pacman -S python-tensorflow-opt-cuda # Tensorflow
 #### Data Science (PIP)
 
 ```bash
-## Pytorch based
+## EDA
+pip install pandas-profiling[notebook]
+pip install sweetviz
+
+## Deep Learning
 pip install fastai                  # Simplifies training fast and accurate neural nets using modern best practices
 pip install captum                  # Model Interpretability for PyTorch
 pip install pytorch-metric-learning # Learn if pairs (o triplets) are the same. Useful for few samples
 pip install kornia                  # Computer Vision Library for PyTorch
 pip install torch-optimizer         # Collection of optimizers for PyTorch compatible with optim module
 pip install efficientnet-pytorch    # EfficientNet models (B0, B1,..., B7)
+pip install albumentations          # Image agumaetations based in openCV
 
-pip install scikit-plot
+## Machine Laerning
+pip install pycaret       # ML library extension of sklearn (muchas cosas)
+pip install mlxtend       # ML library extension of sklearn (algunas cosas)
+pip install kaggler       # ML library extension of sklearn (pocas cosas)
+pip install yellowbrick   # ML Visualization
+pip install scikit-plot   # ML Visualization
+pip install shap          # ML Interpretability
+pip install tsfresh       # Temporal series feature generation
+pip install featuretools  # feature generation when multiples tables
+
+## Machine Laerning Models
 pip install ngboost
 pip install rgf_python
-pip install kaggler
-pip install mlxtend
-pip install albumentations          # Image agumaetations based in openCV
+pip install umap-learn    # UMAP model for DimRed
+
+# Computer Vision
 pip install opencv-contrib-python   # Main and Extra/Contrib modules
-pip install tsfresh
 ```
 
 
