@@ -83,14 +83,17 @@ pip install efficientnet-pytorch    # EfficientNet models (B0, B1,..., B7)
 pip install albumentations          # Image agumaetations based in openCV
 
 ## Machine Laerning
-pip install pycaret       # ML library extension of sklearn (muchas cosas)
-pip install mlxtend       # ML library extension of sklearn (algunas cosas)
-pip install kaggler       # ML library extension of sklearn (pocas cosas)
-pip install yellowbrick   # ML Visualization
-pip install scikit-plot   # ML Visualization
-pip install shap          # ML Interpretability
-pip install tsfresh       # Temporal series feature generation
-pip install featuretools  # feature generation when multiples tables
+pip install pycaret         # ML library extension of sklearn (muchas cosas)
+pip install mlxtend         # ML library extension of sklearn (algunas cosas)
+pip install kaggler         # ML library extension of sklearn (pocas cosas)
+pip install optuna          # Hyperparameters optimization
+pip install hyperopt        # Hyperparameters optimization
+pip install scikit-optimize # Hyperparameters optimization
+pip install yellowbrick     # ML Visualization
+pip install scikit-plot     # ML Visualization
+pip install shap            # ML Interpretability
+pip install tsfresh         # Temporal series feature generation
+pip install featuretools    # feature generation when multiples tables
 
 ## Machine Laerning Models
 pip install ngboost
