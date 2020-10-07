@@ -106,6 +106,9 @@ pip install opencv-contrib-python   # Main and Extra/Contrib modules
 
 
 ## In [AUR](https://aur.archlinux.org/packages)
+1. Download package folder with `PKGBUILD` file
+2. Inside the folder, build it via `$ makepkg`
+3. Install it via `$ pacman -U packagename.pkg.tar.xz`
 
 ```bash
 google-chrome        # The popular and trusted web browser by Google (Stable Channel)
