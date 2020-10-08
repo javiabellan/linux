@@ -106,13 +106,21 @@ pip install opencv-contrib-python   # Main and Extra/Contrib modules
 
 
 ## In [AUR](https://aur.archlinux.org/packages)
+
+### Manually
 1. Download package folder with `PKGBUILD` file
 2. Inside the folder, build it via `$ makepkg`
 3. Install it via `$ pacman -U packagename.pkg.tar.xz`
 
+### With yay
+1. Install yay
+   - `git clone https://aur.archlinux.org/yay.git`
+   - `cd yay`
+   - `makepkg -si`
+2. Use yay
 ```bash
-google-chrome        # The popular and trusted web browser by Google (Stable Channel)
-gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
+yay -S google-chrome        # The popular and trusted web browser by Google (Stable Channel)
+yay -S gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
 ```
 
 
