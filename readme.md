@@ -417,6 +417,21 @@ Opción con programas que mantienen la sesion activa (`tmux` or `screen`)
 
 
 
+# Jupyter Lab Server
+
+#### On the Remote Server
+1. Get the IP address of your server: `$ hostname -I  # 192.168.0.120`
+2. Configure Jupyter Lab Password
+   - `$ jupyter notebook --generate-config`
+   - `$ jupyter notebook password`
+   - `Enter password:  ****`
+   - `Verify password: ****`
+3. Starting Jupyter Lab `$ jupyter-lab --ip 0.0.0.0 --port 8888 --no-browser`
+
+#### On client
+1. Navigate to `http://<your-routers-public-ip>:8888`
+2. Enter password
+
 
 # Pacman
 ```bash
