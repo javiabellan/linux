@@ -94,6 +94,7 @@ pip install scikit-plot     # ML Visualization
 pip install shap            # ML Interpretability
 pip install tsfresh         # Temporal series feature generation
 pip install featuretools    # feature generation when multiples tables
+pip install iterative-stratification # Used for multilabel targets
 
 ## Machine Laerning Models
 pip install ngboost
