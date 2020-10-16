@@ -35,6 +35,7 @@ pacman -S aspell                  # A spell checker designed to eventually repla
 #### Programming
 
 ```bash
+pacman -S python-pip           # The PyPA recommended tool for installing Python packages
 pacman -S python-ipdb          # IPython-enabled pdb
 pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
 pacman -S mypy                 # Optional static typing for Python 2 and 3
