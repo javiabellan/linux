@@ -65,6 +65,7 @@ pacman -S python-seaborn             # Visualization
 pacman -S python-nltk                # Natural language processing in Python
 pacman -S python-pytorch-opt-cuda    # Pytorch
 pacman -S python-tensorflow-opt-cuda # Tensorflow
+pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 ```
 
 #### Data Science (PIP)
@@ -82,6 +83,8 @@ pip install kornia                  # Computer Vision Library for PyTorch
 pip install torch-optimizer         # Collection of optimizers for PyTorch compatible with optim module
 pip install efficientnet-pytorch    # EfficientNet models (B0, B1,..., B7)
 pip install albumentations          # Image agumaetations based in openCV
+pip install tensorflow-addons
+
 
 ## Machine Laerning
 pip install pycaret         # ML library extension of sklearn (muchas cosas)
