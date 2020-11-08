@@ -35,11 +35,7 @@ pacman -S aspell                  # A spell checker designed to eventually repla
 #### Programming
 
 ```bash
-pacman -S python-pip           # The PyPA recommended tool for installing Python packages
-pacman -S python-ipdb          # IPython-enabled pdb
-pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
 pacman -S mypy                 # Optional static typing for Python 2 and 3
-pacman -S python-tqdm          # Fast, Extensible Progress Meter
 pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
 pacman -S jupyterlab           # JupyterLab computational environment
 pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
@@ -48,6 +44,18 @@ pacman -S make                 # GNU make utility to maintain groups of programs
 pacman -S jq                   # Command-line JSON processor
 ```
 
+
+```bash
+pacman -S python-pip           # The PyPA recommended tool for installing Python packages
+pacman -S python-ipdb          # IPython-enabled pdb
+pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
+pacman -S python-tqdm          # Fast, Extensible Progress Meter
+pacman -S python-tabulate      # Pretty-print tabular data in Python, a library and a command-line utility.
+pacman -S python-requests      # Python HTTP for Humans
+pacman -S python-colorama      # Python API for cross-platform colored terminal text.
+pacman -S python-future        # Clean single-source support for Python 3 and 2
+pacman -S python-pykerberos    # High-level interface to Kerberos
+```
 
 #### Data Science
 
@@ -70,43 +78,46 @@ pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 
 #### Data Science (PIP)
 
+Para no mezclar con los paquetes de python del sistema alojados en (`/usr/lib/python3.8`) mejor instalar los paquetes de pip en el directorio del usuario con el flag `--user` (`~/.local/lib/python3.8/site-packages/`).
+
 ```bash
 ## EDA
-pip install pandas-profiling[notebook]
-pip install sweetviz
+pip install --user pandas-profiling[notebook]
+pip install --user sweetviz             # A pandas-based library to visualize and compare datasets.
+pip install --user dython               # A set of data tools in Python (Better correlation matrix)
 
 ## Deep Learning
-pip install fastai                  # Simplifies training fast and accurate neural nets using modern best practices
-pip install captum                  # Model Interpretability for PyTorch
-pip install pytorch-metric-learning # Learn if pairs (o triplets) are the same. Useful for few samples
-pip install kornia                  # Computer Vision Library for PyTorch
-pip install torch-optimizer         # Collection of optimizers for PyTorch compatible with optim module
-pip install efficientnet-pytorch    # EfficientNet models (B0, B1,..., B7)
-pip install albumentations          # Image agumaetations based in openCV
-pip install tensorflow-addons
-
+pip install --user fastai                  # Simplifies training fast and accurate neural nets using modern best practices
+pip install --user captum                  # Model Interpretability for PyTorch
+pip install --user pytorch-metric-learning # Learn if pairs (o triplets) are the same. Useful for few samples
+pip install --user kornia                  # Computer Vision Library for PyTorch
+pip install --user torch-optimizer         # Collection of optimizers for PyTorch compatible with optim module
+pip install --user efficientnet-pytorch    # EfficientNet models (B0, B1,..., B7)
+pip install --user albumentations          # Image agumaetations based in openCV
+pip install --user tensorflow-addons
 
 ## Machine Laerning
-pip install pycaret         # ML library extension of sklearn (muchas cosas)
-pip install mlxtend         # ML library extension of sklearn (algunas cosas)
-pip install kaggler         # ML library extension of sklearn (pocas cosas)
-pip install optuna          # Hyperparameters optimization
-pip install hyperopt        # Hyperparameters optimization
-pip install scikit-optimize # Hyperparameters optimization
-pip install yellowbrick     # ML Visualization
-pip install scikit-plot     # ML Visualization
-pip install shap            # ML Interpretability
-pip install tsfresh         # Temporal series feature generation
-pip install featuretools    # feature generation when multiples tables
-pip install iterative-stratification # Used for multilabel targets
+pip install --user pycaret         # ML library extension of sklearn (muchas cosas)
+pip install --user mlxtend         # ML library extension of sklearn (algunas cosas)
+pip install --user kaggler         # ML library extension of sklearn (pocas cosas)
+pip install --user optuna          #  A hyperparameter optimization framework
+pip install --user hyperopt        # Hyperparameters optimization
+pip install --user scikit-optimize # Hyperparameters optimization
+pip install --user yellowbrick     # ML Visualization
+pip install --user scikit-plot     # ML Visualization
+pip install --user shap            # ML Interpretability
+pip install --user tsfresh         # Temporal series feature generation
+pip install --user featuretools    # feature generation when multiples tables
+pip install --user iterative-stratification # Used for multilabel targets
+pip install --user h2o             # H2O, Fast Scalable Machine Learning, for python
 
 ## Machine Laerning Models
-pip install ngboost
-pip install rgf_python
-pip install umap-learn    # UMAP model for DimRed
+pip install --user ngboost
+pip install --user rgf_python
+pip install --user umap-learn    # UMAP model for DimRed
 
 # Computer Vision
-pip install opencv-contrib-python   # Main and Extra/Contrib modules
+pip install --user opencv-contrib-python   # Main and Extra/Contrib modules
 ```
 
 
