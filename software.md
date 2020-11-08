@@ -111,7 +111,6 @@ pip install --user tensorflow-addons
 
 #### Machine Learning
 ```bash
-pip install --user pycaret         # ML library extension of sklearn (muchas cosas)
 pip install --user mlxtend         # ML library extension of sklearn (algunas cosas)
 pip install --user kaggler         # ML library extension of sklearn (pocas cosas)
 pip install --user mlflow          # Tracking experiments
@@ -125,7 +124,14 @@ pip install --user shap            # ML Interpretability
 pip install --user tsfresh         # Temporal series feature generation
 pip install --user featuretools    # Automated feature generation when multiples tables.
 pip install --user iterative-stratification # Used for multilabel targets
-pip install --user h2o             # H2O, Fast Scalable Machine Learning, for python
+```
+
+#### Auto Machine Learning
+```bash
+pip install --user h2o              # H2O, Fast Scalable Machine Learning, for python
+pip install --user pycaret          # An open source, low-code machine learning library in Python.
+pip install --user mljar-supervised # Automates Machine Learning Pipeline with Feature Engineering and Hyper-Parameters Tuning
+pip install --user tpot             # Tree-based Pipeline Optimization Tool using genetic programming.
 ```
 
 #### Machine Learning Models
