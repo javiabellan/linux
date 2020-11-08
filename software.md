@@ -42,6 +42,9 @@ pacman -S vim                  # Vi Improved, a highly configurable, improved ve
 pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
 pacman -S make                 # GNU make utility to maintain groups of programs
 pacman -S jq                   # Command-line JSON processor
+
+sudo pacman -S jre-openjdk     # Java Runtime Environment (JRE) ofrecido por OpenJDK
+sudo pacman -S jdk-openjdk     # Java Development Kit (JDK) ofrecido por OpenJDK
 ```
 
 
