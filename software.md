@@ -63,11 +63,10 @@ pacman -S python-pykerberos    # High-level interface to Kerberos
 #### Data Science
 
 ```bash
-pacman -S graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
 pacman -S hdf5                       # General purpose library and file format for storing scientific data
 pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
 pacman -S opencv-samples             # Open Source Computer Vision Library
-pacman -S graphviz                   # Graph visualization software
+pacman -S graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
 pacman -S python-numpy               # Matrix manipulation
 pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
 pacman -S python-pandas              # Deal with data
