@@ -79,17 +79,26 @@ pacman -S python-tensorflow-opt-cuda # Tensorflow
 pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 ```
 
-#### Data Science (PIP)
+## In [PIP](https://pypi.org)
 
 Para no mezclar con los paquetes de python del sistema alojados en (`/usr/lib/python3.8`) mejor instalar los paquetes de pip en el directorio del usuario con el flag `--user` (`~/.local/lib/python3.8/site-packages/`).
 
+#### EDA
 ```bash
-## EDA
-pip install --user pandas-profiling[notebook]
-pip install --user sweetviz             # A pandas-based library to visualize and compare datasets.
-pip install --user dython               # A set of data tools in Python (Better correlation matrix)
+pip install --user altair            # A declarative statistical visualization library for Python.
+pip install --user plotly            # An open-source, interactive data visualization library for Python.
+pip install --user cufflinks         # Productivity Tools for Plotly + Pandas.
+pip install --user missingno         # Missing data visualization module for Python.
+pip install --user dython            # A set of data tools in Python (Better correlation matrix).
+pip install --user phik              # Phi_K correlation analyzer library
+pip install --user pyod              # Python Outlier Detection (Anomaly Detection)
+pip install --user wordcloud         # A little word cloud generator
+pip install --user sweetviz          # A pandas-based library to visualize and compare datasets.
+pip install --user pandas-profiling  # Generate profile report for pandas DataFrame
+```
 
-## Deep Learning
+#### Deep Learning
+```bash
 pip install --user fastai                  # Simplifies training fast and accurate neural nets using modern best practices
 pip install --user captum                  # Model Interpretability for PyTorch
 pip install --user pytorch-metric-learning # Learn if pairs (o triplets) are the same. Useful for few samples
@@ -98,33 +107,56 @@ pip install --user torch-optimizer         # Collection of optimizers for PyTorc
 pip install --user efficientnet-pytorch    # EfficientNet models (B0, B1,..., B7)
 pip install --user albumentations          # Image agumaetations based in openCV
 pip install --user tensorflow-addons
+```
 
-## Machine Laerning
+#### Machine Learning
+```bash
 pip install --user pycaret         # ML library extension of sklearn (muchas cosas)
 pip install --user mlxtend         # ML library extension of sklearn (algunas cosas)
 pip install --user kaggler         # ML library extension of sklearn (pocas cosas)
-pip install --user optuna          #  A hyperparameter optimization framework
+pip install --user mlflow          # Tracking experiments
+pip install --user wandb           # Tracking experiments
+pip install --user optuna          # A hyperparameter optimization framework
 pip install --user hyperopt        # Hyperparameters optimization
 pip install --user scikit-optimize # Hyperparameters optimization
 pip install --user yellowbrick     # ML Visualization
-pip install --user scikit-plot     # ML Visualization
+pip install --user scikit-plot     # ML Visualization (lift and gain charts)
 pip install --user shap            # ML Interpretability
 pip install --user tsfresh         # Temporal series feature generation
-pip install --user featuretools    # feature generation when multiples tables
+pip install --user featuretools    # Automated feature generation when multiples tables.
 pip install --user iterative-stratification # Used for multilabel targets
 pip install --user h2o             # H2O, Fast Scalable Machine Learning, for python
+```
 
-## Machine Laerning Models
-pip install --user ngboost
-pip install --user rgf_python
+#### Machine Learning Models
+```bash
+pip install --user xgboost       # XGBoost (CPU & GPU)
+pip install --user catboost      # Catboost (CPU & GPU)
+pip install --user lightgbm      # lightgbm (CPU version)
+pip install --user ngboost       # Library for probabilistic predictions via gradient boosting.
+pip install --user rgf_python    # Scikit-learn Wrapper for Regularized Greedy Forest
 pip install --user umap-learn    # UMAP model for DimRed
+pip install --user kmodes        # k-modes and k-prototypes clustering algorithms for clustering categorical data.
 
-# Computer Vision
+pip install --user lightgbm --install-option=--gpu  # lightgbm (GPU version)
+pip install --user lightgbm --install-option=--gpu --install-option="--opencl-include-dir=/usr/local/cuda/include/" --install-option="--opencl-library=/usr/local/cuda/lib64/libOpenCL.so"
+```
+
+#### Computer Vision
+```bash
 pip install --user opencv-contrib-python   # Main and Extra/Contrib modules
+```
+
+#### NLP
+```bash
+pip install --user textblob  # Pythonic text processing. Sentiment analysis, part-of-speech tagging, noun phrase parsing, and more.
+pip install --user gensim    # Python framework for fast Vector Space Modelling
+pip install --user spacy     # Industrial-strength Natural Language Processing (NLP) in Python
 ```
 
 
 ## In [AUR](https://aur.archlinux.org/packages)
+
 
 ### Manually
 1. Download package folder with `PKGBUILD` file
@@ -143,7 +175,7 @@ yay -S gotop                # A terminal based graphical activity monitor inspir
 ```
 
 
-
+---
 
 # 🐍 Python Packages
 
