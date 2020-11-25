@@ -67,6 +67,7 @@ pacman -S hdf5                       # General purpose library and file format f
 pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
 pacman -S opencv-samples             # Open Source Computer Vision Library
 pacman -S graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
+pacman -S python-pydot               # Python interface to Graphviz's Dot
 pacman -S python-numpy               # Matrix manipulation
 pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
 pacman -S python-pandas              # Deal with data
