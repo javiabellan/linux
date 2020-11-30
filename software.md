@@ -63,21 +63,22 @@ pacman -S python-pykerberos    # High-level interface to Kerberos
 #### Data Science
 
 ```bash
-pacman -S hdf5                       # General purpose library and file format for storing scientific data
-pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
-pacman -S opencv-samples             # Open Source Computer Vision Library
-pacman -S graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
-pacman -S python-pydot               # Python interface to Graphviz's Dot
-pacman -S python-numpy               # Matrix manipulation
-pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
-pacman -S python-pandas              # Deal with data
-pacman -S python-scikit-learn        # Machine learning
-pacman -S python-matplotlib          # Visualization
-pacman -S python-seaborn             # Visualization
-pacman -S python-nltk                # Natural language processing in Python
-pacman -S python-pytorch-opt-cuda    # Pytorch
-pacman -S python-tensorflow-opt-cuda # Tensorflow
-pacman -S tensorboard                # TensorFlow's Visualization Toolkit
+sudo pacman -S hdf5                       # General purpose library and file format for storing scientific data
+sudo pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
+sudo pacman -S opencv-samples             # Open Source Computer Vision Library
+sudo pacman -S graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
+sudo pacman -S python-pydot               # Python interface to Graphviz's Dot
+sudo pacman -S python-numpy               # Matrix manipulation
+sudo pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
+sudo pacman -S python-pandas              # Deal with data
+sudo pacman -S python-xlrd                # Library to extract data from Microsoft Excel spreadsheet files
+sudo pacman -S python-scikit-learn        # Machine learning
+sudo pacman -S python-matplotlib          # Visualization
+sudo pacman -S python-seaborn             # Visualization
+sudo pacman -S python-nltk                # Natural language processing in Python
+sudo pacman -S python-pytorch-opt-cuda    # Pytorch
+sudo pacman -S python-tensorflow-opt-cuda # Tensorflow
+sudo pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 ```
 
 ## In [PIP](https://pypi.org)
