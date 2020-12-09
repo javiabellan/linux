@@ -229,6 +229,9 @@ alias la='lsd -a'
 alias lla='lsd -la'
 alias lt='lsd --tree'
 
+# Disk usage of current dir
+alias du='du -sh -- * | sort -h -r'
+
 
 # Jupyter notebook
 alias jn="jupyter notebook"
