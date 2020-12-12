@@ -1,63 +1,61 @@
-<h1 align="center">Software</h1>
+<h1 align="center">Software for Arch Linux</h1>
 
-## In [Arch Linux](https://www.archlinux.org/packages)
-
+## [Official Arch packages](https://www.archlinux.org/packages)
 
 #### Fonts
 
 ```bash
-pacman -S ttf-nerd-fonts-symbols
-pacman -S powerline-fonts
-pacman -S awesome-terminal-fonts
+sudo pacman -S ttf-nerd-fonts-symbols
+sudo pacman -S powerline-fonts
+sudo pacman -S awesome-terminal-fonts
 ```
 
 #### General
 
 ```bash
-pacman -S lsd                     # Modern ls with a lot of pretty colors and awesome icons
-pacman -S zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
-pacman -S zsh-autosuggestions     # Fish-like autosuggestions for zsh
-pacman -S zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
-pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh
-pacman -S git                     # The fast distributed version control system
-pacman -S htop                    # Interactive process viewer
-pacman -S nvtop                   # An htop like monitoring tool for NVIDIA GPUs
-pacman -S tree                    # A directory listing program displaying a depth indented list of files
-pacman -S openssh                 # Premier connectivity tool for remote login with the SSH protocol
-pacman -S openssl                 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
-pacman -S figlet                  # A program for making large letters out of ordinary text
-pacman -S tldr                    # A collection of simplified and community-driven man pages.
-pacman -S bc                      # An arbitrary precision calculator language
-pacman -S aspell                  # A spell checker designed to eventually replace Ispell
+sudo pacman -S lsd                     # Modern ls with a lot of pretty colors and awesome icons
+sudo pacman -S zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
+sudo pacman -S zsh-autosuggestions     # Fish-like autosuggestions for zsh
+sudo pacman -S zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
+sudo pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh
+sudo pacman -S git                     # The fast distributed version control system
+sudo pacman -S htop                    # Interactive process viewer
+sudo pacman -S nvtop                   # An htop like monitoring tool for NVIDIA GPUs
+sudo pacman -S tree                    # A directory listing program displaying a depth indented list of files
+sudo pacman -S openssh                 # Premier connectivity tool for remote login with the SSH protocol
+sudo pacman -S openssl                 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
+sudo pacman -S figlet                  # A program for making large letters out of ordinary text
+sudo pacman -S tldr                    # A collection of simplified and community-driven man pages.
+sudo pacman -S bc                      # An arbitrary precision calculator language
+sudo pacman -S aspell                  # A spell checker designed to eventually replace Ispell
 ```
 
 
 #### Programming
 
 ```bash
-pacman -S mypy                 # Optional static typing for Python 2 and 3
-pacman -S jupyter-notebook     # The language-agnostic HTML notebook application for Project Jupyter
-pacman -S jupyterlab           # JupyterLab computational environment
-pacman -S vim                  # Vi Improved, a highly configurable, improved version of the vi text editor
-pacman -S neovim               # Fork of Vim aiming to improve user experience, plugins, and GUIs
-pacman -S make                 # GNU make utility to maintain groups of programs
-pacman -S jq                   # Command-line JSON processor
-
-sudo pacman -S jre-openjdk     # Java Runtime Environment (JRE) ofrecido por OpenJDK
-sudo pacman -S jdk-openjdk     # Java Development Kit (JDK) ofrecido por OpenJDK
+sudo pacman -S mypy             # Optional static typing for Python 2 and 3
+sudo pacman -S jupyter-notebook # The language-agnostic HTML notebook application for Project Jupyter
+sudo pacman -S jupyterlab       # JupyterLab computational environment
+sudo pacman -S vim              # Vi Improved, a highly configurable, improved version of the vi text editor
+sudo pacman -S neovim           # Fork of Vim aiming to improve user experience, plugins, and GUIs
+sudo pacman -S make             # GNU make utility to maintain groups of programs
+sudo pacman -S jq               # Command-line JSON processor
+sudo pacman -S jre-openjdk      # Java Runtime Environment (JRE) ofrecido por OpenJDK
+sudo pacman -S jdk-openjdk      # Java Development Kit (JDK) ofrecido por OpenJDK
 ```
 
 
 ```bash
-pacman -S python-pip           # The PyPA recommended tool for installing Python packages
-pacman -S python-ipdb          # IPython-enabled pdb
-pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
-pacman -S python-tqdm          # Fast, Extensible Progress Meter
-pacman -S python-tabulate      # Pretty-print tabular data in Python, a library and a command-line utility.
-pacman -S python-requests      # Python HTTP for Humans
-pacman -S python-colorama      # Python API for cross-platform colored terminal text.
-pacman -S python-future        # Clean single-source support for Python 3 and 2
-pacman -S python-pykerberos    # High-level interface to Kerberos
+sudo pacman -S python-pip           # The PyPA recommended tool for installing Python packages
+sudo pacman -S python-ipdb          # IPython-enabled pdb
+sudo pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
+sudo pacman -S python-tqdm          # Fast, Extensible Progress Meter
+sudo pacman -S python-tabulate      # Pretty-print tabular data in Python, a library and a command-line utility.
+sudo pacman -S python-requests      # Python HTTP for Humans
+sudo pacman -S python-colorama      # Python API for cross-platform colored terminal text.
+sudo pacman -S python-future        # Clean single-source support for Python 3 and 2
+sudo pacman -S python-pykerberos    # High-level interface to Kerberos
 ```
 
 #### Data Science
@@ -82,33 +80,28 @@ sudo pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 ```
 
 
-## In [AUR](https://aur.archlinux.org/packages)
+## [Arch User Repository (AUR)](https://aur.archlinux.org/packages)
 
-> #### Install yay
-> 1. git clone https://aur.archlinux.org/yay-git.git
-> 2. cd yay
-> 3. makepkg -si
+|                                     | Manually           | yay (AUR Helper)    |
+|:-----------------------------------:|--------------------|--------------------|
+| Preparation<br>(install yay)        |                    | `git clone https://aur.archlinux.org/yay.git`<br>`cd yay`<br>`makepkg -si` |
+| Install<br>some package<br>(chrome) | `git clone https://aur.archlinux.org/google-chrome.git`<br>`cd google-chrome`<br>`makepkg -si` | `yay -S google-chrome` |
+| Upgrade<br>some package<br>(chrome) | `cd google-chrome`<br>`git pull`<br>`makepkg -si` | `yay -Syu` |
 
-|          | Manually           | yay (AUR Helper)    |
-|----------|--------------------|--------------------|
-| Install  | git clone https://aur.archlinux.org/google-chrome.git<br>cd google-chrome<br>makepkg -si | yay -S google-chrome |
-| Upgrade  | cd google-chrome<br>git pull<br>makepkg -si | yay -Syu |
+#### Desktop apps
 
-
-
-### Manually
-1. Download package folder with `PKGBUILD` file
-2. Inside the folder, build it via `$ makepkg`
-3. Install it via `$ pacman -U packagename.pkg.tar.xz`
-
-### With yay
-1. Install yay
-   - `git clone https://aur.archlinux.org/yay.git`
-   - `cd yay`
-   - `makepkg -si`
-2. Use yay
 ```bash
 yay -S google-chrome        # The popular and trusted web browser by Google (Stable Channel)
+yay -S sublime-text-3       # Sophisticated text editor for code, html and prose - stable build
+yay -S spotify              # A proprietary music streaming service
+yay -S zoom                 # Video Conferencing and Web Conferencing Service	edh
+yay -S teams                # Microsoft Teams for Linux is your chat-centered workspace in Office 365
+yay -S teamviewer           # All-In-One Software for Remote Support and Online Meetings
+```
+
+#### Terminal apps
+
+```bash
 yay -S gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
 ```
 
