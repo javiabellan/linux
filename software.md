@@ -81,6 +81,38 @@ sudo pacman -S python-tensorflow-opt-cuda # Tensorflow
 sudo pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 ```
 
+
+## In [AUR](https://aur.archlinux.org/packages)
+
+> #### Install yay
+> 1. git clone https://aur.archlinux.org/yay-git.git
+> 2. cd yay
+> 3. makepkg -si
+
+|          | Manually           | yay (AUR Helper)    |
+|----------|--------------------|--------------------|
+| Install  | git clone https://aur.archlinux.org/google-chrome.git<br>cd google-chrome<br>makepkg -si | yay -S google-chrome |
+| Upgrade  | cd google-chrome<br>git pull<br>makepkg -si | yay -Syu |
+
+
+
+### Manually
+1. Download package folder with `PKGBUILD` file
+2. Inside the folder, build it via `$ makepkg`
+3. Install it via `$ pacman -U packagename.pkg.tar.xz`
+
+### With yay
+1. Install yay
+   - `git clone https://aur.archlinux.org/yay.git`
+   - `cd yay`
+   - `makepkg -si`
+2. Use yay
+```bash
+yay -S google-chrome        # The popular and trusted web browser by Google (Stable Channel)
+yay -S gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
+```
+
+
 ## In [PIP](https://pypi.org)
 
 Para no mezclar con los paquetes de python del sistema alojados en (`/usr/lib/python3.8`) mejor instalar los paquetes de pip en el directorio del usuario con el flag `--user` (`~/.local/lib/python3.8/site-packages/`).
@@ -163,24 +195,7 @@ pip install --user spacy     # Industrial-strength Natural Language Processing (
 ```
 
 
-## In [AUR](https://aur.archlinux.org/packages)
 
-
-### Manually
-1. Download package folder with `PKGBUILD` file
-2. Inside the folder, build it via `$ makepkg`
-3. Install it via `$ pacman -U packagename.pkg.tar.xz`
-
-### With yay
-1. Install yay
-   - `git clone https://aur.archlinux.org/yay.git`
-   - `cd yay`
-   - `makepkg -si`
-2. Use yay
-```bash
-yay -S google-chrome        # The popular and trusted web browser by Google (Stable Channel)
-yay -S gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
-```
 
 
 ---
