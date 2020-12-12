@@ -84,7 +84,7 @@ sudo pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 
 |                                     | Manually           | yay (AUR Helper)    |
 |:-----------------------------------:|--------------------|--------------------|
-| Preparation<br>(install yay)        |                    | `git clone https://aur.archlinux.org/yay.git`<br>`cd yay`<br>`makepkg -si` |
+| Preparation<br>(install yay)        |                    | `sudo pacman -S --needed base-devel git`<br>`git clone https://aur.archlinux.org/yay.git`<br>`cd yay`<br>`makepkg -si` |
 | Install<br>some package<br>(chrome) | `git clone https://aur.archlinux.org/google-chrome.git`<br>`cd google-chrome`<br>`makepkg -si` | `yay -S google-chrome` |
 | Upgrade<br>some package<br>(chrome) | `cd google-chrome`<br>`git pull`<br>`makepkg -si` | `yay -Syu` |
 
