@@ -151,6 +151,7 @@ pip install --user shap            # ML Interpretability
 pip install --user tsfresh         # Temporal series feature generation
 pip install --user featuretools    # Automated feature generation when multiples tables.
 pip install --user iterative-stratification # Used for multilabel targets
+pip install --user scikit-multilearn # Multi-label classification library
 ```
 
 #### Auto Machine Learning
