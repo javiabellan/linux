@@ -138,20 +138,22 @@ pip install --user tensorflow-addons
 
 #### Machine Learning
 ```bash
-pip install --user mlxtend         # ML library extension of sklearn (algunas cosas)
-pip install --user kaggler         # ML library extension of sklearn (pocas cosas)
-pip install --user mlflow          # Tracking experiments
-pip install --user wandb           # Tracking experiments
-pip install --user optuna          # A hyperparameter optimization framework
-pip install --user hyperopt        # Hyperparameters optimization
-pip install --user scikit-optimize # Hyperparameters optimization
-pip install --user yellowbrick     # ML Visualization
-pip install --user scikit-plot     # ML Visualization (lift and gain charts)
-pip install --user shap            # ML Interpretability
-pip install --user tsfresh         # Temporal series feature generation
-pip install --user featuretools    # Automated feature generation when multiples tables.
-pip install --user iterative-stratification # Used for multilabel targets
+pip install --user mlxtend           # ML library extension of sklearn (algunas cosas)
+pip install --user kaggler           # ML library extension of sklearn (pocas cosas)
+pip install --user mlflow            # Tracking experiments
+pip install --user wandb             # Tracking experiments
+pip install --user optuna            # A hyperparameter optimization framework
+pip install --user optuna-dashboard  # Real-time dashboard for Optuna.
+pip install --user hyperopt          # Hyperparameters optimization
+pip install --user scikit-optimize   # Hyperparameters optimization
+pip install --user yellowbrick       # ML Visualization
+pip install --user scikit-plot       # ML Visualization (lift and gain charts)
+pip install --user shap              # ML Interpretability
+pip install --user tsfresh           # Temporal series feature generation
+pip install --user featuretools      # Automated feature generation when multiples tables.
 pip install --user scikit-multilearn # Multi-label classification library
+pip install --user category-encoders # A collection sklearn transformers to encode categorical variables as numeric
+pip install --user iterative-stratification # Used for multilabel targets
 ```
 
 #### Auto Machine Learning
