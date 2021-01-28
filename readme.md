@@ -12,6 +12,13 @@
 
 ---
 
+# Set NTP time
+
+```bash
+sudo pacman -S ntp
+sudo timedatectl set-ntp true
+```
+
 # HDBaseT
 protocolo para dejar el ordenador lejos (hasta 100 metros de distancia) y conetar todo (video, USB) por un cable Ethernet (categoría 5E para distancias cortas o categoria 6 o 7 para distancias largas).
 
