@@ -295,6 +295,14 @@ alias cc="wc --chars" # chars count
 
 
 # Git
+
+### Undo local changes
+```bash
+git checkout .  # Revert modified files (in this . directory)
+git clean -fd   # Remove new untracked files (-f) and new directories (-d): 
+```
+
+### Save Github credential
 ```bash
 git config --global credential.helper store  # Almacena en ~/.git-credentials -> https://USER:PASS@github.com
 ```
