@@ -1,0 +1,78 @@
+# grep -o '^[^#]*' packages.txt | sudo pacman -S -
+
+
+
+# IDES
+jupyter-notebook # The language-agnostic HTML notebook application for Project Jupyter
+jupyterlab       # JupyterLab computational environment
+vim              # Vi Improved, a highly configurable, improved version of the vi text editor
+neovim           # Fork of Vim aiming to improve user experience, plugins, and GUIs
+
+
+# COMMON TOOLS
+git                     # The fast distributed version control system
+htop                    # Interactive process viewer
+nvtop                   # An htop like monitoring tool for NVIDIA GPUs
+tree                    # A directory listing program displaying a depth indented list of files
+youtube-dl              # download videos from YouTube.com and a few more sites
+
+
+# PYTHON: ML
+python-numpy               # Matrix manipulation
+python-pandas              # Deal with data
+python-scikit-learn        # Machine learning
+python-matplotlib          # Visualization
+python-seaborn             # Visualization
+python-scipy               # SciPy is open-source software for mathematics, science, and engineering.
+python-statsmodels         # Statistical computations and models for use with SciPy
+python-tqdm                # Fast, Extensible Progress Meter
+
+# PYTHON: DL
+python-pytorch-opt-cuda    # Pytorch
+python-tensorflow-opt-cuda # Tensorflow
+tensorboard                # TensorFlow's Visualization Toolkit
+
+
+
+
+
+python-dask                # Parallel computing with task scheduling
+python-distributed         # Distributed task scheduler for Dask
+python-patsy               # A Python package for describing statistical models using symbolic formulas
+hdf5                       # General purpose library and file format for storing scientific data
+graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
+python-pydot               # Python interface to Graphviz's Dot
+python-xlrd                # Library to extract data from Microsoft Excel spreadsheet files
+python-nltk                # Natural language processing in Python
+
+
+jq                      # Command-line JSON processor
+mypy                    # Optional static typing for Python 2 and 3
+make                    # GNU make utility to maintain groups of programs
+lsd                     # Modern ls with a lot of pretty colors and awesome icons
+zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
+zsh-autosuggestions     # Fish-like autosuggestions for zsh
+zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
+zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh
+openssh                 # Premier connectivity tool for remote login with the SSH protocol
+openssl                 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
+figlet                  # A program for making large letters out of ordinary text
+tldr                    # A collection of simplified and community-driven man pages.
+bc                      # An arbitrary precision calculator language
+aspell                  # A spell checker designed to eventually replace Ispell
+
+
+# MAPS
+python-basemap             # Toolkit for plotting data on map projections
+python-geopy               # Geocoding library for Python (get Latitude and Longitude)
+
+# COMPUTER VISION
+opencv                     # Open Source Computer Vision Library (Main modules package)
+opencv-samples             # Open Source Computer Vision Library
+
+# INTERNET API
+python-requests           # Python HTTP for Humans
+
+# JAVA
+jre-openjdk      # Java Runtime Environment (JRE) ofrecido por OpenJDK
+jdk-openjdk      # Java Development Kit (JDK) ofrecido por OpenJDK

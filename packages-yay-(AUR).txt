@@ -1,0 +1,10 @@
+python-torchvision-cuda   # Datasets, transforms, and models specific to computer vision (with GPU support)
+python-fastai             # Deep learning library build on PyTorch (legacy v1 release)
+python-kornia
+python-pytorch-lightning
+
+
+python-librosa            # Library for music and audio analysis
+
+google-chrome
+zoom
