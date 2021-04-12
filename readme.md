@@ -476,8 +476,9 @@ pacman -Rs {pkg}   # Remove package as well as unneeded dependencies (-s)
 pacman -Rns {pkg}  # Remove package, dependencies (-s), and system config files (-n)
 ```
 
+# YAY
 
-
+https://www.chrisatmachine.com/Linux/03-AUR-yay/
 
 
 
