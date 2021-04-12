@@ -13,6 +13,7 @@ python                     # Python 3
 python-pip                 # The PyPA recommended tool for installing Python packages
 r                          # Language and environment for statistics
 gcc                        # The GNU Compiler Collection - C and C++ frontends
+rust                       # Systems programming language focused on safety, speed and concurrency (This will install the rustc and Cargo)
 jre-openjdk                # Java Runtime Environment (JRE) ofrecido por OpenJDK
 jdk-openjdk                # Java Development Kit (JDK) ofrecido por OpenJDK
 
