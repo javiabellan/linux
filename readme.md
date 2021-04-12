@@ -244,10 +244,15 @@ alias du='du -sh -- * | sort -h -r'
 alias jn="jupyter notebook"
 
 # Pacman
-alias i="sudo pacman -S"   # i: install a package
-alias s="pacman -Ss"       # s: search for a package
-alias u="sudo pacman -Syu" # u: update the packages
-alias r="sudo pacman -Rns" # r: remove a package
+alias i="sudo pacman -S"        # install a package
+alias s="pacman -Ss"            # search for a package
+alias u="sudo pacman -Syu"      # update the packages
+alias r="sudo pacman -Rns"      # remove a package
+
+alias install="sudo pacman -S"  # install a package
+alias search="pacman -Ss"       # search for a package
+alias update="sudo pacman -Syu" # update the packages
+alias remove="sudo pacman -Rns" # remove a package
 
 # Others
 alias title="figlet" # r: remove a package
@@ -747,6 +752,27 @@ convert imagen.{png,jpg} # Expansion. Same of: convert imagen.jpg imagen.png
 ### Video 
 ```bash
 ffmpeg
+```
+
+# iso image to USB
+
+0. `su` Permisos de superusuario.
+1. `fdisk -l` buscar localización del USB (sdb, sdc, etc.).
+2. `dd if=/path/to/downloaded/iso of=/dev/sdx` Copiar (reemplazar sdx por la correcta ubicación).
+
+
+
+# Firewall
+
+```bash
+# iptables is already installed. I like ufw.
+
+pacman -S ufw                # Install ufw
+ufw enable                   # Enable it only once, when package is installed
+ufw status verbose           # Check its status
+systemctl start ufw          # Start the firewall
+systemctl enable ufw         # Enable the start-up with the system [option a]
+systemctl enable ufw.service # Enable the start-up with the system [option b]
 ```
 
 

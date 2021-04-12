@@ -1,0 +1,30 @@
+# grep -o '^[^#]*' packages-yay-server.txt | yay -S -
+
+
+
+# Python
+python-pathlib            # Common operations on paths in an easy, object-oriented way
+python-spacy              # Free open-source library for Natural Language Processing in Python
+python-pyro-ppl           # A Python library for probabilistic modeling and inference
+python-librosa            # Library for music and audio analysis
+python-missingno          # Missing data visualization module for Python.
+python-pandas-summary     # An extension to pandas dataframes describe function
+python-pandas-profiling   # Create HTML profiling reports from pandas DataFrame objects
+
+# DEEP LEARNING
+python-fastai             # Deep learning library build on PyTorch (legacy v1 release)
+python-kornia             # Open Source Differentiable Computer Vision Library for PyTorch
+python-albumentations     # Fast image augmentation library and easy to use wrapper around other libraries
+python-torchtext          # Data loaders and abstractions for text and NLP
+python-torchvision-cuda   # Datasets, transforms, and models specific to computer vision (with GPU support)
+python-pytorch-lightning  # The lightweight PyTorch wrapper for high-performance AI research
+python-pytorch-ignite     # High-level library to help with training neural networks in PyTorch
+
+# VISUALIZATION
+python-altair             # Declarative statistical visualization library for Python
+python-plotly             # An open-source, interactive graphing library
+
+# COMMAND LINE TOOLS
+kaggle-api                # Kaggle API CLI
+vizex                     # Visualize the disk space usage for every partition and media on the user's machine.
+gotop                     # A terminal based graphical activity monitor inspired by gtop and vtop

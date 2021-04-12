@@ -1,0 +1,10 @@
+# grep -o '^[^#]*' packages-pacman-desktop.txt | sudo pacman -S -
+
+
+# DESKTOP APPS
+discord           # All-in-one voice and text chat for gamers that's free and secure.
+firefox           # Standalone web browser from mozilla.org
+vlc               # Multi-platform MPEG, VCD/DVD, and DivX player
+code              # The Open Source build of Visual Studio Code (vscode) editor
+atom              # A hackable text editor for the 21st Century
+noto-fonts-emoji  # Google Noto emoji fonts
