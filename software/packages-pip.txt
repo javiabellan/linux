@@ -1,4 +1,4 @@
-# grep -o '^[^#]*' packages-pip.txt | pip --upgrade --user --no-deps install -
+# grep -o '^[^#]*' packages-pip.txt | pip install --upgrade --user --no-deps -
 
 # It is always preferred to use pacman. 
 # If you must use pip, use "pip install --user".
