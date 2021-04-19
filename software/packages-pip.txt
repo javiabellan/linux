@@ -5,5 +5,7 @@
 # Add path /home/javi/.local/bin
 
 # FASTAI
-fastai    # fastai simplifies training fast and accurate neural nets using modern best practices
-fastcore  # Python supercharged for fastai development
+fastai       # fastai simplifies training fast and accurate neural nets using modern best practices
+fastcore     # Python supercharged for fastai development
+fastprogress # A nested progress with plotting options for fastai
+fastrelease  # Simplified releases using GitHub Issues
