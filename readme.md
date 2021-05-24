@@ -10,6 +10,60 @@
 |                                    | [Pacman](#pacman) |                         |
 
 
+# Data sciece at the command line
+
+### Navigate
+`pwd`: **p**rint **w**orking **d**irectory
+- `cd` **c**hange **d**irectory
+  - `cd`: go to home
+  - `cd ~`: go to home
+  - `cd /`: go to root
+  - `cd -`: go to previous dir
+- `ls`: **l**i**s**t directories
+  - `ls -a`: show hidden too
+  - `ls -l`: show long (more info)
+  - `ls *.png`: only png files
+  - `ls *.??g`: only png and jpg files
+
+> - `tree`
+> - `broot`
+> - `nnn`
+> - `ranger`
+
+### See content
+
+- `cat myFile.txt`
+- `hexdump myFile.txt`: Para ver ficheros binarios
+- `xdg-open  myFile.txt`: Open a file with default program
+- `| head`: shows the beginning of a file (defaults to first 10 lines). `head -n5`: only 5 lines
+- `| tail`: shows the ending of a file (defaults to last 10 lines). `tail -n5`: only 5 lines
+- `| sort`: Sorting
+  - `| sort -r`: Reverse order
+  - `| sort -n`: Numerically
+  - `| sort -rn`: Numerically reversed
+- `| uniq` See uniques
+  - `| uniq -c`: Count uniques
+- `| wc`: counts words, chars, lines, longest line
+- `column`: Display in columns
+  - `column iris.csv -t -s ,`
+- `| cut`: Selecting fields (default is to delimit by tab).
+  - `cut iris.csv -d , -f2`
+- `paste`: join 2 (or more) files line by line
+- `| nl`: prepend line numbers
+- `grep`: print lines matching a pattern
+- `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
+- `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
+
+### Search
+- `find`: non-indexed search
+  - `find /etc`
+  - `find {where} -name {what} -type {what type}`
+- `locate`: indexed search
+
+#### See current date
+- `date`
+- `cal`
+
 ---
 
 # Set NTP time
@@ -52,23 +106,6 @@ bg          # Send the job to the background.
 stop {PID} or Ctrl + z          # Suspend the job.
 kill {PID} or Ctrl + c          # Terminate the job.
 
-############# Navigate
-pwd         # prin working directory
-cd          # change directory
-  cd        #   go to home
-  cd ~      #   go to home
-  cd /      #   go to root
-  cd -      #   go to previous dir
-ls          # list directories
-  ls -a     #   show hidden too
-  ls -l     #   show long (more info)
-  ls *.png  #   only png files
-  ls *.??g  #   only png and jpg files
-tree
-broot
-nnn
-ranger
-
 ############# Files and dirs
 mv {old_pth} {new_pth} # Move or rename a file
 cp {from_pth} {to_pth} # Copy a file
@@ -88,20 +125,12 @@ ncdu {file}            # Interactive version of Disk usage
 diff {file1} {file2}   # See differencs between files
 cmp {file1} {file2}    # See differencs between files
 tar {file1}            # compress file
-find {where} -name {what} -type {what type}  # Find files
 
 
-############# Print content of files
-head myFile.txt
-tail myFile.txt
-  tail -n1 myFile.txt # La ultima linea
-cat myFile.txt
-hexdump myFile.txt  # Para ver ficheros binarios
-xdg-open  myFile.txt # Open a file with default program
 
-############# Fechas
-date
-cal
+
+
+
 ```
 
 # IO Redirection
