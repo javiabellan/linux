@@ -50,6 +50,7 @@
   - `cut iris.csv -d , -f2`
 - `paste`: join 2 (or more) files line by line
 - `| nl`: prepend line numbers
+- `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
 - `grep`: print lines matching a pattern
 - `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
 - `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
