@@ -55,6 +55,12 @@
 - `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
 - `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
 
+### Plotting (`gnuplot`, `feedgnuplot`)
+
+- `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" | display`
+- `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" > sin.jpg`
+- https://github.com/dkogan/feedgnuplot/blob/master/guide/guide.org
+
 ### Search
 - `find`: non-indexed search
   - `find /etc`
