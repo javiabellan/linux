@@ -24,7 +24,9 @@
   - `ls -l`: show long (more info)
   - `ls *.png`: only png files
   - `ls *.??g`: only png and jpg files
-
+- `du`: **d**isk **u**sage
+  - `du -sh */ | sort -rh`
+  
 > - `tree`
 > - `broot`
 > - `nnn`
