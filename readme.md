@@ -19,7 +19,9 @@
   - `cd -`: go to previous dir
 - `ls`: **l**i**s**t directories
   - `ls -a`: show hidden too
-  - `ls -l`: show long (more info)
+  - `ls -l`: show long (more info: permissions, size, date)
+  - `ls -lh: Human readable size
+  - `ls -S: Sort files by size 
   - `ls *.png`: only png files
   - `ls *.??g`: only png and jpg files
 - `du`: **d**isk **u**sage
