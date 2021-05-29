@@ -10,10 +10,8 @@
 |                                    | [Pacman](#pacman) |                         |
 
 
-# Data sciece at the command line
-
 ### Navigate
-`pwd`: **p**rint **w**orking **d**irectory
+- `pwd`: **p**rint **w**orking **d**irectory
 - `cd` **c**hange **d**irectory
   - `cd`: go to home
   - `cd ~`: go to home
@@ -32,13 +30,22 @@
 > - `nnn`
 > - `ranger`
 
+### See files
+
+- `cat`: con**cat**enate and print files. 
+- `less`:
+- `more`:
+- `head`: shows the beginning of a file (defaults to first 10 lines).
+   - `head -n5`: only 5 lines
+- `tail`: shows the ending of a file (defaults to last 10 lines).
+   - `tail -n5`: only 5 lines
+- `hexdump`: Para ver ficheros binarios
+- `xxd`: make a hexdump or do the reverse.
+- `xdg-open  myFile.txt`: Open a file with default program
+
+
 ### See content
 
-- `cat myFile.txt`
-- `hexdump myFile.txt`: Para ver ficheros binarios
-- `xdg-open  myFile.txt`: Open a file with default program
-- `| head`: shows the beginning of a file (defaults to first 10 lines). `head -n5`: only 5 lines
-- `| tail`: shows the ending of a file (defaults to last 10 lines). `tail -n5`: only 5 lines
 - `| sort`: Sorting
   - `| sort -r`: Reverse order
   - `| sort -n`: Numerically
