@@ -82,6 +82,12 @@
 - `date`
 - `cal`
 
+
+# SQL
+
+- **[Q](http://harelba.github.io/q)**: SQL over CSVs
+
+
 ---
 
 # Set NTP time
