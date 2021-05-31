@@ -64,14 +64,23 @@
 - `| nl`: prepend line numbers
 - `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
 - `grep`: print lines matching a pattern
+- `egrep`: can handle extended regular expressions (EREs)
 - `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
 - `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
 
 ### Compare files
 
 - `diff {file1} {file2}`: See differencs between files
+- `sdiff {file1} {file2}`: side-by-side merge of file differences
 - `cmp {file1} {file2}`: See differencs between files
 - `comm`: select or reject lines **comm**on to two files
+
+
+# Regular Experssions
+
+> `man re_format`
+
+
 
 
 ### Plotting (`gnuplot`, `feedgnuplot`)
