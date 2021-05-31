@@ -714,11 +714,13 @@ If the DepencyFiles has not changed, the commands for TargetFile will not be exe
 
 # Cryptography
 
-#### Hash function `sha1sum`
+#### Hash function: MD5, SHA-1, SHA-256
 - Non invertible
 - Collision redundant
 
 ```bash
+md5 myFile.txt
+shasum myFile.txt
 sha1sum myFile.txt
 ```
 
