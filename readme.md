@@ -67,6 +67,13 @@
 - `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
 - `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
 
+### Compare files
+
+- `diff {file1} {file2}`: See differencs between files
+- `cmp {file1} {file2}`: See differencs between files
+- `comm`: select or reject lines **comm**on to two files
+
+
 ### Plotting (`gnuplot`, `feedgnuplot`)
 
 - `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" | display`
@@ -147,8 +154,6 @@ ln {from_pth} {to_pth} # Crear acceso directo
 chmod +x {file}        # Atorgar permisos de ejecución
 du {file}              # Disk usage of a file
 ncdu {file}            # Interactive version of Disk usage
-diff {file1} {file2}   # See differencs between files
-cmp {file1} {file2}    # See differencs between files
 tar {file1}            # compress file
 
 
