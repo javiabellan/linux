@@ -48,10 +48,11 @@
 
 ### See content
 
-- `| sort`: Sorting
-  - `| sort -r`: Reverse order
-  - `| sort -n`: Numerically
-  - `| sort -rn`: Numerically reversed
+- **`sort`**: Sorting
+  - `sort -r`: Reverse order
+  - `sort -n`: Numerically
+  - `sort -rn`: Numerically reversed
+  - `sort -R`: Randomly (each time is different)
 - `| uniq` See uniques
   - `| uniq -c`: Count uniques
 - `| wc`: counts words, chars, lines, longest line
