@@ -144,6 +144,7 @@ CTRL + \   # Salir programa (SIGQUIT)
 CTRL + z   # Pausar programa que se puede reunaudar (SIGSTOP)
 jobs        # See all the jobs that are running or suspended.
 my_command &  # When you append " &"  it becomes a "background job".
+my_command_2 && my_command_2 # Do my_command_2 only if my_command_2 was success
 fg          # Bring the job to the foreground.
 bg          # Send the job to the background.
 stop {PID} or Ctrl + z          # Suspend the job.
