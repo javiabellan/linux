@@ -55,18 +55,26 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
   - `sort -n`: Numerically
   - `sort -rn`: Numerically reversed
   - `sort -R`: Randomly (each time is different)
-- `| uniq` See uniques
-  - `| uniq -c`: Count uniques
-- `| wc`: counts words, chars, lines, longest line
-- `column`: Display in columns
+- **`uniq`** See uniques. **need to `sort` first**.
+  - `uniq -c`: Count uniques
+- **`wc`:** count lines, words and chars
+  - `wc -l`: count only lines
+  - `wc -w`: count only words
+  - `wc -c`: count only chars
+- **`column`**: Display in columns
   - `column iris.csv -t -s ,`
-- `| cut`: Selecting fields (default is to delimit by tab).
-  - `cut iris.csv -d , -f2`
-- `paste`: join 2 (or more) files line by line
-- `| nl`: prepend line numbers
-- `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
-- `grep`: print lines matching a pattern
-- `egrep`: can handle extended regular expressions (EREs)
+- **`cut`**: Selecting fields (columns) (default is to delimit by tab).
+  - `cut -d, -f 2`: Delimit by coma (CSV). Select 2nd field.
+  - `cut -d, -f 2,3`: Delimit by coma (CSV). Select 2nd and 3rd fields.
+  - `cut -d, -f-4,6-`: Delimit by coma (CSV). Select all except 5th field.
+  - `cut -c 5-`: skip the first 4 characters of each line (start on the 5th char).
+- **`paste`**: join 2 (or more) files line by line
+- **`nl`**: prepend line numbers
+- **`tr`** Translate (replace) patterns.
+  - `tr '\t' ,` Replace tabs with commas (TSV to CSV)
+  - `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
+- **`grep`**: print lines matching a pattern
+- **`egrep`**: can handle extended regular expressions (EREs)
 - `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
 - `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
 
