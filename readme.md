@@ -36,15 +36,16 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 
 ### See files
 
-- `cat`: con**cat**enate and print files. 
-- `less`:
-- `more`:
-- `head`: shows the beginning of a file (defaults to first 10 lines).
+- **`cat`**: con**cat**enate and print files.
+- **`less`**: Interactive file viwer. Load the file dynamically (faster)
+  - `less -N` Add line number
+- **`more`**:
+- **`head`**: shows the beginning of a file (defaults to first 10 lines).
    - `head -n5`: only 5 lines
-- `tail`: shows the ending of a file (defaults to last 10 lines).
+- **`tail`**: shows the ending of a file (defaults to last 10 lines).
    - `tail -n5`: only 5 lines
-- `hexdump`: Para ver ficheros binarios
-- `xxd`: make a hexdump or do the reverse.
+- **`hexdump`**: Para ver ficheros binarios
+- **`xxd`**: make a hexdump or do the reverse.
 - `xdg-open  myFile.txt`: Open a file with default program
 
 
@@ -54,6 +55,7 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
   - `sort -r`: Reverse order
   - `sort -n`: Numerically
   - `sort -rn`: Numerically reversed
+  - `sort --field-separator=',' --key=2,1,3 {file}`: Sort a CSV file by 2nd, 1st and 3rd columns.
   - `sort -R`: Randomly (each time is different). Similar to **`shuf`**
 - **`uniq`** See **uniq**ues. **need to `sort` first**.
   - `uniq -c`: Count uniques
