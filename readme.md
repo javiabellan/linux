@@ -54,7 +54,7 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
   - `sort -r`: Reverse order
   - `sort -n`: Numerically
   - `sort -rn`: Numerically reversed
-  - `sort -R`: Randomly (each time is different)
+  - `sort -R`: Randomly (each time is different). Similar to **`shuf`**
 - **`uniq`** See **uniq**ues. **need to `sort` first**.
   - `uniq -c`: Count uniques
 - **`wc`:** count lines, words and chars
@@ -101,6 +101,24 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 - **`sox`**: **so**und e**x**change, the Swiss Army knife of audio manipulation.
   - `play -n synth sin 1270 0.2 sin 1300 sin 1337 0.2 remix 1-3 repeat 0 vol 0.8 chorus 0.5 0.9 42 0.5 5 0.8 -t bandpass -c 1300 0.5q` # You can use sox to try to replicate the sound of the BroodX Cicadas using a mix of 3 tones around 1300 Hz.
 
+# Generate data
+- touch
+- echo "bla bla bla" > file.txt
+- seq
+  - seq 10
+  - seq 3 9
+- primes 1 100
+
+# Plotting
+
+- `gnuplot`
+  - `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" | display`
+  - `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" > sin.jpg`
+  - `primes 1 100 | gnuplot -p -e 'plot "/dev/stdin"'`
+- `feedgnuplot`
+  - https://github.com/dkogan/feedgnuplot/blob/master/guide/guide.org 
+
+
 
 # Regular Experssions
 
@@ -109,11 +127,8 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 https://remram44.github.io/regex-cheatsheet/regex.html
 
 
-### Plotting (`gnuplot`, `feedgnuplot`)
 
-- `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" | display`
-- `gnuplot -e "set terminal jpeg; plot [-5:5] sin(x)" > sin.jpg`
-- https://github.com/dkogan/feedgnuplot/blob/master/guide/guide.org
+
 
 ### Search
 - `find`: non-indexed search
