@@ -55,13 +55,13 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
   - `sort -n`: Numerically
   - `sort -rn`: Numerically reversed
   - `sort -R`: Randomly (each time is different)
-- **`uniq`** See uniques. **need to `sort` first**.
+- **`uniq`** See **uniq**ues. **need to `sort` first**.
   - `uniq -c`: Count uniques
 - **`wc`:** count lines, words and chars
   - `wc -l`: count only lines
   - `wc -w`: count only words
   - `wc -c`: count only chars
-- **`column`**: Display in columns
+- **`column`**: Display in **column**s
   - `column iris.csv -t -s ,`
 - **`cut`**: Selecting fields (columns) (default is to delimit by tab).
   - `cut -d, -f 2`: Delimit by coma (CSV). Select 2nd field.
@@ -75,8 +75,9 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
   - `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
 - **`grep`**: print lines matching a pattern
 - **`egrep`**: can handle extended regular expressions (EREs)
-- `sed`: stream editor for filtering and transforming text, useful for search and replace - one liners
-- `awk`: pattern scanning and text processing language, useful for tab-delimited data - one liners
+- **`sed`**: stream editor for filtering and transforming text, useful for search and replace - one liners
+- **`awk`**: pattern scanning and text processing language, useful for tab-delimited data - one liners
+  - `awk '{print "First column " $1 " second column " $2}'` 
 
 ### Compare files
 
@@ -86,11 +87,19 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 - `comm`: select or reject lines **comm**on to two files
 
 
+### Multimedia
+
+- **`youtube-dl`**:
+- **`ffmepg`**:
+- **`sox`**: **so**und e**x**change, the Swiss Army knife of audio manipulation.
+  - `play -n synth sin 1270 0.2 sin 1300 sin 1337 0.2 remix 1-3 repeat 0 vol 0.8 chorus 0.5 0.9 42 0.5 5 0.8 -t bandpass -c 1300 0.5q` # You can use sox to try to replicate the sound of the BroodX Cicadas using a mix of 3 tones around 1300 Hz.
+
+
 # Regular Experssions
 
 > `man re_format`
 
-
+https://remram44.github.io/regex-cheatsheet/regex.html
 
 
 ### Plotting (`gnuplot`, `feedgnuplot`)
