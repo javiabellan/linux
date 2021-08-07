@@ -63,21 +63,25 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
   - `wc -c`: count only chars
 - **`column`**: Display in **column**s
   - `column iris.csv -t -s ,`
+  - `column file.csv -s "," -t | less -#2 -N -S`: CSV viewer
 - **`cut`**: Selecting fields (columns) (default is to delimit by tab).
+  - `cut -d',' -f1`: Delimiter="," Field (col)=1st
   - `cut -d, -f 2`: Delimit by coma (CSV). Select 2nd field.
   - `cut -d, -f 2,3`: Delimit by coma (CSV). Select 2nd and 3rd fields.
   - `cut -d, -f-4,6-`: Delimit by coma (CSV). Select all except 5th field.
   - `cut -c 5-`: skip the first 4 characters of each line (start on the 5th char).
 - **`paste`**: join 2 (or more) files line by line
+- **`split`**: split a file into pieces (less useful)
 - **`nl`**: prepend line numbers
 - **`tr`** Translate (replace) patterns.
   - `tr '\t' ,` Replace tabs with commas (TSV to CSV)
   - `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
 - **`grep`**: print lines matching a pattern
 - **`egrep`**: can handle extended regular expressions (EREs)
-- **`sed`**: stream editor for filtering and transforming text, useful for search and replace - one liners
+- **`sed`**: stream editor for filtering and transforming text. replace (and much more). useful for search and replace - one liners
 - **`awk`**: pattern scanning and text processing language, useful for tab-delimited data - one liners
   - `awk '{print "First column " $1 " second column " $2}'` 
+- **`jq`**: json query
 
 ### Compare files
 
@@ -90,7 +94,10 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 ### Multimedia
 
 - **`youtube-dl`**:
-- **`ffmepg`**:
+- **`ffmepg`**: Video and audio
+- **`convert`**: Images
+  - `convert imagen.jpg imagen.png` # Convertir una imagen de png a jpg
+  - `convert imagen.{png,jpg}` # Expansion. Same of: convert imagen.jpg imagen.png
 - **`sox`**: **so**und e**x**change, the Swiss Army knife of audio manipulation.
   - `play -n synth sin 1270 0.2 sin 1300 sin 1337 0.2 remix 1-3 repeat 0 vol 0.8 chorus 0.5 0.9 42 0.5 5 0.8 -t bandpass -c 1300 0.5q` # You can use sox to try to replicate the sound of the BroodX Cicadas using a mix of 3 tones around 1300 Hz.
 
@@ -803,48 +810,6 @@ Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi y
 - `aspell`: A spell checker designed to eventually replace Ispell
 
 
-# Data wrangling
-
-- `cat`: concatenate files and print on stdout
-- `head`: output the first part of files
-- `tail`: output the last part of files
-- `column`: formats input into multiple columns
-- `cut`: filter columns
-- `sed`: replace (and much more)
-- `grep`: filter rows
-- `sort`: sort
-- `uniq`: count duplicate (with sort = crude group by)
-- `paste`: join 2 files (line by line)
-- `wc`: count lines or "words"
-- `split`: split a file into pieces (less useful)
-- `jq`: json query
-- `convert`: Images
-- `ffmpeg`: Video and audio
-
-> ### Reference
-> - https://www.datascienceatthecommandline.com/index.html
-> - https://github.com/rufuspollock/command-line-data-wrangling
-
-
-### `cut`
-
-- `cut -d',' -f1`: Delimiter="," Field (col)=1st
-
-### `column`
-
-- `column file.csv -s "," -t | less -#2 -N -S`: CSV viewer
-
-### Images 
-```bash
-convert imagen.jpg imagen.png # Convertir una imagen de png a jpg
-convert imagen.{png,jpg} # Expansion. Same of: convert imagen.jpg imagen.png
-```
-
-### Video 
-```bash
-ffmpeg
-```
-
 # iso image to USB
 
 0. `su` Permisos de superusuario.
@@ -869,6 +834,9 @@ systemctl enable ufw.service # Enable the start-up with the system [option b]
 
 # Reference
 
+- https://www.datascienceatthecommandline.com/index.html
+- https://github.com/rufuspollock/command-line-data-wrangling
+- https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html
 - [Manjaro](https://manjaro.org)
 - [Suck less](https://suckless.org)
 - The Missing Semester MIT
@@ -876,3 +844,4 @@ systemctl enable ufw.service # Enable the start-up with the system [option b]
   - [Curso 2019](https://missing.csail.mit.edu/2019)
 - [Linuxjourney](https://linuxjourney.com/)
 - [Linuxito](https://www.linuxito.com/)
+
