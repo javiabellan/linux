@@ -100,6 +100,7 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 - **`convert`**: Images
   - `convert imagen.jpg imagen.png` # Convertir una imagen de png a jpg
   - `convert imagen.{png,jpg}` # Expansion. Same of: convert imagen.jpg imagen.png
+  - `convert image.jpg -crop 703x470+3+5 output.jpg` Crop image with *width x height + left + top* format:
 - **`sox`**: **so**und e**x**change, the Swiss Army knife of audio manipulation.
   - `play -n synth sin 1270 0.2 sin 1300 sin 1337 0.2 remix 1-3 repeat 0 vol 0.8 chorus 0.5 0.9 42 0.5 5 0.8 -t bandpass -c 1300 0.5q` # You can use sox to try to replicate the sound of the BroodX Cicadas using a mix of 3 tones around 1300 Hz.
 
