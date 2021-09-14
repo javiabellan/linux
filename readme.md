@@ -11,6 +11,8 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 | [Alias](#alias)                    | [SSH](#ssh)       |                         |
 |                                    | [Pacman](#pacman) |                         |
 
+# Jekyll
+
 ### Install Jekyll (Ruby package)
 
 ```
@@ -20,6 +22,10 @@ gem update
 gem install jekyll
 gem install webrick
 ```
+
+### Run Jekyll locally
+`jekyll serve`
+`jekyll serve --watch --baseurl "" --trace`
 
 ### Navigate
 - `pwd`: **p**rint **w**orking **d**irectory
