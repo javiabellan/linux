@@ -11,6 +11,14 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 | [Alias](#alias)                    | [SSH](#ssh)       |                         |
 |                                    | [Pacman](#pacman) |                         |
 
+### Install Jekyll (Ruby package)
+
+```
+sudo pacman -S ruby ruby-rdoc gcc make
+
+gem update --user-install
+gem install jekyll --user-install
+```
 
 ### Navigate
 - `pwd`: **p**rint **w**orking **d**irectory
