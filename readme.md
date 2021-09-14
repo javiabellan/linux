@@ -16,8 +16,9 @@ https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 ```
 sudo pacman -S ruby ruby-rdoc gcc make
 
-gem update --user-install
-gem install jekyll --user-install
+gem update
+gem install jekyll
+gem install webrick
 ```
 
 ### Navigate
