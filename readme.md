@@ -97,8 +97,22 @@ gem install webrick
 - **`egrep`**: can handle extended regular expressions (EREs)
 - **`sed`**: stream editor for filtering and transforming text. replace (and much more). useful for search and replace - one liners
 - **`awk`**: pattern scanning and text processing language, useful for tab-delimited data - one liners
-  - `awk '{print "First column " $1 " second column " $2}'` 
-- **`jq`**: json query
+  - `awk '{print "First column " $1 " second column " $2}'`
+
+
+### Parsing HTML, XML and JSON
+
+- **`jq`**: JSON query
+  - table.json jq -r '.tbody.tr[1:][] | [.td[]["$t"]] | @csv'
+- **`hq`**: HTML query
+  - https://github.com/coderobe/hq
+- **`yq`**: jq wrapper for YAML/XML documents
+- **`pup`**: 
+- **`xml2json`**: 
+- **`json2csv`**: 
+
+> https://www.datascienceatthecommandline.com/2e/chapter-5-scrubbing-data.html
+
 
 ### Compare files
 
