@@ -100,16 +100,18 @@ gem install webrick
   - `awk '{print "First column " $1 " second column " $2}'`
 
 
-### Parsing HTML, XML and JSON
 
-- **`jq`**: JSON query
-  - table.json jq -r '.tbody.tr[1:][] | [.td[]["$t"]] | @csv'
-- **`hq`**: HTML query
-  - https://github.com/coderobe/hq
-- **`yq`**: jq wrapper for YAML/XML documents
-- **`pup`**: 
-- **`xml2json`**: 
-- **`json2csv`**: 
+### Parsing HTML: [`pup`](https://github.com/ericchiang/pup)
+
+- **Filter by tag**: `cat robots.html | pup 'title'`
+- **Filter by tag with id**: `cat robots.html | pup 'span#See_also'`
+- **Filter by tag with class**: `cat robots.html | `pup 'table.someClass'
+- **Filter by tag with attribute**: `cat robots.html | pup 'th[scope="row"]'`
+
+### Parsing JSON: `jq`
+
+- **HTML table to csv**: `cat wiki.html | pup "table.wikitable tbody tr json{}" | jq '.[] | .children | "\(.[0].text),\(.[1].text),\(.[2].text)"' -r`
+- table.json jq -r '.tbody.tr[1:][] | [.td[]["$t"]] | @csv'
 
 > https://www.datascienceatthecommandline.com/2e/chapter-5-scrubbing-data.html
 
