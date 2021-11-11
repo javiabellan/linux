@@ -98,7 +98,7 @@ gem install webrick
 - **`grep`**: print lines matching a pattern
 - **`egrep`**: can handle extended regular expressions (EREs)
 - **`sed`**: stream editor for filtering and transforming text. replace (and much more). useful for search and replace - one liners
-- **`awk`**: pattern scanning and text processing language, useful for tab-delimited data - one liners
+- **`awk`**: pattern scanning and text processing language, useful for tab-delimited data - one liners (default is to delimit by spaces)
   - `awk '{print "First column " $1 " second column " $2}'`
   - `awk -F "|" '{print $1}'` Use awk as the `cut` command to get a specific column by saying the separator
 
