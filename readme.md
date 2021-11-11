@@ -93,6 +93,8 @@ gem install webrick
 - **`tr`** Translate (replace) patterns.
   - `tr '\t' ,` Replace tabs with commas (TSV to CSV)
   - `tr '[:upper:]' '[:lower:]'` **tr**anslate from upper to lower characters
+  - `tr -d " "` **D**elete some pattern
+  - `tr -s " "` **S**queeze multiple occurrences (convert a consecutive repeated character into a single one)
 - **`grep`**: print lines matching a pattern
 - **`egrep`**: can handle extended regular expressions (EREs)
 - **`sed`**: stream editor for filtering and transforming text. replace (and much more). useful for search and replace - one liners
