@@ -1,5 +1,3 @@
-https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
-
 # Index
 
 | General                            | Programs          | Programmig              |
@@ -517,6 +515,8 @@ has many functionalities, including opening, saving, and closing files, and
     - `:help w` opens help for the `w` movement
 
 # TMUX
+
+https://hackernoon.com/using-tmux-to-improve-your-terminal-experience-jt4932zv
 
 The most popular terminal multiplexer these days is [`tmux`](https://www.man7.org/linux/man-pages/man1/tmux.1.html).
 - tmux can have several **sessions**.
