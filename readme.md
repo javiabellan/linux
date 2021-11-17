@@ -899,6 +899,8 @@ systemctl enable ufw.service # Enable the start-up with the system [option b]
 - https://www.datascienceatthecommandline.com/index.html
 - https://github.com/rufuspollock/command-line-data-wrangling
 - https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html
+- [Why is using a shell loop to process text considered bad practice?](https://unix.stackexchange.com/questions/169716/why-is-using-a-shell-loop-to-process-text-considered-bad-practice)
+- [Documentación de Alvaro Sainz-Pardo](http://docs.alvarosainzpardo.com)
 - [Manjaro](https://manjaro.org)
 - [Suck less](https://suckless.org)
 - The Missing Semester MIT
