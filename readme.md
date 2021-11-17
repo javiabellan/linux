@@ -102,12 +102,30 @@ gem install webrick
   - `awk '{print "First column " $1 " second column " $2}'`
   - `awk -F "|" '{print $1}'` Use awk as the `cut` command to get a specific column by saying the separator
 
+### Parsing PDF: [`poppler`](https://poppler.freedesktop.org)
+
+This package contains a lot of useful commands:
+- `pdfattach`
+- `pdfdetach`
+- `pdffonts`
+- `pdfimages`
+- `pdfinfo`
+- `pdfseparate`
+- `pdfsig`
+- `pdftocairo`
+- `pdftohtml`
+- `pdftoppm`
+- `pdftops`
+- **`pdftotext`**: Portable Document Format (PDF) to text converter
+   - `pdftotext [options] someFile.pdf`
+- `pdfunite`
+
 
 ### Parsing HTML: [`pup`](https://github.com/ericchiang/pup)
 
 - **Filter by tag**: `cat robots.html | pup 'title'`
 - **Filter by tag with id**: `cat robots.html | pup 'span#See_also'`
-- **Filter by tag with class**: `cat robots.html | `pup 'table.someClass'
+- **Filter by tag with class**: `cat robots.html | pup 'table.someClass'`
 - **Filter by tag with attribute**: `cat robots.html | pup 'th[scope="row"]'`
 
 ### Parsing JSON: `jq`
@@ -128,6 +146,7 @@ gem install webrick
 
 ### Multimedia
 
+- [**ImageMagick**](http://www.imagemagick.org/script/index.php)
 - **`youtube-dl`**:
 - **`ffmepg`**: Video and audio
 - **`convert`**: Images
