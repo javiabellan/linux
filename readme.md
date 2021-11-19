@@ -128,7 +128,8 @@ gem install webrick
   - **`pdftotext`**: Portable Document Format (PDF) to text converter
      - `pdftotext [options] someFile.pdf`
   - `pdfunite`
-
+- **textutil**: Only in MacOS (Usado por Pascual Perez)
+  - `textutil -convert txt ~/Desktop/DrectorioDeArchivosEnPDF/*.pdf`
 
 ### Parsing HTML: [`pup`](https://github.com/ericchiang/pup)
 
