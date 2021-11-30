@@ -99,6 +99,7 @@ gem install webrick
 - **`awk`**: pattern scanning and text processing language, useful for tab-delimited data - one liners (default is to delimit by spaces)
   - `awk '{print "First column " $1 " second column " $2}'`
   - `awk -F "|" '{print $1}'` Use awk as the `cut` command to get a specific column by saying the separator
+  - https://stackoverflow.com/tags/awk/info
 
 ### Parsing PDF: [`Xpdf`](https://www.xpdfreader.com) or [`poppler`](https://poppler.freedesktop.org)
 
