@@ -100,6 +100,7 @@ gem install webrick
   - `awk '{print "First column " $1 " second column " $2}'`
   - `awk -F "|" '{print $1}'` Use awk as the `cut` command to get a specific column by saying the separator
   - https://stackoverflow.com/tags/awk/info
+  - https://ferd.ca/awk-in-20-minutes.html
 
 ### Parsing PDF: [`Xpdf`](https://www.xpdfreader.com) or [`poppler`](https://poppler.freedesktop.org)
 
