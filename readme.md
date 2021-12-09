@@ -9,6 +9,17 @@
 | [Alias](#alias)                    | [SSH](#ssh)       |                         |
 |                                    | [Pacman](#pacman) |                         |
 
+
+### Shells
+
+| Terminal        | Promt | Hashbang/Shebang | Configuration file |
+|-----------------|:------|------------------|--------------------|
+| `sh`            |  `$`  | `#!/bin/sh`      |                    |
+| `bash`          |  `$`  | `#!/bin/bash`    | `.bashrc`          |
+| `zsh`           |  `$`  | `#!/bin/zsh`     |                    |
+| `csh` or `tcsh` |  `%`  | `#!/bin/csh`     |                    |
+
+
 # Jekyll
 
 ### Install Jekyll (Ruby package)
