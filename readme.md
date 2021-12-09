@@ -929,16 +929,21 @@ systemctl enable ufw.service # Enable the start-up with the system [option b]
 
 # Reference
 
-- https://www.datascienceatthecommandline.com/index.html
-- https://github.com/rufuspollock/command-line-data-wrangling
-- https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html
-- [Why is using a shell loop to process text considered bad practice?](https://unix.stackexchange.com/questions/169716/why-is-using-a-shell-loop-to-process-text-considered-bad-practice)
-- [Documentación de Alvaro Sainz-Pardo](http://docs.alvarosainzpardo.com)
-- [Manjaro](https://manjaro.org)
-- [Suck less](https://suckless.org)
+- Bash
+  - [The Bash Hackers Wiki](https://wiki.bash-hackers.org) ⭐⭐
+  - [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html) ⭐
+- Data science 
+  - [Data Science at the Command Line](https://www.datascienceatthecommandline.com)
+    - [2nd edition of the book](https://datascienceatthecommandline.com/2e) 
+  - [Command Line Data Wrangling](https://github.com/rufuspollock/command-line-data-wrangling) (Github readme)
+  - [Command-line Tools can be 235x Faster than your Hadoop Cluster](https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html)
 - The Missing Semester MIT
-  - [Curso 2020](https://missing.csail.mit.edu/2020)
-  - [Curso 2019](https://missing.csail.mit.edu/2019)
-- [Linuxjourney](https://linuxjourney.com/)
-- [Linuxito](https://www.linuxito.com/)
+  - [Course 2020](https://missing.csail.mit.edu/2020)
+  - [Course 2019](https://missing.csail.mit.edu/2019)
+- Misc
+  - [Why is using a shell loop to process text considered bad practice?](https://unix.stackexchange.com/questions/169716/why-is-using-a-shell-loop-to-process-text-considered-bad-practice)
+  - [Documentación de Alvaro Sainz-Pardo](http://docs.alvarosainzpardo.com)
+  - [Suck less](https://suckless.org)
+- [Linuxjourney](https://linuxjourney.com)
+- [Linuxito](https://www.linuxito.com)
 
