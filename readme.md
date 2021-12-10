@@ -947,6 +947,7 @@ systemctl enable ufw.service # Enable the start-up with the system [option b]
     - [BashGuide](http://mywiki.wooledge.org/BashGuide) For learing Bash. Start here.
     - [BashSheet](http://mywiki.wooledge.org/BashSheet) For a quick reference of Bash.
     - [BashProgramming](http://mywiki.wooledge.org/BashProgramming) For more advanced shell topics.
+    - [BashFAQ](http://mywiki.wooledge.org/BashFAQ) 121 Frequently Asked Questions about Bash.
     - [BashPitfalls](http://mywiki.wooledge.org/BashPitfalls) Common mistakes made by Bash programmers.
 - **Data science** 
   - [Data Science at the Command Line](https://www.datascienceatthecommandline.com)
