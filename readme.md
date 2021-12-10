@@ -220,10 +220,20 @@ gem install webrick
 
 
 ### Search
-- `find`: non-indexed search
+
+- `find`: search on many paths
   - `find /etc`
   - `find {where} -name {what} -type {what type}`
-- `locate`: indexed search
+  - `find . -name src -type d` Find all directories named src
+  - `find . -path '*/test/*.py' -type f` Find all python files that have a folder named test in their path
+  - `find . -mtime -1` Find all files modified in the last day
+  - `find . -size +500k -size -10M -name '*.tar.gz'` Find all zip files with size in range 500k to 10M
+  - `find . -name '*.tmp' -exec rm {} \;` Delete all files with .tmp extension
+  - `find . -name '*.png' -exec convert {} {}.jpg \;` Find all PNG files and convert them to JPG
+- [`fd`](https://github.com/sharkdp/fd): a simple, fast, and user-friendly alternative to `find`.
+- `updatedb` and `locate`: indexed search.
+  - `updatedb` compiles some sort of indexed database for quickly searching. Usually updated daily via `cron`
+  - `locate` uses the database for quickly searching.
 
 #### See current date
 - `date`
