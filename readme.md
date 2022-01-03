@@ -22,6 +22,8 @@
 
 # Jekyll
 
+https://stackoverflow.com/questions/69724440/jekyll-crash-on-generation-segmentation-fault
+
 ### Install Jekyll (Ruby package)
 
 ```
