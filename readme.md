@@ -26,19 +26,27 @@ https://stackoverflow.com/questions/69724440/jekyll-crash-on-generation-segmenta
 
 ### Install Jekyll (Ruby package)
 
-```
+On the home directory:
+
+```bash
 sudo pacman -S ruby ruby-rdoc gcc make
 
-gem update
-gem install jekyll
-gem install webrick
+# Install the bundler
+gem install bundle
 ```
 
-### Run Jekyll locally
-`jekyll serve`
-`jekyll serve --watch --baseurl "" --trace`
+On the project directory (the one containing the `Gemfile` file)
 
-### Navigate
+```bash
+# install gems of the Gemfile (jekyll, ...)
+bundle install
+
+# Lauch page locally
+bundle exec jekyll serve --livereload
+bundle exec jekyll serve --livereload --watch --baseurl "" --trace`
+```
+
+# Navigate
 - `pwd`: **p**rint **w**orking **d**irectory
 - `cd` **c**hange **d**irectory
   - `cd`: go to home
