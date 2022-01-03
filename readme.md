@@ -20,13 +20,15 @@
 | `csh` or `tcsh` |  `%`  | `#!/bin/csh`     |                    |
 
 
-# Jekyll
+# [Ruby](https://wiki.archlinux.org/title/ruby) 
+
+> Ruby gems are installed inside `.local/share/gem/ruby/3.0.0/gems/`
 
 https://stackoverflow.com/questions/69724440/jekyll-crash-on-generation-segmentation-fault
 
-### Install Jekyll (Ruby package)
+### Install Jekyll (a Ruby gem)
 
-On the home directory:
+1) On the home directory:
 
 ```bash
 sudo pacman -S ruby ruby-rdoc gcc make
@@ -35,7 +37,7 @@ sudo pacman -S ruby ruby-rdoc gcc make
 gem install bundle
 ```
 
-On the project directory (the one containing the `Gemfile` file)
+2) On the project directory (the one containing the `Gemfile` file)
 
 ```bash
 # install gems of the Gemfile (jekyll, ...)
