@@ -940,9 +940,8 @@ Usar la Asymmetric cryptography SOLO PARA INTERCAMBIAR LA CLAVE SIMETRICA. Asi y
 
 # iso image to USB
 
-0. `su` Permisos de superusuario.
-1. `fdisk -l` buscar localización del USB (sdb, sdc, etc.).
-2. `dd if=/path/to/downloaded/iso of=/dev/sdx` Copiar (reemplazar sdx por la correcta ubicación).
+1. `sudo fdisk -l` buscar localización del USB (sdb, sdc, etc.).
+2. `sudo dd bs=4M if=/path/to/downloaded/iso of=/dev/sdx status=progress oflag=sync` Copiar (reemplazar sdx por la correcta ubicación).
 
 
 
