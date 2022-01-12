@@ -1,10 +1,19 @@
-# grep -o '^[^#]*' packages-pacman-server.txt | sudo pacman -S -
+# grep -o '^[^#^ ]*' packages-pacman.txt | sudo pacman -S --needed -
+
+
+# DESKTOP APPS
+discord                    # All-in-one voice and text chat for gamers that's free and secure.
+firefox                    # Standalone web browser from mozilla.org
+vlc                        # Multi-platform MPEG, VCD/DVD, and DivX player
+telegram-desktop           # Official Telegram Desktop client
 
 
 # IDES
 jupyter-notebook           # The language-agnostic HTML notebook application for Project Jupyter
 python-ipywidgets          # IPython widgets for the Jupyter Notebook
 jupyterlab                 # JupyterLab computational environment
+code                       # The Open Source build of Visual Studio Code (vscode) editor
+atom                       # A hackable text editor for the 21st Century
 vim                        # Vi Improved, a highly configurable, improved version of the vi text editor
 neovim                     # Fork of Vim aiming to improve user experience, plugins, and GUIs
 
@@ -13,14 +22,15 @@ python                     # Python 3
 python-pip                 # The PyPA recommended tool for installing Python packages
 r                          # Language and environment for statistics
 gcc                        # The GNU Compiler Collection - C and C++ frontends
-rust                       # Systems programming language focused on safety, speed and concurrency (This will install the rustc and Cargo)
+rust                       # Systems programming language focused on safety, speed and concurrency
 jre-openjdk                # Java Runtime Environment (JRE) ofrecido por OpenJDK
 jdk-openjdk                # Java Development Kit (JDK) ofrecido por OpenJDK
+ruby                       # An object-oriented language for quick and easy programming
 
 # MACHINE LEARNING
-python-numpy               # Matrix manipulation
-python-pandas              # Deal with data
-python-scikit-learn        # Machine learning
+python-numpy               # Scientific tools for Python
+python-pandas              # High-performance, easy-to-use data structures and data analysis tools
+python-scikit-learn        # A set of python modules for machine learning and data mining
 python-scipy               # SciPy is open-source software for mathematics, science, and engineering.
 python-statsmodels         # Statistical computations and models for use with SciPy
 hdf5                       # General purpose library and file format for storing scientific data
@@ -43,6 +53,7 @@ python-pydot            # Python interface to Graphviz's Dot
 opencv-cuda             # Open Source Computer Vision Library (with CUDA support)
 opencv-samples          # Open Source Computer Vision Library (samples)
 python-opencv           # Python bindings for OpenCV
+python-pillow           # Python Imaging Library (PIL) fork
 
 # NLP
 python-nltk             # Natural language processing in Python
@@ -69,6 +80,7 @@ jq                      # Command-line JSON processor
 mypy                    # Optional static typing for Python 2 and 3
 make                    # GNU make utility to maintain groups of programs
 lsd                     # Modern ls with a lot of pretty colors and awesome icons
+ranger                  # Simple, vim-like file manager
 zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
 zsh-autosuggestions     # Fish-like autosuggestions for zsh
 zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
@@ -80,4 +92,8 @@ tldr                    # A collection of simplified and community-driven man pa
 bc                      # An arbitrary precision calculator language
 aspell                  # A spell checker designed to eventually replace Ispell
 
-
+# FONTS
+# noto-fonts-emoji           # Google Noto emoji fonts
+# ttf-nerd-fonts-symbols     # High number of extra glyphs from popular 'iconic fonts' (2048-em)
+# powerline-fonts            # patched fonts for powerline
+# awesome-terminal-fonts     # fonts/icons for powerlines

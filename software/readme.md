@@ -1,84 +1,5 @@
 <h1 align="center">Software for Arch Linux</h1>
 
-## [Official Arch packages](https://www.archlinux.org/packages)
-
-#### Fonts
-
-```bash
-sudo pacman -S ttf-nerd-fonts-symbols
-sudo pacman -S powerline-fonts
-sudo pacman -S awesome-terminal-fonts
-```
-
-#### General
-
-```bash
-sudo pacman -S lsd                     # Modern ls with a lot of pretty colors and awesome icons
-sudo pacman -S zsh                     # A very advanced and programmable command interpreter (shell) for UNIX
-sudo pacman -S zsh-autosuggestions     # Fish-like autosuggestions for zsh
-sudo pacman -S zsh-syntax-highlighting # Fish shell like syntax highlighting for Zsh
-sudo pacman -S zsh-theme-powerlevel10k # Powerlevel10k is a theme for Zsh
-sudo pacman -S git                     # The fast distributed version control system
-sudo pacman -S htop                    # Interactive process viewer
-sudo pacman -S nvtop                   # An htop like monitoring tool for NVIDIA GPUs
-sudo pacman -S tree                    # A directory listing program displaying a depth indented list of files
-sudo pacman -S openssh                 # Premier connectivity tool for remote login with the SSH protocol
-sudo pacman -S openssl                 # The Open Source toolkit for Secure Sockets Layer and Transport Layer Security
-sudo pacman -S figlet                  # A program for making large letters out of ordinary text
-sudo pacman -S tldr                    # A collection of simplified and community-driven man pages.
-sudo pacman -S bc                      # An arbitrary precision calculator language
-sudo pacman -S aspell                  # A spell checker designed to eventually replace Ispell
-```
-
-
-#### Programming
-
-```bash
-sudo pacman -S mypy             # Optional static typing for Python 2 and 3
-sudo pacman -S jupyter-notebook # The language-agnostic HTML notebook application for Project Jupyter
-sudo pacman -S jupyterlab       # JupyterLab computational environment
-sudo pacman -S vim              # Vi Improved, a highly configurable, improved version of the vi text editor
-sudo pacman -S neovim           # Fork of Vim aiming to improve user experience, plugins, and GUIs
-sudo pacman -S make             # GNU make utility to maintain groups of programs
-sudo pacman -S jq               # Command-line JSON processor
-sudo pacman -S jre-openjdk      # Java Runtime Environment (JRE) ofrecido por OpenJDK
-sudo pacman -S jdk-openjdk      # Java Development Kit (JDK) ofrecido por OpenJDK
-```
-
-
-```bash
-sudo pacman -S python-pip           # The PyPA recommended tool for installing Python packages
-sudo pacman -S python-ipdb          # IPython-enabled pdb
-sudo pacman -S python-pyflakes      # A lint-like tool for Python to identify common errors quickly without executing code
-sudo pacman -S python-tqdm          # Fast, Extensible Progress Meter
-sudo pacman -S python-tabulate      # Pretty-print tabular data in Python, a library and a command-line utility.
-sudo pacman -S python-requests      # Python HTTP for Humans
-sudo pacman -S python-colorama      # Python API for cross-platform colored terminal text.
-sudo pacman -S python-future        # Clean single-source support for Python 3 and 2
-sudo pacman -S python-pykerberos    # High-level interface to Kerberos
-```
-
-#### Data Science
-
-```bash
-sudo pacman -S hdf5                       # General purpose library and file format for storing scientific data
-sudo pacman -S opencv                     # Open Source Computer Vision Library (Main modules package)
-sudo pacman -S opencv-samples             # Open Source Computer Vision Library
-sudo pacman -S graphviz                   # Graph visualization software (necesario para pintar arboles de decision)
-sudo pacman -S python-pydot               # Python interface to Graphviz's Dot
-sudo pacman -S python-numpy               # Matrix manipulation
-sudo pacman -S python-scipy               # Scientific library for Python. Sparse matrices support
-sudo pacman -S python-pandas              # Deal with data
-sudo pacman -S python-xlrd                # Library to extract data from Microsoft Excel spreadsheet files
-sudo pacman -S python-scikit-learn        # Machine learning
-sudo pacman -S python-matplotlib          # Visualization
-sudo pacman -S python-seaborn             # Visualization
-sudo pacman -S python-nltk                # Natural language processing in Python
-sudo pacman -S python-pytorch-opt-cuda    # Pytorch
-sudo pacman -S python-tensorflow-opt-cuda # Tensorflow
-sudo pacman -S tensorboard                # TensorFlow's Visualization Toolkit
-```
-
 
 ## [Arch User Repository (AUR)](https://aur.archlinux.org/packages)
 
@@ -88,27 +9,18 @@ sudo pacman -S tensorboard                # TensorFlow's Visualization Toolkit
 | Install<br>some package<br>(chrome) | `git clone https://aur.archlinux.org/google-chrome.git`<br>`cd google-chrome`<br>`makepkg -si` | `yay -S google-chrome` |
 | Upgrade<br>some package<br>(chrome) | `cd google-chrome`<br>`git pull`<br>`makepkg -si` | `yay -Syu` |
 
-#### Desktop apps
-
-```bash
-yay -S google-chrome        # The popular and trusted web browser by Google (Stable Channel)
-yay -S sublime-text-3       # Sophisticated text editor for code, html and prose - stable build
-yay -S spotify              # A proprietary music streaming service
-yay -S zoom                 # Video Conferencing and Web Conferencing Service	edh
-yay -S teams                # Microsoft Teams for Linux is your chat-centered workspace in Office 365
-yay -S teamviewer           # All-In-One Software for Remote Support and Online Meetings
-```
-
-#### Terminal apps
-
-```bash
-yay -S gotop                # A terminal based graphical activity monitor inspired by gtop and vtop
-```
 
 
 ## In [PIP](https://pypi.org)
 
+```bash
+pip install --upgrade --user --no-deps -
+```
+
+It is always preferred to use pacman. If you must use pip, use "pip install --user". Add path /home/javi/.local/bin
+
 Para no mezclar con los paquetes de python del sistema alojados en (`/usr/lib/python3.8`) mejor instalar los paquetes de pip en el directorio del usuario con el flag `--user` (`~/.local/lib/python3.8/site-packages/`).
+
 
 #### EDA
 ```bash

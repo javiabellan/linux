@@ -1,8 +1,17 @@
-# grep -o '^[^#]*' packages-yay-server.txt | yay -S -
+# grep -o '^[^#^ ]*' packages-yay.txt | sudo pacman -S --needed -
 
 
+# DESKTIOP APPS
+google-chrome             # The popular and trusted web browser by Google (Stable Channel)
+sublime-text-4            # Sophisticated text editor for code, html and prose - stable build
+spotify                   # A proprietary music streaming service
+zoom                      # Video Conferencing and Web Conferencing Service	edh
+teams                     # Microsoft Teams for Linux is your chat-centered workspace in Office 365
+teamviewer                # All-In-One Software for Remote Support and Online Meetings
+brave                     # A web browser that stops ads and trackers by default
+tor-browser               # Tor Browser Bundle: anonymous browsing using Firefox and Tor (international PKGBUILD)
 
-# Python
+# PYTHON
 python-pathlib            # Common operations on paths in an easy, object-oriented way
 python-spacy              # Free open-source library for Natural Language Processing in Python
 python-pyro-ppl           # A Python library for probabilistic modeling and inference
@@ -12,13 +21,18 @@ python-pandas-summary     # An extension to pandas dataframes describe function
 python-pandas-profiling   # Create HTML profiling reports from pandas DataFrame objects
 
 # DEEP LEARNING
-python-fastai             # Deep learning library build on PyTorch (legacy v1 release)
+python-fastai2            # Deep learning library build on PyTorch with CPU. Version 2 of fastai.
 python-kornia             # Open Source Differentiable Computer Vision Library for PyTorch
 python-albumentations     # Fast image augmentation library and easy to use wrapper around other libraries
 python-torchtext          # Data loaders and abstractions for text and NLP
 python-torchvision-cuda   # Datasets, transforms, and models specific to computer vision (with GPU support)
+python-torchaudio         # Data manipulation and transformation for audio signal processing, powered by PyTorch
 python-pytorch-lightning  # The lightweight PyTorch wrapper for high-performance AI research
 python-pytorch-ignite     # High-level library to help with training neural networks in PyTorch
+python-timm               # PyTorch Image Models
+python-mmcv-full          # OpenMMLab Computer Vision Foundation (full version, with full features, include cuda ops)
+python-mmdetection        # OpenMMLab Detection Toolbox and Benchmark
+python-mmsegmentation     # OpenMMLab Semantic Segmentation Toolbox and Benchmark
 
 # VISUALIZATION
 python-altair             # Declarative statistical visualization library for Python
