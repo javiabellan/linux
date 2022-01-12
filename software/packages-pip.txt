@@ -9,3 +9,7 @@ fastai       # fastai simplifies training fast and accurate neural nets using mo
 fastcore     # Python supercharged for fastai development
 fastprogress # A nested progress with plotting options for fastai
 fastrelease  # Simplified releases using GitHub Issues
+
+torchvision
+torchaudio
+timm
