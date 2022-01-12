@@ -27,7 +27,7 @@ hdf5                       # General purpose library and file format for storing
 python-xlrd                # Library to extract data from Microsoft Excel spreadsheet files
 
 # DEEP LEARNING
-python-pytorch-opt-cuda    # Pytorch
+python-pytorch-cuda        # Pytorch
 python-tensorflow-opt-cuda # Tensorflow
 tensorboard                # TensorFlow's Visualization Toolkit
 
