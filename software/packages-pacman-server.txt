@@ -40,8 +40,9 @@ graphviz                # Graph visualization software (necesario para pintar ar
 python-pydot            # Python interface to Graphviz's Dot
 
 # COMPUTER VISION
-opencv                  # Open Source Computer Vision Library (Main modules package)
-opencv-samples          # Open Source Computer Vision Library
+opencv-cuda             # Open Source Computer Vision Library (with CUDA support)
+opencv-samples          # Open Source Computer Vision Library (samples)
+python-opencv           # Python bindings for OpenCV
 
 # NLP
 python-nltk             # Natural language processing in Python
