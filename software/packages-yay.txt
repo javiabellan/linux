@@ -33,6 +33,7 @@ python-timm               # PyTorch Image Models
 python-mmcv-full          # OpenMMLab Computer Vision Foundation (full version, with full features, include cuda ops)
 python-mmdetection        # OpenMMLab Detection Toolbox and Benchmark
 python-mmsegmentation     # OpenMMLab Semantic Segmentation Toolbox and Benchmark
+python-tensorrt           # A platform for high-performance deep learning inference on NVIDIA hardware (python bindings and tools)
 
 # VISUALIZATION
 python-altair             # Declarative statistical visualization library for Python
