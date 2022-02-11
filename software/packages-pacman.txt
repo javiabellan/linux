@@ -1,12 +1,10 @@
 # grep -o '^[^#^ ]*' packages-pacman.txt | sudo pacman -S --needed -
 
-
 # DESKTOP APPS
 discord                    # All-in-one voice and text chat for gamers that's free and secure.
 firefox                    # Standalone web browser from mozilla.org
 vlc                        # Multi-platform MPEG, VCD/DVD, and DivX player
 telegram-desktop           # Official Telegram Desktop client
-
 
 # IDES
 jupyter-notebook           # The language-agnostic HTML notebook application for Project Jupyter
@@ -72,6 +70,8 @@ python-requests           # Python HTTP for Humans
 
 # COMMAND LINE TOOLS
 git                     # The fast distributed version control system
+github-cli              # The GitHub CLI
+tmux                    # A terminal multiplexer
 htop                    # Interactive process viewer
 nvtop                   # An htop like monitoring tool for NVIDIA GPUs
 tree                    # A directory listing program displaying a depth indented list of files
