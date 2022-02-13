@@ -38,6 +38,7 @@ python-tensorrt           # A platform for high-performance deep learning infere
 # VISUALIZATION
 python-altair             # Declarative statistical visualization library for Python
 python-plotly             # An open-source, interactive graphing library
+python-streamlit          # Streamlit: Frontend library for machine learning engineers
 
 # COMMAND LINE TOOLS
 kaggle-api                # Kaggle API CLI
