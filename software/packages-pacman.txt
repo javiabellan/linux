@@ -70,6 +70,7 @@ python-requests           # Python HTTP for Humans
 
 # COMMAND LINE TOOLS
 git                     # The fast distributed version control system
+git-lfs                 # Git extension for versioning large files
 github-cli              # The GitHub CLI
 tmux                    # A terminal multiplexer
 htop                    # Interactive process viewer
