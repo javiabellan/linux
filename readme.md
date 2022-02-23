@@ -21,6 +21,18 @@
 | `zsh`           |  `$`  | `#!/bin/zsh`     |                    |
 | `csh` or `tcsh` |  `%`  | `#!/bin/csh`     |                    |
 
+# Hard drives
+
+1. See available drives
+   - Option 1: `lsblk`
+   - Option 2: `fdisk -l`
+   - Option 3: `ls /dev/sd??`
+2. Mount
+   1. `sudo mkdir /hdd`
+   2. `sudo mount -t auto /dev/sda1 /hdd`
+3. Umount
+   - `umount /hdd`
+
 
 # [Ruby](https://wiki.archlinux.org/title/ruby) 
 
