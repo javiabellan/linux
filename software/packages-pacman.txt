@@ -73,6 +73,7 @@ git                     # The fast distributed version control system
 git-lfs                 # Git extension for versioning large files
 github-cli              # The GitHub CLI
 tmux                    # A terminal multiplexer
+parallel                # A shell tool for executing jobs in parallel
 htop                    # Interactive process viewer
 nvtop                   # An htop like monitoring tool for NVIDIA GPUs
 tree                    # A directory listing program displaying a depth indented list of files
