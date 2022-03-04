@@ -62,7 +62,7 @@ bundle exec jekyll serve --livereload
 bundle exec jekyll serve --livereload --watch --baseurl "" --trace`
 ```
 
-# Navigate
+### Navigate
 - `pwd`: **p**rint **w**orking **d**irectory
 - `cd` **c**hange **d**irectory
   - `cd`: go to home
@@ -76,13 +76,19 @@ bundle exec jekyll serve --livereload --watch --baseurl "" --trace`
   - `ls -S: Sort files by size 
   - `ls *.png`: only png files
   - `ls *.??g`: only png and jpg files
-- `du`: **d**isk **u**sage
-  - `du -sh */ | sort -rh`
-  
+
 > - `tree`
 > - `broot`
 > - `nnn`
 > - `ranger`
+
+
+### Disk usage
+- `du`: **d**isk **u**sage
+  - `du -sh */ | sort -rh`
+- `dust`
+- `df /`
+
 
 ### See files
 
