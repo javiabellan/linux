@@ -87,6 +87,7 @@ bundle exec jekyll serve --livereload --watch --baseurl "" --trace`
 - `du`: **d**isk **u**sage
   - `du -sh */ | sort -rh`
 - `dust`
+- `duf`
 - `df /`
 
 
