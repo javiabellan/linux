@@ -5,7 +5,7 @@
 | General                            | Programs          | Programmig              |
 |------------------------------------|-------------------|-------------------------|
 | [The Shell](#the-shell)            | [GIT](#git)       | [Debugging](#debugging) |
-| [IO Redirection](#io-redirection)  | [VIM](#vim)       | [Profiling](#profiling) |
+| [IO Redirection](#io-redirection)  | [](#vim)       | [Profiling](#profiling) |
 | [Pipes](#pipes)                    | [TMUX](#tmux)     | [Makefile](#makefile)   |
 | [Scripts](#scripts)                | [ZSH](#zsh)       | [Cryptography](#cryptography)   |
 | [Alias](#alias)                    | [SSH](#ssh)       |                         |
@@ -573,12 +573,13 @@ git clean -fd   # Remove new untracked files (-f) and new directories (-d):
 # Vim
 
 ### Modos
-- `:` -> **Command-line**: for running a command
-- **Normal**: for moving around a file and making edits
-- `i` -> **Insert**: for inserting text
-- **Replace**: for replacing text
-- **Visual** (plain, line, or block): for selecting blocks of text
-
+- **`ESC`**: Normal mode. for moving around a file; reading; going to file to file
+- **`i`**: Insert mode. for inserting text
+- **`:`**: Command-line mode. for running a command
+- **`r`**: Replace mode. for replacing text
+- **`v`**: Visual mode. for selecting blocks of text
+- **`SHIFT` + `v`**: Visual line mode
+- **`Ctrl` + `v`**: Visual block mode
 
 ### Command-line
 
