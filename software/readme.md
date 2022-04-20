@@ -1,13 +1,6 @@
 <h1 align="center">Software for Arch Linux</h1>
 
 
-## [Arch User Repository (AUR)](https://aur.archlinux.org/packages)
-
-|                                     | Manually           | `yay` (AUR Helper) | `pamac` (AUR Helper) |
-|:-----------------------------------:|--------------------|--------------------|----------------------|
-| Preparation<br>(install yay)        |                    | `sudo pacman -S --needed base-devel git`<br>`git clone https://aur.archlinux.org/yay.git`<br>`cd yay`<br>`makepkg -si` | Default in manjaro |
-| Install<br>some package<br>(chrome) | `git clone https://aur.archlinux.org/google-chrome.git`<br>`cd google-chrome`<br>`makepkg -si` | `yay -S google-chrome` | `pamac install google-chrome` |
-| Upgrade<br>some package<br>(chrome) | `cd google-chrome`<br>`git pull`<br>`makepkg -si` | `yay -Syu` | `pamac upgrade -a` |
 
 
 
