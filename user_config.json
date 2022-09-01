@@ -27,7 +27,7 @@
         "type": "iso"
     },
     "ntp": true,
-    "packages": [],
+    "packages": ["openssh"],
     "script": "guided",
     "silent": false,
     "swap": true,
