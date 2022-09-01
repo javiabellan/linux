@@ -14,7 +14,7 @@
         "Spain": {
             "http://ftp.rediris.es/mirror/archlinux/$repo/os/$arch": true,
             "http://mirror.librelabucm.org/archlinux/$repo/os/$arch": true,
-            "https://mirror.librelabucm.org/archlinux/$repo/os/$arch": true,
+            "https://mirror.librelabucm.org/archlinux/$repo/os/$arch": true
         }
     },
     "mount_point": null,
