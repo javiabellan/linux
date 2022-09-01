@@ -1,0 +1,38 @@
+{
+    "config_version": "2.5.0",
+    "debug": false,
+    "bootloader": "systemd-bootctl",
+    "harddrives": [
+        "/dev/nvme0n1"
+    ],
+    "hostname": "pc",
+    "kernels": [
+        "linux-lts"
+    ],
+    "keyboard-layout": "us",
+    "mirror-region": {
+        "Spain": {
+            "http://ftp.rediris.es/mirror/archlinux/$repo/os/$arch": true,
+            "http://mirror.librelabucm.org/archlinux/$repo/os/$arch": true,
+            "https://mirror.librelabucm.org/archlinux/$repo/os/$arch": true,
+        }
+    },
+    "mount_point": null,
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "iso"
+    },
+    "ntp": true,
+    "packages": [],
+    "script": "guided",
+    "silent": false,
+    "swap": true,
+    "sys-encoding": "utf-8",
+    "sys-language": "es_ES",
+    "timezone": "Europe/Madrid",
+    "version": "2.5.0"
+}
