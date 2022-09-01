@@ -28,6 +28,7 @@
     },
     "ntp": true,
     "packages": ["openssh"],
+    "services": ["sshd"],
     "script": "guided",
     "silent": false,
     "swap": true,
