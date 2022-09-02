@@ -27,7 +27,7 @@
         "type": "iso"
     },
     "ntp": true,
-    "packages": ["openssh"],
+    "packages": ["openssh", "python-flask"],
     "services": ["sshd"],
     "script": "guided",
     "silent": false,
