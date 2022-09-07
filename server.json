@@ -5,7 +5,7 @@
     "harddrives": [
         "/dev/nvme0n1"
     ],
-    "hostname": "pc",
+    "hostname": "gtres",
     "kernels": [
         "linux-lts"
     ],
