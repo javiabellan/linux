@@ -27,7 +27,7 @@
         "type": "iso"
     },
     "ntp": true,
-    "packages": ["openssh", "git", "github-cli", "python-flask"],
+    "packages": ["openssh", "git", "github-cli", "nvidia-lts"],
     "services": ["sshd"],
     "script": "guided",
     "silent": false,
