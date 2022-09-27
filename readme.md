@@ -3,7 +3,7 @@
 
 
 ```bash
-archinstall --config https://raw.githubusercontent.com/javiabellan/linux/master/archlinux.json
+archinstall --config https://raw.githubusercontent.com/javiabellan/linux/master/server-g3.json
 ```
 
 
