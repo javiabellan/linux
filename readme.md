@@ -4,6 +4,7 @@
 
 ```bash
 archinstall --config https://raw.githubusercontent.com/javiabellan/linux/master/server-g3.json
+archinstall --config shorturl.at/cdE08
 ```
 
 
