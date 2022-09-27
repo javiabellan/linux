@@ -32,3 +32,6 @@ $ chsh -s /usr/bin/zsh # Set new default shell (zsh) for your user
 
 > - https://wiki.archlinux.org/title/zsh#Installation
 > - https://wiki.archlinux.org/title/Command-line_shell#Changing_your_default_shell
+
+
+### More tips: [General recommendations](https://wiki.archlinux.org/title/General_recommendations)
