@@ -28,5 +28,5 @@
     "services": ["sshd"],
     "sys-encoding": "utf-8",
     "sys-language": "es_ES",
-    "timezone": "Europe/Madrid",
+    "timezone": "Europe/Madrid"
 }
