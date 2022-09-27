@@ -21,17 +21,20 @@ pacman-key --populate archlinux
 
 # After Installation
 
-### Change bash to zsh
+### Change Bash to ZSH
 
 ```bash
-$ sudo pacman -S zsh   # Install ZSH
-$ zsh                  # Make sure that ZSH has been installed correctly
-$ chsh -l              # List all installed shells
-$ chsh -s /usr/bin/zsh # Set new default shell (zsh) for your user
+$ sudo pacman -S zsh zsh-completions grml-zsh-config  # Install ZSH (and extras)
+$ zsh                                   # Make sure that ZSH has been installed correctly
+$ chsh -l                               # List all installed shells
+$ chsh -s /usr/bin/zsh                  # WAY 1) Set new default shell (zsh) for your user
+$ usermod --shell /usr/bin/zsh username # WAY 2) Set new default shell (zsh) for a user
+$ nano /etc/passwd                      # WAY 3) Set new default shell (zsh) for a user
+$ echo $SHELL                           # Comprobar la nueva shell
 ```
 
 > - https://wiki.archlinux.org/title/zsh#Installation
 > - https://wiki.archlinux.org/title/Command-line_shell#Changing_your_default_shell
-
+> - [3 Ways to Change a Users Default Shell](https://www.tecmint.com/change-a-users-default-shell-in-linux/)
 
 ### More tips: [General recommendations](https://wiki.archlinux.org/title/General_recommendations)
