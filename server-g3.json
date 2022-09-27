@@ -1,6 +1,4 @@
 {
-    "config_version": "2.5.0",
-    "debug": false,
     "bootloader": "systemd-bootctl",
     "harddrives": [
         "/dev/nvme0n1"
@@ -17,7 +15,6 @@
             "https://mirror.librelabucm.org/archlinux/$repo/os/$arch": true
         }
     },
-    "mount_point": null,
     "nic": {
         "dhcp": true,
         "dns": null,
@@ -29,11 +26,7 @@
     "ntp": true,
     "packages": ["openssh", "git", "github-cli", "nvidia-lts"],
     "services": ["sshd"],
-    "script": "guided",
-    "silent": false,
-    "swap": true,
     "sys-encoding": "utf-8",
     "sys-language": "es_ES",
     "timezone": "Europe/Madrid",
-    "version": "2.5.0"
 }
